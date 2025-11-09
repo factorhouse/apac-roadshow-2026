@@ -1,0 +1,17 @@
+plugins {
+    id 'java-library'
+}
+
+description = 'Domain models and event definitions'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+dependencies {
+    // Jackson for JSON serialization
+    api 'com.fasterxml.jackson.core:jackson-annotations:2.15.2'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
+}

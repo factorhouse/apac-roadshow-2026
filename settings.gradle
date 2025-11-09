@@ -1,0 +1,40 @@
+/*
+ * Ververica Composable Job - Multi-project Build Configuration
+ * 
+ * This settings file configures the multi-project structure for the 
+ * event-driven e-commerce and chat processing platform.
+ */
+
+pluginManagement {
+    repositories {
+        mavenCentral()
+        gradlePluginPortal()
+        mavenLocal()
+    }
+    plugins {
+        id 'io.quarkus' version "${quarkusPluginVersion}"
+        id 'com.github.johnrengelman.shadow' version '8.1.1'
+    }
+}
+
+// Enable type-safe project accessors
+enableFeaturePreview('TYPESAFE_PROJECT_ACCESSORS')
+
+rootProject.name = 'ververica-composable-job'
+
+// Core modules
+include 'models'
+include 'test-common'
+
+// API modules
+include 'quarkus-api'
+
+// Flink processing modules
+include 'flink-common'
+include 'flink-chat-pipeline'
+include 'flink-datagen'
+include 'flink-ecommerce-processor'
+include 'flink-inventory'
+include 'flink-order-cdc'
+include 'flink-recommendations'
+include 'flink-shopping-assistant'

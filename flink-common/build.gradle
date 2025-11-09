@@ -1,0 +1,32 @@
+plugins {
+    id 'java-library'
+}
+
+group = 'com.ververica.composable_job.flink-common'
+version = '1.0.0-SNAPSHOT'
+
+apply from: "${rootDir}/flink-common/gradle/tasks/ext.gradle"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    api "org.apache.flink:flink-core:${flinkVersion}"
+
+    api "org.apache.flink:flink-clients:${flinkVersion}"
+    api "org.apache.flink:flink-streaming-java:${flinkVersion}"
+
+    api "org.apache.flink:flink-connector-base:${flinkVersion}"
+    api "org.apache.flink:flink-connector-kafka:${flinkKafkaConnectorVersion}"
+
+    api "org.apache.flink:flink-json:${flinkVersion}"
+
+    // Proper logging
+    api 'org.slf4j:slf4j-api:1.7.36'
+    api 'ch.qos.logback:logback-classic:1.2.11'
+}
+
+test {
+    useJUnitPlatform()
+}

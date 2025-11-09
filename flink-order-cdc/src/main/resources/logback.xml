@@ -1,0 +1,21 @@
+<configuration>
+
+    <!-- This defines a "Console Appender" - a rule to print logs to the console -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <!-- This is the format for each log message -->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- This is the main rule: Send all logs of level INFO or higher to the STDOUT appender -->
+    <root level="INFO">
+        <appender-ref ref="STDOUT" />
+    </root>
+
+    <!-- (Optional) This makes Flink's internal logs less noisy. You can keep or remove this block. -->
+    <logger name="org.apache.flink" level="WARN"/>
+    <logger name="org.apache.kafka" level="WARN"/>
+    <logger name="org.apache.zookeeper" level="WARN"/>
+
+</configuration>

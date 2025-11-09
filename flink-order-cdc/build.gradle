@@ -1,0 +1,63 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'com.github.johnrengelman.shadow'
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    // Flink core
+    implementation "org.apache.flink:flink-connector-base:${flinkVersion}"
+    implementation "org.apache.flink:flink-java:${flinkVersion}"
+    implementation "org.apache.flink:flink-streaming-java:${flinkVersion}"
+    implementation "org.apache.flink:flink-clients:${flinkVersion}"
+
+    // Flink Kafka connector
+    implementation "org.apache.flink:flink-connector-kafka:3.3.0-1.20"
+
+    // Flink CDC connectors
+    implementation "org.apache.flink:flink-connector-postgres-cdc:3.5.0"
+    implementation "org.apache.flink:flink-sql-connector-postgres-cdc:3.5.0"
+
+    // JSON processing
+    implementation "org.apache.flink:flink-json:${flinkVersion}"
+    implementation "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}"
+
+    // Logging
+    implementation 'org.slf4j:slf4j-api:2.0.13'
+    implementation 'ch.qos.logback:logback-classic:1.3.14' 
+
+    // Models
+    implementation project(':models')
+}
+
+application {
+    mainClass = 'com.ververica.composable_job.flink.ordercdc.OrderCDCJob'
+}
+
+shadowJar {
+    archiveClassifier.set('all')
+    mergeServiceFiles()
+
+    // Relocate problematic dependencies
+    relocate 'com.google.protobuf', 'shadow.com.google.protobuf'
+
+    // Exclude signatures
+    exclude 'META-INF/*.SF'
+    exclude 'META-INF/*.DSA'
+    exclude 'META-INF/*.RSA'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
+compileJava {
+    options.encoding = 'UTF-8'
+    options.compilerArgs << '-parameters'
+}

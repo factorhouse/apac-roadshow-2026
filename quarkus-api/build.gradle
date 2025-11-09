@@ -1,0 +1,65 @@
+plugins {
+    id 'java'
+    id 'io.quarkus'
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    implementation enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}")
+    implementation 'io.quarkus:quarkus-rest-jackson'
+    implementation 'io.quarkus:quarkus-messaging-kafka'
+    implementation 'io.quarkus:quarkus-websockets-next'
+    implementation 'io.quarkus:quarkus-arc'
+    implementation 'io.quarkus:quarkus-scheduler'
+    implementation 'io.quarkiverse.quinoa:quarkus-quinoa:2.4.4'
+
+    implementation 'io.quarkus:quarkus-kafka-streams'
+
+    // PostgreSQL & Hibernate
+    implementation 'io.quarkus:quarkus-hibernate-orm-panache'
+    implementation 'io.quarkus:quarkus-jdbc-postgresql'
+    implementation 'io.quarkus:quarkus-narayana-jta'
+
+    // Testcontainers for dev services
+    implementation 'org.testcontainers:testcontainers:1.19.3'
+    implementation 'org.testcontainers:redpanda:1.19.3'
+    implementation 'org.testcontainers:kafka:1.19.3'
+    implementation 'org.testcontainers:postgresql:1.19.3'
+    implementation 'io.quarkus:quarkus-smallrye-health'
+
+    implementation project(':models')
+    // NOTE: Flink jobs are run separately during training, not embedded in Quarkus
+    // implementation project(':flink-inventory')
+
+    testImplementation project(":test-common")
+    testImplementation 'io.quarkus:quarkus-junit5'
+    testImplementation 'io.quarkus:quarkus-smallrye-health'
+}
+
+group 'com.ververica.composable_job'
+version '1.0.0-SNAPSHOT'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+test {
+    systemProperty "java.util.logging.manager", "org.jboss.logmanager.LogManager"
+}
+compileJava {
+    options.encoding = 'UTF-8'
+    options.compilerArgs << '-parameters'
+}
+
+compileTestJava {
+    options.encoding = 'UTF-8'
+}
+
+quarkusDev {
+    workingDirectory = project.projectDir
+}

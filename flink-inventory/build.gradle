@@ -1,0 +1,66 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'com.github.johnrengelman.shadow'
+}
+
+group = 'com.ververica.composable_job.flink'
+version = '1.0-SNAPSHOT'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(11)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    flinkVersion = '1.20.0'
+    kafkaVersion = '3.8.1'
+    jacksonVersion = '2.18.2'
+}
+
+dependencies {
+    implementation project(':models')
+    implementation project(':flink-common')
+    
+    implementation "org.apache.flink:flink-streaming-java:${flinkVersion}"
+    implementation "org.apache.flink:flink-clients:${flinkVersion}"
+    implementation "org.apache.flink:flink-connector-kafka:3.3.0-1.20"
+    implementation "org.apache.flink:flink-connector-files:${flinkVersion}"
+    implementation "org.apache.flink:flink-connector-base:${flinkVersion}"
+    implementation "org.apache.flink:flink-json:${flinkVersion}"
+    implementation "org.apache.flink:flink-statebackend-rocksdb:${flinkVersion}"
+    
+    implementation "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}"
+    implementation "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:${jacksonVersion}"
+    
+    implementation 'org.slf4j:slf4j-api:2.0.16'
+    implementation 'ch.qos.logback:logback-classic:1.5.15'
+    
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.11.4'
+}
+
+application {
+    mainClass = 'com.ververica.composable_job.flink.inventory.InventoryManagementJob'
+}
+
+shadowJar {
+    archiveBaseName = 'flink-inventory'
+    archiveClassifier = ''
+    archiveVersion = ''
+    mergeServiceFiles()
+    
+    manifest {
+        attributes 'Main-Class': application.mainClass
+    }
+}
+
+test {
+    useJUnitPlatform()
+}

@@ -1,0 +1,3802 @@
+[
+  {
+    "productId": "PROD_0001",
+    "name": "FutureTech UltraBook Pro 15",
+    "description": "High-performance laptop with Intel i9, 32GB RAM, 1TB SSD. Premium quality from FutureTech.",
+    "category": "Electronics",
+    "brand": "FutureTech",
+    "price": 1899.99,
+    "inventory": 17,
+    "imageUrl": "https://picsum.photos/400/300?random=1",
+    "tags": [
+      "laptop",
+      "computer",
+      "productivity",
+      "futuretech",
+      "electronics"
+    ],
+    "rating": 4.5,
+    "reviewCount": 49
+  },
+  {
+    "productId": "PROD_0002",
+    "name": "FutureTech UltraBook Pro 15 Pro",
+    "description": "High-performance laptop with Intel i9, 32GB RAM, 1TB SSD. Premium quality from FutureTech.",
+    "category": "Electronics",
+    "brand": "FutureTech",
+    "price": 2279.99,
+    "inventory": 21,
+    "imageUrl": "https://picsum.photos/400/300?random=2",
+    "tags": [
+      "laptop",
+      "computer",
+      "productivity",
+      "futuretech",
+      "electronics"
+    ],
+    "rating": 3.5,
+    "reviewCount": 17
+  },
+  {
+    "productId": "PROD_0003",
+    "name": "InnovateTech Wireless Noise-Canceling Headphones",
+    "description": "Premium ANC headphones with 30-hour battery. Premium quality from InnovateTech.",
+    "category": "Electronics",
+    "brand": "InnovateTech",
+    "price": 349.99,
+    "inventory": 26,
+    "imageUrl": "https://picsum.photos/400/300?random=3",
+    "tags": [
+      "audio",
+      "wireless",
+      "music",
+      "innovatetech",
+      "electronics"
+    ],
+    "rating": 3.7,
+    "reviewCount": 183
+  },
+  {
+    "productId": "PROD_0004",
+    "name": "FutureTech Wireless Noise-Canceling Headphones Pro",
+    "description": "Premium ANC headphones with 30-hour battery. Premium quality from FutureTech.",
+    "category": "Electronics",
+    "brand": "FutureTech",
+    "price": 419.99,
+    "inventory": 29,
+    "imageUrl": "https://picsum.photos/400/300?random=4",
+    "tags": [
+      "audio",
+      "wireless",
+      "music",
+      "futuretech",
+      "electronics"
+    ],
+    "rating": 3.5,
+    "reviewCount": 150
+  },
+  {
+    "productId": "PROD_0005",
+    "name": "FutureTech Wireless Noise-Canceling Headphones Premium",
+    "description": "Premium ANC headphones with 30-hour battery. Premium quality from FutureTech.",
+    "category": "Electronics",
+    "brand": "FutureTech",
+    "price": 524.99,
+    "inventory": 21,
+    "imageUrl": "https://picsum.photos/400/300?random=5",
+    "tags": [
+      "audio",
+      "wireless",
+      "music",
+      "futuretech",
+      "electronics"
+    ],
+    "rating": 4.3,
+    "reviewCount": 205
+  },
+  {
+    "productId": "PROD_0006",
+    "name": "DigitalCraft Smart Watch Pro",
+    "description": "Fitness tracking, GPS, heart rate monitor. Premium quality from DigitalCraft.",
+    "category": "Electronics",
+    "brand": "DigitalCraft",
+    "price": 399.99,
+    "inventory": 43,
+    "imageUrl": "https://picsum.photos/400/300?random=6",
+    "tags": [
+      "wearable",
+      "fitness",
+      "smart",
+      "digitalcraft",
+      "electronics"
+    ],
+    "rating": 4.5,
+    "reviewCount": 49
+  },
+  {
+    "productId": "PROD_0007",
+    "name": "DigitalCraft Smart Watch Pro Pro",
+    "description": "Fitness tracking, GPS, heart rate monitor. Premium quality from DigitalCraft.",
+    "category": "Electronics",
+    "brand": "DigitalCraft",
+    "price": 479.99,
+    "inventory": 17,
+    "imageUrl": "https://picsum.photos/400/300?random=7",
+    "tags": [
+      "wearable",
+      "fitness",
+      "smart",
+      "digitalcraft",
+      "electronics"
+    ],
+    "rating": 3.9,
+    "reviewCount": 443
+  },
+  {
+    "productId": "PROD_0008",
+    "name": "DigitalCraft Smart Watch Pro Premium",
+    "description": "Fitness tracking, GPS, heart rate monitor. Premium quality from DigitalCraft.",
+    "category": "Electronics",
+    "brand": "DigitalCraft",
+    "price": 599.99,
+    "inventory": 14,
+    "imageUrl": "https://picsum.photos/400/300?random=8",
+    "tags": [
+      "wearable",
+      "fitness",
+      "smart",
+      "digitalcraft",
+      "electronics"
+    ],
+    "rating": 4.7,
+    "reviewCount": 15
+  },
+  {
+    "productId": "PROD_0009",
+    "name": "SmartLife 4K Webcam",
+    "description": "Professional streaming camera with auto-focus. Premium quality from SmartLife.",
+    "category": "Electronics",
+    "brand": "SmartLife",
+    "price": 199.99,
+    "inventory": 73,
+    "imageUrl": "https://picsum.photos/400/300?random=9",
+    "tags": [
+      "camera",
+      "streaming",
+      "video",
+      "smartlife",
+      "electronics"
+    ],
+    "rating": 4.4,
+    "reviewCount": 434
+  },
+  {
+    "productId": "PROD_0010",
+    "name": "FutureTech 4K Webcam Pro",
+    "description": "Professional streaming camera with auto-focus. Premium quality from FutureTech.",
+    "category": "Electronics",
+    "brand": "FutureTech",
+    "price": 239.99,
+    "inventory": 13,
+    "imageUrl": "https://picsum.photos/400/300?random=10",
+    "tags": [
+      "camera",
+      "streaming",
+      "video",
+      "futuretech",
+      "electronics"
+    ],
+    "rating": 4.4,
+    "reviewCount": 412
+  },
+  {
+    "productId": "PROD_0011",
+    "name": "FutureTech 4K Webcam Premium",
+    "description": "Professional streaming camera with auto-focus. Premium quality from FutureTech.",
+    "category": "Electronics",
+    "brand": "FutureTech",
+    "price": 299.99,
+    "inventory": 15,
+    "imageUrl": "https://picsum.photos/400/300?random=11",
+    "tags": [
+      "camera",
+      "streaming",
+      "video",
+      "futuretech",
+      "electronics"
+    ],
+    "rating": 4.1,
+    "reviewCount": 295
+  },
+  {
+    "productId": "PROD_0012",
+    "name": "InnovateTech Mechanical Gaming Keyboard",
+    "description": "RGB backlit with Cherry MX switches. Premium quality from InnovateTech.",
+    "category": "Electronics",
+    "brand": "InnovateTech",
+    "price": 159.99,
+    "inventory": 82,
+    "imageUrl": "https://picsum.photos/400/300?random=12",
+    "tags": [
+      "gaming",
+      "keyboard",
+      "accessories",
+      "innovatetech",
+      "electronics"
+    ],
+    "rating": 4.2,
+    "reviewCount": 369
+  },
+  {
+    "productId": "PROD_0013",
+    "name": "DigitalCraft Mechanical Gaming Keyboard Pro",
+    "description": "RGB backlit with Cherry MX switches. Premium quality from DigitalCraft.",
+    "category": "Electronics",
+    "brand": "DigitalCraft",
+    "price": 191.99,
+    "inventory": 43,
+    "imageUrl": "https://picsum.photos/400/300?random=13",
+    "tags": [
+      "gaming",
+      "keyboard",
+      "accessories",
+      "digitalcraft",
+      "electronics"
+    ],
+    "rating": 3.8,
+    "reviewCount": 477
+  },
+  {
+    "productId": "PROD_0014",
+    "name": "FutureTech Wireless Mouse",
+    "description": "Ergonomic design with precision tracking. Premium quality from FutureTech.",
+    "category": "Electronics",
+    "brand": "FutureTech",
+    "price": 79.99,
+    "inventory": 28,
+    "imageUrl": "https://picsum.photos/400/300?random=14",
+    "tags": [
+      "mouse",
+      "wireless",
+      "accessories",
+      "futuretech",
+      "electronics"
+    ],
+    "rating": 4.2,
+    "reviewCount": 259
+  },
+  {
+    "productId": "PROD_0015",
+    "name": "TechPro Wireless Mouse Pro",
+    "description": "Ergonomic design with precision tracking. Premium quality from TechPro.",
+    "category": "Electronics",
+    "brand": "TechPro",
+    "price": 95.99,
+    "inventory": 60,
+    "imageUrl": "https://picsum.photos/400/300?random=15",
+    "tags": [
+      "mouse",
+      "wireless",
+      "accessories",
+      "techpro",
+      "electronics"
+    ],
+    "rating": 4.6,
+    "reviewCount": 67
+  },
+  {
+    "productId": "PROD_0016",
+    "name": "InnovateTech Wireless Mouse Premium",
+    "description": "Ergonomic design with precision tracking. Premium quality from InnovateTech.",
+    "category": "Electronics",
+    "brand": "InnovateTech",
+    "price": 119.98,
+    "inventory": 68,
+    "imageUrl": "https://picsum.photos/400/300?random=16",
+    "tags": [
+      "mouse",
+      "wireless",
+      "accessories",
+      "innovatetech",
+      "electronics"
+    ],
+    "rating": 3.6,
+    "reviewCount": 342
+  },
+  {
+    "productId": "PROD_0017",
+    "name": "DigitalCraft 27-inch 4K Monitor",
+    "description": "IPS panel with HDR support and USB-C. Premium quality from DigitalCraft.",
+    "category": "Electronics",
+    "brand": "DigitalCraft",
+    "price": 599.99,
+    "inventory": 21,
+    "imageUrl": "https://picsum.photos/400/300?random=17",
+    "tags": [
+      "monitor",
+      "display",
+      "4k",
+      "digitalcraft",
+      "electronics"
+    ],
+    "rating": 3.8,
+    "reviewCount": 417
+  },
+  {
+    "productId": "PROD_0018",
+    "name": "SmartLife 27-inch 4K Monitor Pro",
+    "description": "IPS panel with HDR support and USB-C. Premium quality from SmartLife.",
+    "category": "Electronics",
+    "brand": "SmartLife",
+    "price": 719.99,
+    "inventory": 13,
+    "imageUrl": "https://picsum.photos/400/300?random=18",
+    "tags": [
+      "monitor",
+      "display",
+      "4k",
+      "smartlife",
+      "electronics"
+    ],
+    "rating": 4.3,
+    "reviewCount": 344
+  },
+  {
+    "productId": "PROD_0019",
+    "name": "InnovateTech 27-inch 4K Monitor Premium",
+    "description": "IPS panel with HDR support and USB-C. Premium quality from InnovateTech.",
+    "category": "Electronics",
+    "brand": "InnovateTech",
+    "price": 899.99,
+    "inventory": 15,
+    "imageUrl": "https://picsum.photos/400/300?random=19",
+    "tags": [
+      "monitor",
+      "display",
+      "4k",
+      "innovatetech",
+      "electronics"
+    ],
+    "rating": 4.6,
+    "reviewCount": 423
+  },
+  {
+    "productId": "PROD_0020",
+    "name": "FutureTech Tablet Pro 12",
+    "description": "12.9-inch display with stylus support. Premium quality from FutureTech.",
+    "category": "Electronics",
+    "brand": "FutureTech",
+    "price": 1099.99,
+    "inventory": 22,
+    "imageUrl": "https://picsum.photos/400/300?random=20",
+    "tags": [
+      "tablet",
+      "portable",
+      "creative",
+      "futuretech",
+      "electronics"
+    ],
+    "rating": 3.8,
+    "reviewCount": 429
+  },
+  {
+    "productId": "PROD_0021",
+    "name": "TechPro Tablet Pro 12 Pro",
+    "description": "12.9-inch display with stylus support. Premium quality from TechPro.",
+    "category": "Electronics",
+    "brand": "TechPro",
+    "price": 1319.99,
+    "inventory": 18,
+    "imageUrl": "https://picsum.photos/400/300?random=21",
+    "tags": [
+      "tablet",
+      "portable",
+      "creative",
+      "techpro",
+      "electronics"
+    ],
+    "rating": 3.7,
+    "reviewCount": 447
+  },
+  {
+    "productId": "PROD_0022",
+    "name": "DigitalCraft Bluetooth Speaker",
+    "description": "360-degree sound with waterproof design. Premium quality from DigitalCraft.",
+    "category": "Electronics",
+    "brand": "DigitalCraft",
+    "price": 129.99,
+    "inventory": 34,
+    "imageUrl": "https://picsum.photos/400/300?random=22",
+    "tags": [
+      "audio",
+      "portable",
+      "speaker",
+      "digitalcraft",
+      "electronics"
+    ],
+    "rating": 3.8,
+    "reviewCount": 170
+  },
+  {
+    "productId": "PROD_0023",
+    "name": "DigitalCraft Bluetooth Speaker Pro",
+    "description": "360-degree sound with waterproof design. Premium quality from DigitalCraft.",
+    "category": "Electronics",
+    "brand": "DigitalCraft",
+    "price": 155.99,
+    "inventory": 78,
+    "imageUrl": "https://picsum.photos/400/300?random=23",
+    "tags": [
+      "audio",
+      "portable",
+      "speaker",
+      "digitalcraft",
+      "electronics"
+    ],
+    "rating": 4.1,
+    "reviewCount": 187
+  },
+  {
+    "productId": "PROD_0024",
+    "name": "DigitalCraft Bluetooth Speaker Premium",
+    "description": "360-degree sound with waterproof design. Premium quality from DigitalCraft.",
+    "category": "Electronics",
+    "brand": "DigitalCraft",
+    "price": 194.99,
+    "inventory": 49,
+    "imageUrl": "https://picsum.photos/400/300?random=24",
+    "tags": [
+      "audio",
+      "portable",
+      "speaker",
+      "digitalcraft",
+      "electronics"
+    ],
+    "rating": 4.9,
+    "reviewCount": 325
+  },
+  {
+    "productId": "PROD_0025",
+    "name": "FutureTech USB-C Hub",
+    "description": "7-in-1 multiport adapter for laptops. Premium quality from FutureTech.",
+    "category": "Electronics",
+    "brand": "FutureTech",
+    "price": 49.99,
+    "inventory": 125,
+    "imageUrl": "https://picsum.photos/400/300?random=25",
+    "tags": [
+      "adapter",
+      "accessories",
+      "usb",
+      "futuretech",
+      "electronics"
+    ],
+    "rating": 3.8,
+    "reviewCount": 417
+  },
+  {
+    "productId": "PROD_0026",
+    "name": "SmartLife USB-C Hub Pro",
+    "description": "7-in-1 multiport adapter for laptops. Premium quality from SmartLife.",
+    "category": "Electronics",
+    "brand": "SmartLife",
+    "price": 59.99,
+    "inventory": 61,
+    "imageUrl": "https://picsum.photos/400/300?random=26",
+    "tags": [
+      "adapter",
+      "accessories",
+      "usb",
+      "smartlife",
+      "electronics"
+    ],
+    "rating": 4.3,
+    "reviewCount": 418
+  },
+  {
+    "productId": "PROD_0027",
+    "name": "FutureTech USB-C Hub Premium",
+    "description": "7-in-1 multiport adapter for laptops. Premium quality from FutureTech.",
+    "category": "Electronics",
+    "brand": "FutureTech",
+    "price": 74.98,
+    "inventory": 36,
+    "imageUrl": "https://picsum.photos/400/300?random=27",
+    "tags": [
+      "adapter",
+      "accessories",
+      "usb",
+      "futuretech",
+      "electronics"
+    ],
+    "rating": 4.4,
+    "reviewCount": 165
+  },
+  {
+    "productId": "PROD_0028",
+    "name": "ModernFit Designer Leather Jacket",
+    "description": "Premium Italian leather with modern cut. Premium quality from ModernFit.",
+    "category": "Fashion",
+    "brand": "ModernFit",
+    "price": 599.99,
+    "inventory": 15,
+    "imageUrl": "https://picsum.photos/400/300?random=28",
+    "tags": [
+      "jacket",
+      "leather",
+      "designer",
+      "modernfit",
+      "fashion"
+    ],
+    "rating": 3.8,
+    "reviewCount": 81
+  },
+  {
+    "productId": "PROD_0029",
+    "name": "ModernFit Designer Leather Jacket Pro",
+    "description": "Premium Italian leather with modern cut. Premium quality from ModernFit.",
+    "category": "Fashion",
+    "brand": "ModernFit",
+    "price": 719.99,
+    "inventory": 7,
+    "imageUrl": "https://picsum.photos/400/300?random=29",
+    "tags": [
+      "jacket",
+      "leather",
+      "designer",
+      "modernfit",
+      "fashion"
+    ],
+    "rating": 4.0,
+    "reviewCount": 27
+  },
+  {
+    "productId": "PROD_0030",
+    "name": "ClassicStyle Designer Leather Jacket Premium",
+    "description": "Premium Italian leather with modern cut. Premium quality from ClassicStyle.",
+    "category": "Fashion",
+    "brand": "ClassicStyle",
+    "price": 899.99,
+    "inventory": 19,
+    "imageUrl": "https://picsum.photos/400/300?random=30",
+    "tags": [
+      "jacket",
+      "leather",
+      "designer",
+      "classicstyle",
+      "fashion"
+    ],
+    "rating": 3.8,
+    "reviewCount": 179
+  },
+  {
+    "productId": "PROD_0031",
+    "name": "LuxeWear Running Shoes Pro",
+    "description": "Advanced cushioning for marathon runners. Premium quality from LuxeWear.",
+    "category": "Fashion",
+    "brand": "LuxeWear",
+    "price": 179.99,
+    "inventory": 51,
+    "imageUrl": "https://picsum.photos/400/300?random=31",
+    "tags": [
+      "shoes",
+      "athletic",
+      "running",
+      "luxewear",
+      "fashion"
+    ],
+    "rating": 4.7,
+    "reviewCount": 104
+  },
+  {
+    "productId": "PROD_0032",
+    "name": "StyleCraft Running Shoes Pro Pro",
+    "description": "Advanced cushioning for marathon runners. Premium quality from StyleCraft.",
+    "category": "Fashion",
+    "brand": "StyleCraft",
+    "price": 215.99,
+    "inventory": 49,
+    "imageUrl": "https://picsum.photos/400/300?random=32",
+    "tags": [
+      "shoes",
+      "athletic",
+      "running",
+      "stylecraft",
+      "fashion"
+    ],
+    "rating": 4.6,
+    "reviewCount": 35
+  },
+  {
+    "productId": "PROD_0033",
+    "name": "ModernFit Running Shoes Pro Premium",
+    "description": "Advanced cushioning for marathon runners. Premium quality from ModernFit.",
+    "category": "Fashion",
+    "brand": "ModernFit",
+    "price": 269.99,
+    "inventory": 36,
+    "imageUrl": "https://picsum.photos/400/300?random=33",
+    "tags": [
+      "shoes",
+      "athletic",
+      "running",
+      "modernfit",
+      "fashion"
+    ],
+    "rating": 5.0,
+    "reviewCount": 456
+  },
+  {
+    "productId": "PROD_0034",
+    "name": "StyleCraft Luxury Handbag",
+    "description": "Handcrafted leather with gold hardware. Premium quality from StyleCraft.",
+    "category": "Fashion",
+    "brand": "StyleCraft",
+    "price": 899.99,
+    "inventory": 12,
+    "imageUrl": "https://picsum.photos/400/300?random=34",
+    "tags": [
+      "bag",
+      "luxury",
+      "accessories",
+      "stylecraft",
+      "fashion"
+    ],
+    "rating": 4.5,
+    "reviewCount": 212
+  },
+  {
+    "productId": "PROD_0035",
+    "name": "LuxeWear Luxury Handbag Pro",
+    "description": "Handcrafted leather with gold hardware. Premium quality from LuxeWear.",
+    "category": "Fashion",
+    "brand": "LuxeWear",
+    "price": 1079.99,
+    "inventory": 24,
+    "imageUrl": "https://picsum.photos/400/300?random=35",
+    "tags": [
+      "bag",
+      "luxury",
+      "accessories",
+      "luxewear",
+      "fashion"
+    ],
+    "rating": 4.1,
+    "reviewCount": 120
+  },
+  {
+    "productId": "PROD_0036",
+    "name": "UrbanTrend Luxury Handbag Premium",
+    "description": "Handcrafted leather with gold hardware. Premium quality from UrbanTrend.",
+    "category": "Fashion",
+    "brand": "UrbanTrend",
+    "price": 1349.99,
+    "inventory": 17,
+    "imageUrl": "https://picsum.photos/400/300?random=36",
+    "tags": [
+      "bag",
+      "luxury",
+      "accessories",
+      "urbantrend",
+      "fashion"
+    ],
+    "rating": 4.6,
+    "reviewCount": 216
+  },
+  {
+    "productId": "PROD_0037",
+    "name": "LuxeWear Polarized Sunglasses",
+    "description": "UV protection with titanium frame. Premium quality from LuxeWear.",
+    "category": "Fashion",
+    "brand": "LuxeWear",
+    "price": 249.99,
+    "inventory": 20,
+    "imageUrl": "https://picsum.photos/400/300?random=37",
+    "tags": [
+      "sunglasses",
+      "accessories",
+      "summer",
+      "luxewear",
+      "fashion"
+    ],
+    "rating": 4.3,
+    "reviewCount": 64
+  },
+  {
+    "productId": "PROD_0038",
+    "name": "ModernFit Polarized Sunglasses Pro",
+    "description": "UV protection with titanium frame. Premium quality from ModernFit.",
+    "category": "Fashion",
+    "brand": "ModernFit",
+    "price": 299.99,
+    "inventory": 28,
+    "imageUrl": "https://picsum.photos/400/300?random=38",
+    "tags": [
+      "sunglasses",
+      "accessories",
+      "summer",
+      "modernfit",
+      "fashion"
+    ],
+    "rating": 3.9,
+    "reviewCount": 362
+  },
+  {
+    "productId": "PROD_0039",
+    "name": "LuxeWear Polarized Sunglasses Premium",
+    "description": "UV protection with titanium frame. Premium quality from LuxeWear.",
+    "category": "Fashion",
+    "brand": "LuxeWear",
+    "price": 374.99,
+    "inventory": 34,
+    "imageUrl": "https://picsum.photos/400/300?random=39",
+    "tags": [
+      "sunglasses",
+      "accessories",
+      "summer",
+      "luxewear",
+      "fashion"
+    ],
+    "rating": 3.9,
+    "reviewCount": 474
+  },
+  {
+    "productId": "PROD_0040",
+    "name": "LuxeWear Smart Watch Band",
+    "description": "Premium leather replacement band. Premium quality from LuxeWear.",
+    "category": "Fashion",
+    "brand": "LuxeWear",
+    "price": 79.99,
+    "inventory": 93,
+    "imageUrl": "https://picsum.photos/400/300?random=40",
+    "tags": [
+      "accessories",
+      "watch",
+      "leather",
+      "luxewear",
+      "fashion"
+    ],
+    "rating": 3.6,
+    "reviewCount": 262
+  },
+  {
+    "productId": "PROD_0041",
+    "name": "UrbanTrend Smart Watch Band Pro",
+    "description": "Premium leather replacement band. Premium quality from UrbanTrend.",
+    "category": "Fashion",
+    "brand": "UrbanTrend",
+    "price": 95.99,
+    "inventory": 33,
+    "imageUrl": "https://picsum.photos/400/300?random=41",
+    "tags": [
+      "accessories",
+      "watch",
+      "leather",
+      "urbantrend",
+      "fashion"
+    ],
+    "rating": 3.9,
+    "reviewCount": 182
+  },
+  {
+    "productId": "PROD_0042",
+    "name": "UrbanTrend Smart Watch Band Premium",
+    "description": "Premium leather replacement band. Premium quality from UrbanTrend.",
+    "category": "Fashion",
+    "brand": "UrbanTrend",
+    "price": 119.98,
+    "inventory": 31,
+    "imageUrl": "https://picsum.photos/400/300?random=42",
+    "tags": [
+      "accessories",
+      "watch",
+      "leather",
+      "urbantrend",
+      "fashion"
+    ],
+    "rating": 4.0,
+    "reviewCount": 71
+  },
+  {
+    "productId": "PROD_0043",
+    "name": "ClassicStyle Cashmere Sweater",
+    "description": "100% pure cashmere, multiple colors. Premium quality from ClassicStyle.",
+    "category": "Fashion",
+    "brand": "ClassicStyle",
+    "price": 299.99,
+    "inventory": 15,
+    "imageUrl": "https://picsum.photos/400/300?random=43",
+    "tags": [
+      "sweater",
+      "luxury",
+      "winter",
+      "classicstyle",
+      "fashion"
+    ],
+    "rating": 4.4,
+    "reviewCount": 387
+  },
+  {
+    "productId": "PROD_0044",
+    "name": "UrbanTrend Cashmere Sweater Pro",
+    "description": "100% pure cashmere, multiple colors. Premium quality from UrbanTrend.",
+    "category": "Fashion",
+    "brand": "UrbanTrend",
+    "price": 359.99,
+    "inventory": 31,
+    "imageUrl": "https://picsum.photos/400/300?random=44",
+    "tags": [
+      "sweater",
+      "luxury",
+      "winter",
+      "urbantrend",
+      "fashion"
+    ],
+    "rating": 4.6,
+    "reviewCount": 50
+  },
+  {
+    "productId": "PROD_0045",
+    "name": "StyleCraft Denim Jeans",
+    "description": "Premium selvedge denim, tailored fit. Premium quality from StyleCraft.",
+    "category": "Fashion",
+    "brand": "StyleCraft",
+    "price": 149.99,
+    "inventory": 38,
+    "imageUrl": "https://picsum.photos/400/300?random=45",
+    "tags": [
+      "jeans",
+      "denim",
+      "casual",
+      "stylecraft",
+      "fashion"
+    ],
+    "rating": 4.6,
+    "reviewCount": 496
+  },
+  {
+    "productId": "PROD_0046",
+    "name": "ModernFit Denim Jeans Pro",
+    "description": "Premium selvedge denim, tailored fit. Premium quality from ModernFit.",
+    "category": "Fashion",
+    "brand": "ModernFit",
+    "price": 179.99,
+    "inventory": 56,
+    "imageUrl": "https://picsum.photos/400/300?random=46",
+    "tags": [
+      "jeans",
+      "denim",
+      "casual",
+      "modernfit",
+      "fashion"
+    ],
+    "rating": 3.8,
+    "reviewCount": 60
+  },
+  {
+    "productId": "PROD_0047",
+    "name": "UrbanTrend Silk Scarf",
+    "description": "Hand-printed Italian silk. Premium quality from UrbanTrend.",
+    "category": "Fashion",
+    "brand": "UrbanTrend",
+    "price": 199.99,
+    "inventory": 37,
+    "imageUrl": "https://picsum.photos/400/300?random=47",
+    "tags": [
+      "scarf",
+      "accessories",
+      "luxury",
+      "urbantrend",
+      "fashion"
+    ],
+    "rating": 4.2,
+    "reviewCount": 38
+  },
+  {
+    "productId": "PROD_0048",
+    "name": "UrbanTrend Silk Scarf Pro",
+    "description": "Hand-printed Italian silk. Premium quality from UrbanTrend.",
+    "category": "Fashion",
+    "brand": "UrbanTrend",
+    "price": 239.99,
+    "inventory": 40,
+    "imageUrl": "https://picsum.photos/400/300?random=48",
+    "tags": [
+      "scarf",
+      "accessories",
+      "luxury",
+      "urbantrend",
+      "fashion"
+    ],
+    "rating": 3.9,
+    "reviewCount": 327
+  },
+  {
+    "productId": "PROD_0049",
+    "name": "LuxeWear Canvas Sneakers",
+    "description": "Classic design with comfort sole. Premium quality from LuxeWear.",
+    "category": "Fashion",
+    "brand": "LuxeWear",
+    "price": 89.99,
+    "inventory": 71,
+    "imageUrl": "https://picsum.photos/400/300?random=49",
+    "tags": [
+      "shoes",
+      "casual",
+      "sneakers",
+      "luxewear",
+      "fashion"
+    ],
+    "rating": 4.8,
+    "reviewCount": 456
+  },
+  {
+    "productId": "PROD_0050",
+    "name": "StyleCraft Canvas Sneakers Pro",
+    "description": "Classic design with comfort sole. Premium quality from StyleCraft.",
+    "category": "Fashion",
+    "brand": "StyleCraft",
+    "price": 107.99,
+    "inventory": 50,
+    "imageUrl": "https://picsum.photos/400/300?random=50",
+    "tags": [
+      "shoes",
+      "casual",
+      "sneakers",
+      "stylecraft",
+      "fashion"
+    ],
+    "rating": 4.0,
+    "reviewCount": 128
+  },
+  {
+    "productId": "PROD_0051",
+    "name": "LuxeWear Wool Coat",
+    "description": "Double-breasted winter coat. Premium quality from LuxeWear.",
+    "category": "Fashion",
+    "brand": "LuxeWear",
+    "price": 449.99,
+    "inventory": 10,
+    "imageUrl": "https://picsum.photos/400/300?random=51",
+    "tags": [
+      "coat",
+      "winter",
+      "formal",
+      "luxewear",
+      "fashion"
+    ],
+    "rating": 4.5,
+    "reviewCount": 37
+  },
+  {
+    "productId": "PROD_0052",
+    "name": "ClassicStyle Wool Coat Pro",
+    "description": "Double-breasted winter coat. Premium quality from ClassicStyle.",
+    "category": "Fashion",
+    "brand": "ClassicStyle",
+    "price": 539.99,
+    "inventory": 25,
+    "imageUrl": "https://picsum.photos/400/300?random=52",
+    "tags": [
+      "coat",
+      "winter",
+      "formal",
+      "classicstyle",
+      "fashion"
+    ],
+    "rating": 3.9,
+    "reviewCount": 346
+  },
+  {
+    "productId": "PROD_0053",
+    "name": "ModernFit Wool Coat Premium",
+    "description": "Double-breasted winter coat. Premium quality from ModernFit.",
+    "category": "Fashion",
+    "brand": "ModernFit",
+    "price": 674.99,
+    "inventory": 18,
+    "imageUrl": "https://picsum.photos/400/300?random=53",
+    "tags": [
+      "coat",
+      "winter",
+      "formal",
+      "modernfit",
+      "fashion"
+    ],
+    "rating": 4.6,
+    "reviewCount": 384
+  },
+  {
+    "productId": "PROD_0054",
+    "name": "ComfortZone Smart Coffee Maker",
+    "description": "WiFi-enabled with scheduling and grinder. Premium quality from ComfortZone.",
+    "category": "Home & Garden",
+    "brand": "ComfortZone",
+    "price": 299.99,
+    "inventory": 23,
+    "imageUrl": "https://picsum.photos/400/300?random=54",
+    "tags": [
+      "coffee",
+      "smart",
+      "kitchen",
+      "comfortzone",
+      "home-garden"
+    ],
+    "rating": 3.8,
+    "reviewCount": 188
+  },
+  {
+    "productId": "PROD_0055",
+    "name": "SmartHome Smart Coffee Maker Pro",
+    "description": "WiFi-enabled with scheduling and grinder. Premium quality from SmartHome.",
+    "category": "Home & Garden",
+    "brand": "SmartHome",
+    "price": 359.99,
+    "inventory": 32,
+    "imageUrl": "https://picsum.photos/400/300?random=55",
+    "tags": [
+      "coffee",
+      "smart",
+      "kitchen",
+      "smarthome",
+      "home-garden"
+    ],
+    "rating": 4.8,
+    "reviewCount": 34
+  },
+  {
+    "productId": "PROD_0056",
+    "name": "ComfortZone Smart Coffee Maker Premium",
+    "description": "WiFi-enabled with scheduling and grinder. Premium quality from ComfortZone.",
+    "category": "Home & Garden",
+    "brand": "ComfortZone",
+    "price": 449.99,
+    "inventory": 47,
+    "imageUrl": "https://picsum.photos/400/300?random=56",
+    "tags": [
+      "coffee",
+      "smart",
+      "kitchen",
+      "comfortzone",
+      "home-garden"
+    ],
+    "rating": 4.0,
+    "reviewCount": 388
+  },
+  {
+    "productId": "PROD_0057",
+    "name": "ComfortZone Air Purifier Pro",
+    "description": "HEPA filter for large rooms. Premium quality from ComfortZone.",
+    "category": "Home & Garden",
+    "brand": "ComfortZone",
+    "price": 449.99,
+    "inventory": 48,
+    "imageUrl": "https://picsum.photos/400/300?random=57",
+    "tags": [
+      "air",
+      "health",
+      "home",
+      "comfortzone",
+      "home-garden"
+    ],
+    "rating": 3.9,
+    "reviewCount": 454
+  },
+  {
+    "productId": "PROD_0058",
+    "name": "EcoHome Air Purifier Pro Pro",
+    "description": "HEPA filter for large rooms. Premium quality from EcoHome.",
+    "category": "Home & Garden",
+    "brand": "EcoHome",
+    "price": 539.99,
+    "inventory": 15,
+    "imageUrl": "https://picsum.photos/400/300?random=58",
+    "tags": [
+      "air",
+      "health",
+      "home",
+      "ecohome",
+      "home-garden"
+    ],
+    "rating": 3.9,
+    "reviewCount": 497
+  },
+  {
+    "productId": "PROD_0059",
+    "name": "SmartHome Smart LED Bulbs (4-pack)",
+    "description": "Color changing with app control. Premium quality from SmartHome.",
+    "category": "Home & Garden",
+    "brand": "SmartHome",
+    "price": 89.99,
+    "inventory": 45,
+    "imageUrl": "https://picsum.photos/400/300?random=59",
+    "tags": [
+      "lighting",
+      "smart",
+      "home",
+      "smarthome",
+      "home-garden"
+    ],
+    "rating": 3.9,
+    "reviewCount": 297
+  },
+  {
+    "productId": "PROD_0060",
+    "name": "EcoHome Smart LED Bulbs (4-pack) Pro",
+    "description": "Color changing with app control. Premium quality from EcoHome.",
+    "category": "Home & Garden",
+    "brand": "EcoHome",
+    "price": 107.99,
+    "inventory": 79,
+    "imageUrl": "https://picsum.photos/400/300?random=60",
+    "tags": [
+      "lighting",
+      "smart",
+      "home",
+      "ecohome",
+      "home-garden"
+    ],
+    "rating": 4.1,
+    "reviewCount": 31
+  },
+  {
+    "productId": "PROD_0061",
+    "name": "GreenLife Smart LED Bulbs (4-pack) Premium",
+    "description": "Color changing with app control. Premium quality from GreenLife.",
+    "category": "Home & Garden",
+    "brand": "GreenLife",
+    "price": 134.98,
+    "inventory": 55,
+    "imageUrl": "https://picsum.photos/400/300?random=61",
+    "tags": [
+      "lighting",
+      "smart",
+      "home",
+      "greenlife",
+      "home-garden"
+    ],
+    "rating": 3.6,
+    "reviewCount": 91
+  },
+  {
+    "productId": "PROD_0062",
+    "name": "SmartHome Robot Vacuum",
+    "description": "Self-emptying with mapping technology. Premium quality from SmartHome.",
+    "category": "Home & Garden",
+    "brand": "SmartHome",
+    "price": 799.99,
+    "inventory": 22,
+    "imageUrl": "https://picsum.photos/400/300?random=62",
+    "tags": [
+      "vacuum",
+      "robot",
+      "cleaning",
+      "smarthome",
+      "home-garden"
+    ],
+    "rating": 4.9,
+    "reviewCount": 365
+  },
+  {
+    "productId": "PROD_0063",
+    "name": "HomeEssentials Robot Vacuum Pro",
+    "description": "Self-emptying with mapping technology. Premium quality from HomeEssentials.",
+    "category": "Home & Garden",
+    "brand": "HomeEssentials",
+    "price": 959.99,
+    "inventory": 12,
+    "imageUrl": "https://picsum.photos/400/300?random=63",
+    "tags": [
+      "vacuum",
+      "robot",
+      "cleaning",
+      "homeessentials",
+      "home-garden"
+    ],
+    "rating": 4.1,
+    "reviewCount": 120
+  },
+  {
+    "productId": "PROD_0064",
+    "name": "GreenLife Robot Vacuum Premium",
+    "description": "Self-emptying with mapping technology. Premium quality from GreenLife.",
+    "category": "Home & Garden",
+    "brand": "GreenLife",
+    "price": 1199.99,
+    "inventory": 13,
+    "imageUrl": "https://picsum.photos/400/300?random=64",
+    "tags": [
+      "vacuum",
+      "robot",
+      "cleaning",
+      "greenlife",
+      "home-garden"
+    ],
+    "rating": 3.6,
+    "reviewCount": 341
+  },
+  {
+    "productId": "PROD_0065",
+    "name": "SmartHome High-Speed Blender",
+    "description": "Professional grade for smoothies. Premium quality from SmartHome.",
+    "category": "Home & Garden",
+    "brand": "SmartHome",
+    "price": 249.99,
+    "inventory": 19,
+    "imageUrl": "https://picsum.photos/400/300?random=65",
+    "tags": [
+      "blender",
+      "kitchen",
+      "appliances",
+      "smarthome",
+      "home-garden"
+    ],
+    "rating": 4.9,
+    "reviewCount": 354
+  },
+  {
+    "productId": "PROD_0066",
+    "name": "HomeEssentials High-Speed Blender Pro",
+    "description": "Professional grade for smoothies. Premium quality from HomeEssentials.",
+    "category": "Home & Garden",
+    "brand": "HomeEssentials",
+    "price": 299.99,
+    "inventory": 38,
+    "imageUrl": "https://picsum.photos/400/300?random=66",
+    "tags": [
+      "blender",
+      "kitchen",
+      "appliances",
+      "homeessentials",
+      "home-garden"
+    ],
+    "rating": 3.8,
+    "reviewCount": 301
+  },
+  {
+    "productId": "PROD_0067",
+    "name": "EcoHome Indoor Plant Collection",
+    "description": "Set of 5 low-maintenance plants. Premium quality from EcoHome.",
+    "category": "Home & Garden",
+    "brand": "EcoHome",
+    "price": 149.99,
+    "inventory": 38,
+    "imageUrl": "https://picsum.photos/400/300?random=67",
+    "tags": [
+      "plants",
+      "garden",
+      "indoor",
+      "ecohome",
+      "home-garden"
+    ],
+    "rating": 4.8,
+    "reviewCount": 169
+  },
+  {
+    "productId": "PROD_0068",
+    "name": "SmartHome Indoor Plant Collection Pro",
+    "description": "Set of 5 low-maintenance plants. Premium quality from SmartHome.",
+    "category": "Home & Garden",
+    "brand": "SmartHome",
+    "price": 179.99,
+    "inventory": 39,
+    "imageUrl": "https://picsum.photos/400/300?random=68",
+    "tags": [
+      "plants",
+      "garden",
+      "indoor",
+      "smarthome",
+      "home-garden"
+    ],
+    "rating": 4.4,
+    "reviewCount": 139
+  },
+  {
+    "productId": "PROD_0069",
+    "name": "ComfortZone Smart Thermostat",
+    "description": "Learning algorithm for energy savings. Premium quality from ComfortZone.",
+    "category": "Home & Garden",
+    "brand": "ComfortZone",
+    "price": 229.99,
+    "inventory": 37,
+    "imageUrl": "https://picsum.photos/400/300?random=69",
+    "tags": [
+      "smart",
+      "heating",
+      "energy",
+      "comfortzone",
+      "home-garden"
+    ],
+    "rating": 4.4,
+    "reviewCount": 403
+  },
+  {
+    "productId": "PROD_0070",
+    "name": "ComfortZone Smart Thermostat Pro",
+    "description": "Learning algorithm for energy savings. Premium quality from ComfortZone.",
+    "category": "Home & Garden",
+    "brand": "ComfortZone",
+    "price": 275.99,
+    "inventory": 27,
+    "imageUrl": "https://picsum.photos/400/300?random=70",
+    "tags": [
+      "smart",
+      "heating",
+      "energy",
+      "comfortzone",
+      "home-garden"
+    ],
+    "rating": 3.9,
+    "reviewCount": 136
+  },
+  {
+    "productId": "PROD_0071",
+    "name": "GreenLife Smart Thermostat Premium",
+    "description": "Learning algorithm for energy savings. Premium quality from GreenLife.",
+    "category": "Home & Garden",
+    "brand": "GreenLife",
+    "price": 344.99,
+    "inventory": 21,
+    "imageUrl": "https://picsum.photos/400/300?random=71",
+    "tags": [
+      "smart",
+      "heating",
+      "energy",
+      "greenlife",
+      "home-garden"
+    ],
+    "rating": 3.7,
+    "reviewCount": 252
+  },
+  {
+    "productId": "PROD_0072",
+    "name": "HomeEssentials Ceramic Cookware Set",
+    "description": "Non-toxic 10-piece set. Premium quality from HomeEssentials.",
+    "category": "Home & Garden",
+    "brand": "HomeEssentials",
+    "price": 399.99,
+    "inventory": 23,
+    "imageUrl": "https://picsum.photos/400/300?random=72",
+    "tags": [
+      "cookware",
+      "kitchen",
+      "ceramic",
+      "homeessentials",
+      "home-garden"
+    ],
+    "rating": 4.8,
+    "reviewCount": 297
+  },
+  {
+    "productId": "PROD_0073",
+    "name": "SmartHome Ceramic Cookware Set Pro",
+    "description": "Non-toxic 10-piece set. Premium quality from SmartHome.",
+    "category": "Home & Garden",
+    "brand": "SmartHome",
+    "price": 479.99,
+    "inventory": 16,
+    "imageUrl": "https://picsum.photos/400/300?random=73",
+    "tags": [
+      "cookware",
+      "kitchen",
+      "ceramic",
+      "smarthome",
+      "home-garden"
+    ],
+    "rating": 3.6,
+    "reviewCount": 319
+  },
+  {
+    "productId": "PROD_0074",
+    "name": "SmartHome Ceramic Cookware Set Premium",
+    "description": "Non-toxic 10-piece set. Premium quality from SmartHome.",
+    "category": "Home & Garden",
+    "brand": "SmartHome",
+    "price": 599.99,
+    "inventory": 13,
+    "imageUrl": "https://picsum.photos/400/300?random=74",
+    "tags": [
+      "cookware",
+      "kitchen",
+      "ceramic",
+      "smarthome",
+      "home-garden"
+    ],
+    "rating": 3.5,
+    "reviewCount": 338
+  },
+  {
+    "productId": "PROD_0075",
+    "name": "GreenLife Memory Foam Mattress",
+    "description": "Queen size with cooling gel. Premium quality from GreenLife.",
+    "category": "Home & Garden",
+    "brand": "GreenLife",
+    "price": 899.99,
+    "inventory": 21,
+    "imageUrl": "https://picsum.photos/400/300?random=75",
+    "tags": [
+      "mattress",
+      "bedroom",
+      "comfort",
+      "greenlife",
+      "home-garden"
+    ],
+    "rating": 3.7,
+    "reviewCount": 245
+  },
+  {
+    "productId": "PROD_0076",
+    "name": "EcoHome Memory Foam Mattress Pro",
+    "description": "Queen size with cooling gel. Premium quality from EcoHome.",
+    "category": "Home & Garden",
+    "brand": "EcoHome",
+    "price": 1079.99,
+    "inventory": 17,
+    "imageUrl": "https://picsum.photos/400/300?random=76",
+    "tags": [
+      "mattress",
+      "bedroom",
+      "comfort",
+      "ecohome",
+      "home-garden"
+    ],
+    "rating": 4.2,
+    "reviewCount": 10
+  },
+  {
+    "productId": "PROD_0077",
+    "name": "EcoHome Garden Tool Set",
+    "description": "Professional grade stainless steel. Premium quality from EcoHome.",
+    "category": "Home & Garden",
+    "brand": "EcoHome",
+    "price": 179.99,
+    "inventory": 55,
+    "imageUrl": "https://picsum.photos/400/300?random=77",
+    "tags": [
+      "garden",
+      "tools",
+      "outdoor",
+      "ecohome",
+      "home-garden"
+    ],
+    "rating": 5.0,
+    "reviewCount": 42
+  },
+  {
+    "productId": "PROD_0078",
+    "name": "GreenLife Garden Tool Set Pro",
+    "description": "Professional grade stainless steel. Premium quality from GreenLife.",
+    "category": "Home & Garden",
+    "brand": "GreenLife",
+    "price": 215.99,
+    "inventory": 24,
+    "imageUrl": "https://picsum.photos/400/300?random=78",
+    "tags": [
+      "garden",
+      "tools",
+      "outdoor",
+      "greenlife",
+      "home-garden"
+    ],
+    "rating": 4.2,
+    "reviewCount": 186
+  },
+  {
+    "productId": "PROD_0079",
+    "name": "FitPro Premium Yoga Mat",
+    "description": "Extra thick with alignment guides. Premium quality from FitPro.",
+    "category": "Sports",
+    "brand": "FitPro",
+    "price": 89.99,
+    "inventory": 70,
+    "imageUrl": "https://picsum.photos/400/300?random=79",
+    "tags": [
+      "yoga",
+      "fitness",
+      "mat",
+      "fitpro",
+      "sports"
+    ],
+    "rating": 3.6,
+    "reviewCount": 170
+  },
+  {
+    "productId": "PROD_0080",
+    "name": "FitPro Premium Yoga Mat Pro",
+    "description": "Extra thick with alignment guides. Premium quality from FitPro.",
+    "category": "Sports",
+    "brand": "FitPro",
+    "price": 107.99,
+    "inventory": 48,
+    "imageUrl": "https://picsum.photos/400/300?random=80",
+    "tags": [
+      "yoga",
+      "fitness",
+      "mat",
+      "fitpro",
+      "sports"
+    ],
+    "rating": 4.8,
+    "reviewCount": 46
+  },
+  {
+    "productId": "PROD_0081",
+    "name": "EndurancePro Premium Yoga Mat Premium",
+    "description": "Extra thick with alignment guides. Premium quality from EndurancePro.",
+    "category": "Sports",
+    "brand": "EndurancePro",
+    "price": 134.98,
+    "inventory": 79,
+    "imageUrl": "https://picsum.photos/400/300?random=81",
+    "tags": [
+      "yoga",
+      "fitness",
+      "mat",
+      "endurancepro",
+      "sports"
+    ],
+    "rating": 4.6,
+    "reviewCount": 86
+  },
+  {
+    "productId": "PROD_0082",
+    "name": "SportMax Adjustable Dumbbells",
+    "description": "5-50 lbs quick-change system. Premium quality from SportMax.",
+    "category": "Sports",
+    "brand": "SportMax",
+    "price": 599.99,
+    "inventory": 12,
+    "imageUrl": "https://picsum.photos/400/300?random=82",
+    "tags": [
+      "weights",
+      "strength",
+      "gym",
+      "sportmax",
+      "sports"
+    ],
+    "rating": 3.9,
+    "reviewCount": 435
+  },
+  {
+    "productId": "PROD_0083",
+    "name": "ActiveLife Adjustable Dumbbells Pro",
+    "description": "5-50 lbs quick-change system. Premium quality from ActiveLife.",
+    "category": "Sports",
+    "brand": "ActiveLife",
+    "price": 719.99,
+    "inventory": 21,
+    "imageUrl": "https://picsum.photos/400/300?random=83",
+    "tags": [
+      "weights",
+      "strength",
+      "gym",
+      "activelife",
+      "sports"
+    ],
+    "rating": 3.6,
+    "reviewCount": 170
+  },
+  {
+    "productId": "PROD_0084",
+    "name": "PowerGear Adjustable Dumbbells Premium",
+    "description": "5-50 lbs quick-change system. Premium quality from PowerGear.",
+    "category": "Sports",
+    "brand": "PowerGear",
+    "price": 899.99,
+    "inventory": 5,
+    "imageUrl": "https://picsum.photos/400/300?random=84",
+    "tags": [
+      "weights",
+      "strength",
+      "gym",
+      "powergear",
+      "sports"
+    ],
+    "rating": 3.9,
+    "reviewCount": 247
+  },
+  {
+    "productId": "PROD_0085",
+    "name": "ActiveLife Carbon Fiber Bicycle",
+    "description": "Road bike with 21-speed Shimano. Premium quality from ActiveLife.",
+    "category": "Sports",
+    "brand": "ActiveLife",
+    "price": 2499.99,
+    "inventory": 5,
+    "imageUrl": "https://picsum.photos/400/300?random=85",
+    "tags": [
+      "bicycle",
+      "cycling",
+      "outdoor",
+      "activelife",
+      "sports"
+    ],
+    "rating": 4.1,
+    "reviewCount": 416
+  },
+  {
+    "productId": "PROD_0086",
+    "name": "FitPro Carbon Fiber Bicycle Pro",
+    "description": "Road bike with 21-speed Shimano. Premium quality from FitPro.",
+    "category": "Sports",
+    "brand": "FitPro",
+    "price": 2999.99,
+    "inventory": 16,
+    "imageUrl": "https://picsum.photos/400/300?random=86",
+    "tags": [
+      "bicycle",
+      "cycling",
+      "outdoor",
+      "fitpro",
+      "sports"
+    ],
+    "rating": 3.7,
+    "reviewCount": 496
+  },
+  {
+    "productId": "PROD_0087",
+    "name": "FitPro Carbon Fiber Bicycle Premium",
+    "description": "Road bike with 21-speed Shimano. Premium quality from FitPro.",
+    "category": "Sports",
+    "brand": "FitPro",
+    "price": 3749.98,
+    "inventory": 21,
+    "imageUrl": "https://picsum.photos/400/300?random=87",
+    "tags": [
+      "bicycle",
+      "cycling",
+      "outdoor",
+      "fitpro",
+      "sports"
+    ],
+    "rating": 4.0,
+    "reviewCount": 437
+  },
+  {
+    "productId": "PROD_0088",
+    "name": "FitPro Tennis Racket Pro",
+    "description": "Graphite frame with custom grip. Premium quality from FitPro.",
+    "category": "Sports",
+    "brand": "FitPro",
+    "price": 299.99,
+    "inventory": 27,
+    "imageUrl": "https://picsum.photos/400/300?random=88",
+    "tags": [
+      "tennis",
+      "racket",
+      "sports",
+      "fitpro",
+      "sports"
+    ],
+    "rating": 4.6,
+    "reviewCount": 365
+  },
+  {
+    "productId": "PROD_0089",
+    "name": "PowerGear Tennis Racket Pro Pro",
+    "description": "Graphite frame with custom grip. Premium quality from PowerGear.",
+    "category": "Sports",
+    "brand": "PowerGear",
+    "price": 359.99,
+    "inventory": 44,
+    "imageUrl": "https://picsum.photos/400/300?random=89",
+    "tags": [
+      "tennis",
+      "racket",
+      "sports",
+      "powergear",
+      "sports"
+    ],
+    "rating": 4.0,
+    "reviewCount": 172
+  },
+  {
+    "productId": "PROD_0090",
+    "name": "EndurancePro Tennis Racket Pro Premium",
+    "description": "Graphite frame with custom grip. Premium quality from EndurancePro.",
+    "category": "Sports",
+    "brand": "EndurancePro",
+    "price": 449.99,
+    "inventory": 17,
+    "imageUrl": "https://picsum.photos/400/300?random=90",
+    "tags": [
+      "tennis",
+      "racket",
+      "sports",
+      "endurancepro",
+      "sports"
+    ],
+    "rating": 4.1,
+    "reviewCount": 257
+  },
+  {
+    "productId": "PROD_0091",
+    "name": "ActiveLife Swimming Goggles",
+    "description": "Anti-fog with UV protection. Premium quality from ActiveLife.",
+    "category": "Sports",
+    "brand": "ActiveLife",
+    "price": 39.99,
+    "inventory": 141,
+    "imageUrl": "https://picsum.photos/400/300?random=91",
+    "tags": [
+      "swimming",
+      "goggles",
+      "water",
+      "activelife",
+      "sports"
+    ],
+    "rating": 4.6,
+    "reviewCount": 359
+  },
+  {
+    "productId": "PROD_0092",
+    "name": "ActiveLife Swimming Goggles Pro",
+    "description": "Anti-fog with UV protection. Premium quality from ActiveLife.",
+    "category": "Sports",
+    "brand": "ActiveLife",
+    "price": 47.99,
+    "inventory": 173,
+    "imageUrl": "https://picsum.photos/400/300?random=92",
+    "tags": [
+      "swimming",
+      "goggles",
+      "water",
+      "activelife",
+      "sports"
+    ],
+    "rating": 3.9,
+    "reviewCount": 470
+  },
+  {
+    "productId": "PROD_0093",
+    "name": "PowerGear Swimming Goggles Premium",
+    "description": "Anti-fog with UV protection. Premium quality from PowerGear.",
+    "category": "Sports",
+    "brand": "PowerGear",
+    "price": 59.98,
+    "inventory": 84,
+    "imageUrl": "https://picsum.photos/400/300?random=93",
+    "tags": [
+      "swimming",
+      "goggles",
+      "water",
+      "powergear",
+      "sports"
+    ],
+    "rating": 4.1,
+    "reviewCount": 496
+  },
+  {
+    "productId": "PROD_0094",
+    "name": "SportMax Fitness Tracker Band",
+    "description": "Heart rate, steps, sleep monitoring. Premium quality from SportMax.",
+    "category": "Sports",
+    "brand": "SportMax",
+    "price": 149.99,
+    "inventory": 22,
+    "imageUrl": "https://picsum.photos/400/300?random=94",
+    "tags": [
+      "fitness",
+      "tracker",
+      "wearable",
+      "sportmax",
+      "sports"
+    ],
+    "rating": 4.7,
+    "reviewCount": 451
+  },
+  {
+    "productId": "PROD_0095",
+    "name": "EndurancePro Fitness Tracker Band Pro",
+    "description": "Heart rate, steps, sleep monitoring. Premium quality from EndurancePro.",
+    "category": "Sports",
+    "brand": "EndurancePro",
+    "price": 179.99,
+    "inventory": 89,
+    "imageUrl": "https://picsum.photos/400/300?random=95",
+    "tags": [
+      "fitness",
+      "tracker",
+      "wearable",
+      "endurancepro",
+      "sports"
+    ],
+    "rating": 4.1,
+    "reviewCount": 58
+  },
+  {
+    "productId": "PROD_0096",
+    "name": "ActiveLife Golf Club Set",
+    "description": "Complete 14-piece titanium set. Premium quality from ActiveLife.",
+    "category": "Sports",
+    "brand": "ActiveLife",
+    "price": 1899.99,
+    "inventory": 7,
+    "imageUrl": "https://picsum.photos/400/300?random=96",
+    "tags": [
+      "golf",
+      "clubs",
+      "outdoor",
+      "activelife",
+      "sports"
+    ],
+    "rating": 4.9,
+    "reviewCount": 28
+  },
+  {
+    "productId": "PROD_0097",
+    "name": "PowerGear Golf Club Set Pro",
+    "description": "Complete 14-piece titanium set. Premium quality from PowerGear.",
+    "category": "Sports",
+    "brand": "PowerGear",
+    "price": 2279.99,
+    "inventory": 13,
+    "imageUrl": "https://picsum.photos/400/300?random=97",
+    "tags": [
+      "golf",
+      "clubs",
+      "outdoor",
+      "powergear",
+      "sports"
+    ],
+    "rating": 4.2,
+    "reviewCount": 270
+  },
+  {
+    "productId": "PROD_0098",
+    "name": "EndurancePro Basketball Hoop",
+    "description": "Adjustable height with weatherproof backboard. Premium quality from EndurancePro.",
+    "category": "Sports",
+    "brand": "EndurancePro",
+    "price": 499.99,
+    "inventory": 14,
+    "imageUrl": "https://picsum.photos/400/300?random=98",
+    "tags": [
+      "basketball",
+      "outdoor",
+      "sports",
+      "endurancepro",
+      "sports"
+    ],
+    "rating": 3.6,
+    "reviewCount": 429
+  },
+  {
+    "productId": "PROD_0099",
+    "name": "FitPro Basketball Hoop Pro",
+    "description": "Adjustable height with weatherproof backboard. Premium quality from FitPro.",
+    "category": "Sports",
+    "brand": "FitPro",
+    "price": 599.99,
+    "inventory": 8,
+    "imageUrl": "https://picsum.photos/400/300?random=99",
+    "tags": [
+      "basketball",
+      "outdoor",
+      "sports",
+      "fitpro",
+      "sports"
+    ],
+    "rating": 4.0,
+    "reviewCount": 36
+  },
+  {
+    "productId": "PROD_0100",
+    "name": "EndurancePro Camping Tent",
+    "description": "4-person waterproof with easy setup. Premium quality from EndurancePro.",
+    "category": "Sports",
+    "brand": "EndurancePro",
+    "price": 349.99,
+    "inventory": 26,
+    "imageUrl": "https://picsum.photos/400/300?random=100",
+    "tags": [
+      "camping",
+      "outdoor",
+      "tent",
+      "endurancepro",
+      "sports"
+    ],
+    "rating": 4.3,
+    "reviewCount": 74
+  },
+  {
+    "productId": "PROD_0101",
+    "name": "PowerGear Camping Tent Pro",
+    "description": "4-person waterproof with easy setup. Premium quality from PowerGear.",
+    "category": "Sports",
+    "brand": "PowerGear",
+    "price": 419.99,
+    "inventory": 29,
+    "imageUrl": "https://picsum.photos/400/300?random=101",
+    "tags": [
+      "camping",
+      "outdoor",
+      "tent",
+      "powergear",
+      "sports"
+    ],
+    "rating": 3.5,
+    "reviewCount": 125
+  },
+  {
+    "productId": "PROD_0102",
+    "name": "ActiveLife Protein Shaker Set",
+    "description": "3-pack with storage compartments. Premium quality from ActiveLife.",
+    "category": "Sports",
+    "brand": "ActiveLife",
+    "price": 29.99,
+    "inventory": 153,
+    "imageUrl": "https://picsum.photos/400/300?random=102",
+    "tags": [
+      "fitness",
+      "nutrition",
+      "accessories",
+      "activelife",
+      "sports"
+    ],
+    "rating": 4.5,
+    "reviewCount": 63
+  },
+  {
+    "productId": "PROD_0103",
+    "name": "FitPro Protein Shaker Set Pro",
+    "description": "3-pack with storage compartments. Premium quality from FitPro.",
+    "category": "Sports",
+    "brand": "FitPro",
+    "price": 35.99,
+    "inventory": 83,
+    "imageUrl": "https://picsum.photos/400/300?random=103",
+    "tags": [
+      "fitness",
+      "nutrition",
+      "accessories",
+      "fitpro",
+      "sports"
+    ],
+    "rating": 4.0,
+    "reviewCount": 444
+  },
+  {
+    "productId": "PROD_0104",
+    "name": "ReadMore The Innovation Paradox",
+    "description": "Bestselling business strategy guide. Premium quality from ReadMore.",
+    "category": "Books",
+    "brand": "ReadMore",
+    "price": 29.99,
+    "inventory": 184,
+    "imageUrl": "https://picsum.photos/400/300?random=104",
+    "tags": [
+      "business",
+      "bestseller",
+      "strategy",
+      "readmore",
+      "books"
+    ],
+    "rating": 4.4,
+    "reviewCount": 349
+  },
+  {
+    "productId": "PROD_0105",
+    "name": "PageTurner The Innovation Paradox Pro",
+    "description": "Bestselling business strategy guide. Premium quality from PageTurner.",
+    "category": "Books",
+    "brand": "PageTurner",
+    "price": 35.99,
+    "inventory": 79,
+    "imageUrl": "https://picsum.photos/400/300?random=105",
+    "tags": [
+      "business",
+      "bestseller",
+      "strategy",
+      "pageturner",
+      "books"
+    ],
+    "rating": 4.7,
+    "reviewCount": 298
+  },
+  {
+    "productId": "PROD_0106",
+    "name": "LiteraryGems The Innovation Paradox Premium",
+    "description": "Bestselling business strategy guide. Premium quality from LiteraryGems.",
+    "category": "Books",
+    "brand": "LiteraryGems",
+    "price": 44.98,
+    "inventory": 193,
+    "imageUrl": "https://picsum.photos/400/300?random=106",
+    "tags": [
+      "business",
+      "bestseller",
+      "strategy",
+      "literarygems",
+      "books"
+    ],
+    "rating": 4.4,
+    "reviewCount": 178
+  },
+  {
+    "productId": "PROD_0107",
+    "name": "LiteraryGems Gourmet Cooking Masterclass",
+    "description": "500 recipes from world chefs. Premium quality from LiteraryGems.",
+    "category": "Books",
+    "brand": "LiteraryGems",
+    "price": 49.99,
+    "inventory": 149,
+    "imageUrl": "https://picsum.photos/400/300?random=107",
+    "tags": [
+      "cookbook",
+      "cooking",
+      "recipes",
+      "literarygems",
+      "books"
+    ],
+    "rating": 3.9,
+    "reviewCount": 191
+  },
+  {
+    "productId": "PROD_0108",
+    "name": "PageTurner Gourmet Cooking Masterclass Pro",
+    "description": "500 recipes from world chefs. Premium quality from PageTurner.",
+    "category": "Books",
+    "brand": "PageTurner",
+    "price": 59.99,
+    "inventory": 54,
+    "imageUrl": "https://picsum.photos/400/300?random=108",
+    "tags": [
+      "cookbook",
+      "cooking",
+      "recipes",
+      "pageturner",
+      "books"
+    ],
+    "rating": 5.0,
+    "reviewCount": 217
+  },
+  {
+    "productId": "PROD_0109",
+    "name": "KnowledgePress Europe Travel Guide 2024",
+    "description": "Complete guide to 30 countries. Premium quality from KnowledgePress.",
+    "category": "Books",
+    "brand": "KnowledgePress",
+    "price": 39.99,
+    "inventory": 160,
+    "imageUrl": "https://picsum.photos/400/300?random=109",
+    "tags": [
+      "travel",
+      "guide",
+      "europe",
+      "knowledgepress",
+      "books"
+    ],
+    "rating": 4.2,
+    "reviewCount": 483
+  },
+  {
+    "productId": "PROD_0110",
+    "name": "KnowledgePress Europe Travel Guide 2024 Pro",
+    "description": "Complete guide to 30 countries. Premium quality from KnowledgePress.",
+    "category": "Books",
+    "brand": "KnowledgePress",
+    "price": 47.99,
+    "inventory": 181,
+    "imageUrl": "https://picsum.photos/400/300?random=110",
+    "tags": [
+      "travel",
+      "guide",
+      "europe",
+      "knowledgepress",
+      "books"
+    ],
+    "rating": 3.9,
+    "reviewCount": 157
+  },
+  {
+    "productId": "PROD_0111",
+    "name": "LiteraryGems Quantum Reality",
+    "description": "Science fiction epic trilogy. Premium quality from LiteraryGems.",
+    "category": "Books",
+    "brand": "LiteraryGems",
+    "price": 34.99,
+    "inventory": 140,
+    "imageUrl": "https://picsum.photos/400/300?random=111",
+    "tags": [
+      "fiction",
+      "sci-fi",
+      "trilogy",
+      "literarygems",
+      "books"
+    ],
+    "rating": 4.3,
+    "reviewCount": 361
+  },
+  {
+    "productId": "PROD_0112",
+    "name": "BookWorm Quantum Reality Pro",
+    "description": "Science fiction epic trilogy. Premium quality from BookWorm.",
+    "category": "Books",
+    "brand": "BookWorm",
+    "price": 41.99,
+    "inventory": 169,
+    "imageUrl": "https://picsum.photos/400/300?random=112",
+    "tags": [
+      "fiction",
+      "sci-fi",
+      "trilogy",
+      "bookworm",
+      "books"
+    ],
+    "rating": 4.8,
+    "reviewCount": 362
+  },
+  {
+    "productId": "PROD_0113",
+    "name": "LiteraryGems Steve Jobs Biography",
+    "description": "Authorized biography by Walter Isaacson. Premium quality from LiteraryGems.",
+    "category": "Books",
+    "brand": "LiteraryGems",
+    "price": 24.99,
+    "inventory": 76,
+    "imageUrl": "https://picsum.photos/400/300?random=113",
+    "tags": [
+      "biography",
+      "tech",
+      "history",
+      "literarygems",
+      "books"
+    ],
+    "rating": 4.7,
+    "reviewCount": 242
+  },
+  {
+    "productId": "PROD_0114",
+    "name": "PageTurner Steve Jobs Biography Pro",
+    "description": "Authorized biography by Walter Isaacson. Premium quality from PageTurner.",
+    "category": "Books",
+    "brand": "PageTurner",
+    "price": 29.99,
+    "inventory": 76,
+    "imageUrl": "https://picsum.photos/400/300?random=114",
+    "tags": [
+      "biography",
+      "tech",
+      "history",
+      "pageturner",
+      "books"
+    ],
+    "rating": 3.7,
+    "reviewCount": 296
+  },
+  {
+    "productId": "PROD_0115",
+    "name": "KnowledgePress Steve Jobs Biography Premium",
+    "description": "Authorized biography by Walter Isaacson. Premium quality from KnowledgePress.",
+    "category": "Books",
+    "brand": "KnowledgePress",
+    "price": 37.48,
+    "inventory": 169,
+    "imageUrl": "https://picsum.photos/400/300?random=115",
+    "tags": [
+      "biography",
+      "tech",
+      "history",
+      "knowledgepress",
+      "books"
+    ],
+    "rating": 3.8,
+    "reviewCount": 142
+  },
+  {
+    "productId": "PROD_0116",
+    "name": "KnowledgePress Python Programming",
+    "description": "Complete guide from beginner to pro. Premium quality from KnowledgePress.",
+    "category": "Books",
+    "brand": "KnowledgePress",
+    "price": 54.99,
+    "inventory": 33,
+    "imageUrl": "https://picsum.photos/400/300?random=116",
+    "tags": [
+      "programming",
+      "tech",
+      "education",
+      "knowledgepress",
+      "books"
+    ],
+    "rating": 3.6,
+    "reviewCount": 457
+  },
+  {
+    "productId": "PROD_0117",
+    "name": "PageTurner Python Programming Pro",
+    "description": "Complete guide from beginner to pro. Premium quality from PageTurner.",
+    "category": "Books",
+    "brand": "PageTurner",
+    "price": 65.99,
+    "inventory": 37,
+    "imageUrl": "https://picsum.photos/400/300?random=117",
+    "tags": [
+      "programming",
+      "tech",
+      "education",
+      "pageturner",
+      "books"
+    ],
+    "rating": 4.8,
+    "reviewCount": 475
+  },
+  {
+    "productId": "PROD_0118",
+    "name": "KnowledgePress Mindfulness Meditation",
+    "description": "Daily practices for peace. Premium quality from KnowledgePress.",
+    "category": "Books",
+    "brand": "KnowledgePress",
+    "price": 19.99,
+    "inventory": 136,
+    "imageUrl": "https://picsum.photos/400/300?random=118",
+    "tags": [
+      "self-help",
+      "meditation",
+      "wellness",
+      "knowledgepress",
+      "books"
+    ],
+    "rating": 3.9,
+    "reviewCount": 460
+  },
+  {
+    "productId": "PROD_0119",
+    "name": "PageTurner Mindfulness Meditation Pro",
+    "description": "Daily practices for peace. Premium quality from PageTurner.",
+    "category": "Books",
+    "brand": "PageTurner",
+    "price": 23.99,
+    "inventory": 146,
+    "imageUrl": "https://picsum.photos/400/300?random=119",
+    "tags": [
+      "self-help",
+      "meditation",
+      "wellness",
+      "pageturner",
+      "books"
+    ],
+    "rating": 4.3,
+    "reviewCount": 313
+  },
+  {
+    "productId": "PROD_0120",
+    "name": "PageTurner World History Atlas",
+    "description": "Illustrated journey through time. Premium quality from PageTurner.",
+    "category": "Books",
+    "brand": "PageTurner",
+    "price": 79.99,
+    "inventory": 45,
+    "imageUrl": "https://picsum.photos/400/300?random=120",
+    "tags": [
+      "history",
+      "atlas",
+      "reference",
+      "pageturner",
+      "books"
+    ],
+    "rating": 4.8,
+    "reviewCount": 163
+  },
+  {
+    "productId": "PROD_0121",
+    "name": "BookWorm World History Atlas Pro",
+    "description": "Illustrated journey through time. Premium quality from BookWorm.",
+    "category": "Books",
+    "brand": "BookWorm",
+    "price": 95.99,
+    "inventory": 24,
+    "imageUrl": "https://picsum.photos/400/300?random=121",
+    "tags": [
+      "history",
+      "atlas",
+      "reference",
+      "bookworm",
+      "books"
+    ],
+    "rating": 3.5,
+    "reviewCount": 171
+  },
+  {
+    "productId": "PROD_0122",
+    "name": "BookWorm World History Atlas Premium",
+    "description": "Illustrated journey through time. Premium quality from BookWorm.",
+    "category": "Books",
+    "brand": "BookWorm",
+    "price": 119.98,
+    "inventory": 86,
+    "imageUrl": "https://picsum.photos/400/300?random=122",
+    "tags": [
+      "history",
+      "atlas",
+      "reference",
+      "bookworm",
+      "books"
+    ],
+    "rating": 3.7,
+    "reviewCount": 237
+  },
+  {
+    "productId": "PROD_0123",
+    "name": "BookWorm Garden Design Bible",
+    "description": "Transform your outdoor space. Premium quality from BookWorm.",
+    "category": "Books",
+    "brand": "BookWorm",
+    "price": 44.99,
+    "inventory": 179,
+    "imageUrl": "https://picsum.photos/400/300?random=123",
+    "tags": [
+      "gardening",
+      "design",
+      "how-to",
+      "bookworm",
+      "books"
+    ],
+    "rating": 4.1,
+    "reviewCount": 13
+  },
+  {
+    "productId": "PROD_0124",
+    "name": "PageTurner Garden Design Bible Pro",
+    "description": "Transform your outdoor space. Premium quality from PageTurner.",
+    "category": "Books",
+    "brand": "PageTurner",
+    "price": 53.99,
+    "inventory": 88,
+    "imageUrl": "https://picsum.photos/400/300?random=124",
+    "tags": [
+      "gardening",
+      "design",
+      "how-to",
+      "pageturner",
+      "books"
+    ],
+    "rating": 3.7,
+    "reviewCount": 427
+  },
+  {
+    "productId": "PROD_0125",
+    "name": "KnowledgePress Children's Story Collection",
+    "description": "50 classic tales illustrated. Premium quality from KnowledgePress.",
+    "category": "Books",
+    "brand": "KnowledgePress",
+    "price": 29.99,
+    "inventory": 141,
+    "imageUrl": "https://picsum.photos/400/300?random=125",
+    "tags": [
+      "children",
+      "stories",
+      "illustrated",
+      "knowledgepress",
+      "books"
+    ],
+    "rating": 4.5,
+    "reviewCount": 317
+  },
+  {
+    "productId": "PROD_0126",
+    "name": "BookWorm Children's Story Collection Pro",
+    "description": "50 classic tales illustrated. Premium quality from BookWorm.",
+    "category": "Books",
+    "brand": "BookWorm",
+    "price": 35.99,
+    "inventory": 62,
+    "imageUrl": "https://picsum.photos/400/300?random=126",
+    "tags": [
+      "children",
+      "stories",
+      "illustrated",
+      "bookworm",
+      "books"
+    ],
+    "rating": 4.4,
+    "reviewCount": 333
+  },
+  {
+    "productId": "PROD_0127",
+    "name": "PageTurner Children's Story Collection Premium",
+    "description": "50 classic tales illustrated. Premium quality from PageTurner.",
+    "category": "Books",
+    "brand": "PageTurner",
+    "price": 44.98,
+    "inventory": 139,
+    "imageUrl": "https://picsum.photos/400/300?random=127",
+    "tags": [
+      "children",
+      "stories",
+      "illustrated",
+      "pageturner",
+      "books"
+    ],
+    "rating": 3.7,
+    "reviewCount": 202
+  },
+  {
+    "productId": "PROD_0128",
+    "name": "KidsJoy LEGO Architecture Set",
+    "description": "Build famous landmarks. Premium quality from KidsJoy.",
+    "category": "Toys",
+    "brand": "KidsJoy",
+    "price": 149.99,
+    "inventory": 74,
+    "imageUrl": "https://picsum.photos/400/300?random=128",
+    "tags": [
+      "lego",
+      "building",
+      "educational",
+      "kidsjoy",
+      "toys"
+    ],
+    "rating": 4.7,
+    "reviewCount": 473
+  },
+  {
+    "productId": "PROD_0129",
+    "name": "ToyLand LEGO Architecture Set Pro",
+    "description": "Build famous landmarks. Premium quality from ToyLand.",
+    "category": "Toys",
+    "brand": "ToyLand",
+    "price": 179.99,
+    "inventory": 75,
+    "imageUrl": "https://picsum.photos/400/300?random=129",
+    "tags": [
+      "lego",
+      "building",
+      "educational",
+      "toyland",
+      "toys"
+    ],
+    "rating": 4.6,
+    "reviewCount": 361
+  },
+  {
+    "productId": "PROD_0130",
+    "name": "ToyLand Remote Control Drone",
+    "description": "4K camera with GPS return. Premium quality from ToyLand.",
+    "category": "Toys",
+    "brand": "ToyLand",
+    "price": 299.99,
+    "inventory": 17,
+    "imageUrl": "https://picsum.photos/400/300?random=130",
+    "tags": [
+      "drone",
+      "rc",
+      "flying",
+      "toyland",
+      "toys"
+    ],
+    "rating": 4.0,
+    "reviewCount": 454
+  },
+  {
+    "productId": "PROD_0131",
+    "name": "CreativeMinds Remote Control Drone Pro",
+    "description": "4K camera with GPS return. Premium quality from CreativeMinds.",
+    "category": "Toys",
+    "brand": "CreativeMinds",
+    "price": 359.99,
+    "inventory": 37,
+    "imageUrl": "https://picsum.photos/400/300?random=131",
+    "tags": [
+      "drone",
+      "rc",
+      "flying",
+      "creativeminds",
+      "toys"
+    ],
+    "rating": 3.9,
+    "reviewCount": 162
+  },
+  {
+    "productId": "PROD_0132",
+    "name": "KidsJoy Board Game Collection",
+    "description": "5 classic strategy games. Premium quality from KidsJoy.",
+    "category": "Toys",
+    "brand": "KidsJoy",
+    "price": 89.99,
+    "inventory": 88,
+    "imageUrl": "https://picsum.photos/400/300?random=132",
+    "tags": [
+      "games",
+      "board",
+      "family",
+      "kidsjoy",
+      "toys"
+    ],
+    "rating": 3.7,
+    "reviewCount": 386
+  },
+  {
+    "productId": "PROD_0133",
+    "name": "KidsJoy Board Game Collection Pro",
+    "description": "5 classic strategy games. Premium quality from KidsJoy.",
+    "category": "Toys",
+    "brand": "KidsJoy",
+    "price": 107.99,
+    "inventory": 85,
+    "imageUrl": "https://picsum.photos/400/300?random=133",
+    "tags": [
+      "games",
+      "board",
+      "family",
+      "kidsjoy",
+      "toys"
+    ],
+    "rating": 4.0,
+    "reviewCount": 251
+  },
+  {
+    "productId": "PROD_0134",
+    "name": "KidsJoy Board Game Collection Premium",
+    "description": "5 classic strategy games. Premium quality from KidsJoy.",
+    "category": "Toys",
+    "brand": "KidsJoy",
+    "price": 134.98,
+    "inventory": 33,
+    "imageUrl": "https://picsum.photos/400/300?random=134",
+    "tags": [
+      "games",
+      "board",
+      "family",
+      "kidsjoy",
+      "toys"
+    ],
+    "rating": 4.7,
+    "reviewCount": 341
+  },
+  {
+    "productId": "PROD_0135",
+    "name": "KidsJoy Science Experiment Kit",
+    "description": "50+ safe experiments for kids. Premium quality from KidsJoy.",
+    "category": "Toys",
+    "brand": "KidsJoy",
+    "price": 69.99,
+    "inventory": 27,
+    "imageUrl": "https://picsum.photos/400/300?random=135",
+    "tags": [
+      "science",
+      "educational",
+      "stem",
+      "kidsjoy",
+      "toys"
+    ],
+    "rating": 4.9,
+    "reviewCount": 167
+  },
+  {
+    "productId": "PROD_0136",
+    "name": "ToyLand Science Experiment Kit Pro",
+    "description": "50+ safe experiments for kids. Premium quality from ToyLand.",
+    "category": "Toys",
+    "brand": "ToyLand",
+    "price": 83.99,
+    "inventory": 62,
+    "imageUrl": "https://picsum.photos/400/300?random=136",
+    "tags": [
+      "science",
+      "educational",
+      "stem",
+      "toyland",
+      "toys"
+    ],
+    "rating": 4.4,
+    "reviewCount": 488
+  },
+  {
+    "productId": "PROD_0137",
+    "name": "ToyLand Plush Animal Set",
+    "description": "Soft cuddly zoo animals (6-pack). Premium quality from ToyLand.",
+    "category": "Toys",
+    "brand": "ToyLand",
+    "price": 49.99,
+    "inventory": 64,
+    "imageUrl": "https://picsum.photos/400/300?random=137",
+    "tags": [
+      "plush",
+      "soft",
+      "animals",
+      "toyland",
+      "toys"
+    ],
+    "rating": 4.5,
+    "reviewCount": 36
+  },
+  {
+    "productId": "PROD_0138",
+    "name": "KidsJoy Plush Animal Set Pro",
+    "description": "Soft cuddly zoo animals (6-pack). Premium quality from KidsJoy.",
+    "category": "Toys",
+    "brand": "KidsJoy",
+    "price": 59.99,
+    "inventory": 81,
+    "imageUrl": "https://picsum.photos/400/300?random=138",
+    "tags": [
+      "plush",
+      "soft",
+      "animals",
+      "kidsjoy",
+      "toys"
+    ],
+    "rating": 4.4,
+    "reviewCount": 62
+  },
+  {
+    "productId": "PROD_0139",
+    "name": "PlayTime Art Supply Mega Kit",
+    "description": "Complete drawing and painting set. Premium quality from PlayTime.",
+    "category": "Toys",
+    "brand": "PlayTime",
+    "price": 79.99,
+    "inventory": 58,
+    "imageUrl": "https://picsum.photos/400/300?random=139",
+    "tags": [
+      "art",
+      "creative",
+      "supplies",
+      "playtime",
+      "toys"
+    ],
+    "rating": 4.0,
+    "reviewCount": 84
+  },
+  {
+    "productId": "PROD_0140",
+    "name": "KidsJoy Art Supply Mega Kit Pro",
+    "description": "Complete drawing and painting set. Premium quality from KidsJoy.",
+    "category": "Toys",
+    "brand": "KidsJoy",
+    "price": 95.99,
+    "inventory": 73,
+    "imageUrl": "https://picsum.photos/400/300?random=140",
+    "tags": [
+      "art",
+      "creative",
+      "supplies",
+      "kidsjoy",
+      "toys"
+    ],
+    "rating": 4.8,
+    "reviewCount": 189
+  },
+  {
+    "productId": "PROD_0141",
+    "name": "KidsJoy Wooden Train Set",
+    "description": "100-piece track with bridges. Premium quality from KidsJoy.",
+    "category": "Toys",
+    "brand": "KidsJoy",
+    "price": 129.99,
+    "inventory": 90,
+    "imageUrl": "https://picsum.photos/400/300?random=141",
+    "tags": [
+      "train",
+      "wooden",
+      "classic",
+      "kidsjoy",
+      "toys"
+    ],
+    "rating": 4.3,
+    "reviewCount": 69
+  },
+  {
+    "productId": "PROD_0142",
+    "name": "PlayTime Wooden Train Set Pro",
+    "description": "100-piece track with bridges. Premium quality from PlayTime.",
+    "category": "Toys",
+    "brand": "PlayTime",
+    "price": 155.99,
+    "inventory": 56,
+    "imageUrl": "https://picsum.photos/400/300?random=142",
+    "tags": [
+      "train",
+      "wooden",
+      "classic",
+      "playtime",
+      "toys"
+    ],
+    "rating": 5.0,
+    "reviewCount": 125
+  },
+  {
+    "productId": "PROD_0143",
+    "name": "CreativeMinds Robot Building Kit",
+    "description": "Programmable with app control. Premium quality from CreativeMinds.",
+    "category": "Toys",
+    "brand": "CreativeMinds",
+    "price": 199.99,
+    "inventory": 54,
+    "imageUrl": "https://picsum.photos/400/300?random=143",
+    "tags": [
+      "robot",
+      "stem",
+      "programming",
+      "creativeminds",
+      "toys"
+    ],
+    "rating": 4.7,
+    "reviewCount": 483
+  },
+  {
+    "productId": "PROD_0144",
+    "name": "ToyLand Robot Building Kit Pro",
+    "description": "Programmable with app control. Premium quality from ToyLand.",
+    "category": "Toys",
+    "brand": "ToyLand",
+    "price": 239.99,
+    "inventory": 31,
+    "imageUrl": "https://picsum.photos/400/300?random=144",
+    "tags": [
+      "robot",
+      "stem",
+      "programming",
+      "toyland",
+      "toys"
+    ],
+    "rating": 3.8,
+    "reviewCount": 227
+  },
+  {
+    "productId": "PROD_0145",
+    "name": "KidsJoy Dollhouse Mansion",
+    "description": "3-story with furniture included. Premium quality from KidsJoy.",
+    "category": "Toys",
+    "brand": "KidsJoy",
+    "price": 249.99,
+    "inventory": 27,
+    "imageUrl": "https://picsum.photos/400/300?random=145",
+    "tags": [
+      "dollhouse",
+      "pretend",
+      "furniture",
+      "kidsjoy",
+      "toys"
+    ],
+    "rating": 4.9,
+    "reviewCount": 500
+  },
+  {
+    "productId": "PROD_0146",
+    "name": "PlayTime Dollhouse Mansion Pro",
+    "description": "3-story with furniture included. Premium quality from PlayTime.",
+    "category": "Toys",
+    "brand": "PlayTime",
+    "price": 299.99,
+    "inventory": 12,
+    "imageUrl": "https://picsum.photos/400/300?random=146",
+    "tags": [
+      "dollhouse",
+      "pretend",
+      "furniture",
+      "playtime",
+      "toys"
+    ],
+    "rating": 4.1,
+    "reviewCount": 202
+  },
+  {
+    "productId": "PROD_0147",
+    "name": "KidsJoy Dollhouse Mansion Premium",
+    "description": "3-story with furniture included. Premium quality from KidsJoy.",
+    "category": "Toys",
+    "brand": "KidsJoy",
+    "price": 374.99,
+    "inventory": 29,
+    "imageUrl": "https://picsum.photos/400/300?random=147",
+    "tags": [
+      "dollhouse",
+      "pretend",
+      "furniture",
+      "kidsjoy",
+      "toys"
+    ],
+    "rating": 4.3,
+    "reviewCount": 366
+  },
+  {
+    "productId": "PROD_0148",
+    "name": "PlayTime Musical Instrument Set",
+    "description": "Child-safe percussion instruments. Premium quality from PlayTime.",
+    "category": "Toys",
+    "brand": "PlayTime",
+    "price": 59.99,
+    "inventory": 31,
+    "imageUrl": "https://picsum.photos/400/300?random=148",
+    "tags": [
+      "music",
+      "instruments",
+      "educational",
+      "playtime",
+      "toys"
+    ],
+    "rating": 4.5,
+    "reviewCount": 406
+  },
+  {
+    "productId": "PROD_0149",
+    "name": "FunFactory Musical Instrument Set Pro",
+    "description": "Child-safe percussion instruments. Premium quality from FunFactory.",
+    "category": "Toys",
+    "brand": "FunFactory",
+    "price": 71.99,
+    "inventory": 75,
+    "imageUrl": "https://picsum.photos/400/300?random=149",
+    "tags": [
+      "music",
+      "instruments",
+      "educational",
+      "funfactory",
+      "toys"
+    ],
+    "rating": 4.7,
+    "reviewCount": 233
+  },
+  {
+    "productId": "PROD_0150",
+    "name": "ToyLand Musical Instrument Set Premium",
+    "description": "Child-safe percussion instruments. Premium quality from ToyLand.",
+    "category": "Toys",
+    "brand": "ToyLand",
+    "price": 89.98,
+    "inventory": 97,
+    "imageUrl": "https://picsum.photos/400/300?random=150",
+    "tags": [
+      "music",
+      "instruments",
+      "educational",
+      "toyland",
+      "toys"
+    ],
+    "rating": 3.5,
+    "reviewCount": 182
+  },
+  {
+    "productId": "PROD_0151",
+    "name": "BeautyPlus Anti-Aging Serum",
+    "description": "Retinol and vitamin C formula. Premium quality from BeautyPlus.",
+    "category": "Beauty",
+    "brand": "BeautyPlus",
+    "price": 89.99,
+    "inventory": 99,
+    "imageUrl": "https://picsum.photos/400/300?random=151",
+    "tags": [
+      "skincare",
+      "anti-aging",
+      "serum",
+      "beautyplus",
+      "beauty"
+    ],
+    "rating": 4.5,
+    "reviewCount": 486
+  },
+  {
+    "productId": "PROD_0152",
+    "name": "GlowUp Anti-Aging Serum Pro",
+    "description": "Retinol and vitamin C formula. Premium quality from GlowUp.",
+    "category": "Beauty",
+    "brand": "GlowUp",
+    "price": 107.99,
+    "inventory": 44,
+    "imageUrl": "https://picsum.photos/400/300?random=152",
+    "tags": [
+      "skincare",
+      "anti-aging",
+      "serum",
+      "glowup",
+      "beauty"
+    ],
+    "rating": 4.8,
+    "reviewCount": 87
+  },
+  {
+    "productId": "PROD_0153",
+    "name": "BeautyPlus Professional Hair Dryer",
+    "description": "Ionic technology with diffuser. Premium quality from BeautyPlus.",
+    "category": "Beauty",
+    "brand": "BeautyPlus",
+    "price": 199.99,
+    "inventory": 65,
+    "imageUrl": "https://picsum.photos/400/300?random=153",
+    "tags": [
+      "hair",
+      "styling",
+      "professional",
+      "beautyplus",
+      "beauty"
+    ],
+    "rating": 3.9,
+    "reviewCount": 276
+  },
+  {
+    "productId": "PROD_0154",
+    "name": "PureRadiance Professional Hair Dryer Pro",
+    "description": "Ionic technology with diffuser. Premium quality from PureRadiance.",
+    "category": "Beauty",
+    "brand": "PureRadiance",
+    "price": 239.99,
+    "inventory": 38,
+    "imageUrl": "https://picsum.photos/400/300?random=154",
+    "tags": [
+      "hair",
+      "styling",
+      "professional",
+      "pureradiance",
+      "beauty"
+    ],
+    "rating": 4.4,
+    "reviewCount": 439
+  },
+  {
+    "productId": "PROD_0155",
+    "name": "BeautyPlus Makeup Brush Set",
+    "description": "24-piece professional collection. Premium quality from BeautyPlus.",
+    "category": "Beauty",
+    "brand": "BeautyPlus",
+    "price": 129.99,
+    "inventory": 96,
+    "imageUrl": "https://picsum.photos/400/300?random=155",
+    "tags": [
+      "makeup",
+      "brushes",
+      "professional",
+      "beautyplus",
+      "beauty"
+    ],
+    "rating": 4.1,
+    "reviewCount": 375
+  },
+  {
+    "productId": "PROD_0156",
+    "name": "GlowUp Makeup Brush Set Pro",
+    "description": "24-piece professional collection. Premium quality from GlowUp.",
+    "category": "Beauty",
+    "brand": "GlowUp",
+    "price": 155.99,
+    "inventory": 54,
+    "imageUrl": "https://picsum.photos/400/300?random=156",
+    "tags": [
+      "makeup",
+      "brushes",
+      "professional",
+      "glowup",
+      "beauty"
+    ],
+    "rating": 4.6,
+    "reviewCount": 51
+  },
+  {
+    "productId": "PROD_0157",
+    "name": "BeautyPlus Organic Face Mask Set",
+    "description": "5 different treatments. Premium quality from BeautyPlus.",
+    "category": "Beauty",
+    "brand": "BeautyPlus",
+    "price": 49.99,
+    "inventory": 144,
+    "imageUrl": "https://picsum.photos/400/300?random=157",
+    "tags": [
+      "skincare",
+      "organic",
+      "mask",
+      "beautyplus",
+      "beauty"
+    ],
+    "rating": 4.9,
+    "reviewCount": 113
+  },
+  {
+    "productId": "PROD_0158",
+    "name": "BeautyPlus Organic Face Mask Set Pro",
+    "description": "5 different treatments. Premium quality from BeautyPlus.",
+    "category": "Beauty",
+    "brand": "BeautyPlus",
+    "price": 59.99,
+    "inventory": 38,
+    "imageUrl": "https://picsum.photos/400/300?random=158",
+    "tags": [
+      "skincare",
+      "organic",
+      "mask",
+      "beautyplus",
+      "beauty"
+    ],
+    "rating": 4.6,
+    "reviewCount": 120
+  },
+  {
+    "productId": "PROD_0159",
+    "name": "BeautyPlus Perfume Collection",
+    "description": "3 signature scents gift set. Premium quality from BeautyPlus.",
+    "category": "Beauty",
+    "brand": "BeautyPlus",
+    "price": 149.99,
+    "inventory": 75,
+    "imageUrl": "https://picsum.photos/400/300?random=159",
+    "tags": [
+      "perfume",
+      "fragrance",
+      "gift",
+      "beautyplus",
+      "beauty"
+    ],
+    "rating": 4.0,
+    "reviewCount": 400
+  },
+  {
+    "productId": "PROD_0160",
+    "name": "NaturalGlow Perfume Collection Pro",
+    "description": "3 signature scents gift set. Premium quality from NaturalGlow.",
+    "category": "Beauty",
+    "brand": "NaturalGlow",
+    "price": 179.99,
+    "inventory": 28,
+    "imageUrl": "https://picsum.photos/400/300?random=160",
+    "tags": [
+      "perfume",
+      "fragrance",
+      "gift",
+      "naturalglow",
+      "beauty"
+    ],
+    "rating": 3.5,
+    "reviewCount": 29
+  },
+  {
+    "productId": "PROD_0161",
+    "name": "NaturalGlow LED Mirror",
+    "description": "Touch control with magnification. Premium quality from NaturalGlow.",
+    "category": "Beauty",
+    "brand": "NaturalGlow",
+    "price": 179.99,
+    "inventory": 54,
+    "imageUrl": "https://picsum.photos/400/300?random=161",
+    "tags": [
+      "mirror",
+      "led",
+      "vanity",
+      "naturalglow",
+      "beauty"
+    ],
+    "rating": 4.0,
+    "reviewCount": 192
+  },
+  {
+    "productId": "PROD_0162",
+    "name": "PureRadiance LED Mirror Pro",
+    "description": "Touch control with magnification. Premium quality from PureRadiance.",
+    "category": "Beauty",
+    "brand": "PureRadiance",
+    "price": 215.99,
+    "inventory": 38,
+    "imageUrl": "https://picsum.photos/400/300?random=162",
+    "tags": [
+      "mirror",
+      "led",
+      "vanity",
+      "pureradiance",
+      "beauty"
+    ],
+    "rating": 4.6,
+    "reviewCount": 233
+  },
+  {
+    "productId": "PROD_0163",
+    "name": "LuxeBeauty Nail Care Kit",
+    "description": "Professional manicure/pedicure set. Premium quality from LuxeBeauty.",
+    "category": "Beauty",
+    "brand": "LuxeBeauty",
+    "price": 69.99,
+    "inventory": 87,
+    "imageUrl": "https://picsum.photos/400/300?random=163",
+    "tags": [
+      "nails",
+      "manicure",
+      "tools",
+      "luxebeauty",
+      "beauty"
+    ],
+    "rating": 3.8,
+    "reviewCount": 44
+  },
+  {
+    "productId": "PROD_0164",
+    "name": "LuxeBeauty Nail Care Kit Pro",
+    "description": "Professional manicure/pedicure set. Premium quality from LuxeBeauty.",
+    "category": "Beauty",
+    "brand": "LuxeBeauty",
+    "price": 83.99,
+    "inventory": 80,
+    "imageUrl": "https://picsum.photos/400/300?random=164",
+    "tags": [
+      "nails",
+      "manicure",
+      "tools",
+      "luxebeauty",
+      "beauty"
+    ],
+    "rating": 4.0,
+    "reviewCount": 287
+  },
+  {
+    "productId": "PROD_0165",
+    "name": "PureRadiance Nail Care Kit Premium",
+    "description": "Professional manicure/pedicure set. Premium quality from PureRadiance.",
+    "category": "Beauty",
+    "brand": "PureRadiance",
+    "price": 104.98,
+    "inventory": 43,
+    "imageUrl": "https://picsum.photos/400/300?random=165",
+    "tags": [
+      "nails",
+      "manicure",
+      "tools",
+      "pureradiance",
+      "beauty"
+    ],
+    "rating": 3.8,
+    "reviewCount": 116
+  },
+  {
+    "productId": "PROD_0166",
+    "name": "LuxeBeauty Hair Straightener",
+    "description": "Ceramic plates with temperature control. Premium quality from LuxeBeauty.",
+    "category": "Beauty",
+    "brand": "LuxeBeauty",
+    "price": 149.99,
+    "inventory": 32,
+    "imageUrl": "https://picsum.photos/400/300?random=166",
+    "tags": [
+      "hair",
+      "styling",
+      "straightener",
+      "luxebeauty",
+      "beauty"
+    ],
+    "rating": 4.0,
+    "reviewCount": 180
+  },
+  {
+    "productId": "PROD_0167",
+    "name": "PureRadiance Hair Straightener Pro",
+    "description": "Ceramic plates with temperature control. Premium quality from PureRadiance.",
+    "category": "Beauty",
+    "brand": "PureRadiance",
+    "price": 179.99,
+    "inventory": 88,
+    "imageUrl": "https://picsum.photos/400/300?random=167",
+    "tags": [
+      "hair",
+      "styling",
+      "straightener",
+      "pureradiance",
+      "beauty"
+    ],
+    "rating": 3.8,
+    "reviewCount": 116
+  },
+  {
+    "productId": "PROD_0168",
+    "name": "PureRadiance Hair Straightener Premium",
+    "description": "Ceramic plates with temperature control. Premium quality from PureRadiance.",
+    "category": "Beauty",
+    "brand": "PureRadiance",
+    "price": 224.99,
+    "inventory": 26,
+    "imageUrl": "https://picsum.photos/400/300?random=168",
+    "tags": [
+      "hair",
+      "styling",
+      "straightener",
+      "pureradiance",
+      "beauty"
+    ],
+    "rating": 3.6,
+    "reviewCount": 375
+  },
+  {
+    "productId": "PROD_0169",
+    "name": "BeautyPlus Body Care Gift Set",
+    "description": "Lotions, scrubs, and oils. Premium quality from BeautyPlus.",
+    "category": "Beauty",
+    "brand": "BeautyPlus",
+    "price": 99.99,
+    "inventory": 56,
+    "imageUrl": "https://picsum.photos/400/300?random=169",
+    "tags": [
+      "body",
+      "gift",
+      "spa",
+      "beautyplus",
+      "beauty"
+    ],
+    "rating": 5.0,
+    "reviewCount": 363
+  },
+  {
+    "productId": "PROD_0170",
+    "name": "PureRadiance Body Care Gift Set Pro",
+    "description": "Lotions, scrubs, and oils. Premium quality from PureRadiance.",
+    "category": "Beauty",
+    "brand": "PureRadiance",
+    "price": 119.99,
+    "inventory": 71,
+    "imageUrl": "https://picsum.photos/400/300?random=170",
+    "tags": [
+      "body",
+      "gift",
+      "spa",
+      "pureradiance",
+      "beauty"
+    ],
+    "rating": 3.6,
+    "reviewCount": 164
+  },
+  {
+    "productId": "PROD_0171",
+    "name": "BeautyPlus Body Care Gift Set Premium",
+    "description": "Lotions, scrubs, and oils. Premium quality from BeautyPlus.",
+    "category": "Beauty",
+    "brand": "BeautyPlus",
+    "price": 149.98,
+    "inventory": 85,
+    "imageUrl": "https://picsum.photos/400/300?random=171",
+    "tags": [
+      "body",
+      "gift",
+      "spa",
+      "beautyplus",
+      "beauty"
+    ],
+    "rating": 4.1,
+    "reviewCount": 210
+  },
+  {
+    "productId": "PROD_0172",
+    "name": "NaturalGlow Beard Grooming Kit",
+    "description": "Complete care for facial hair. Premium quality from NaturalGlow.",
+    "category": "Beauty",
+    "brand": "NaturalGlow",
+    "price": 79.99,
+    "inventory": 23,
+    "imageUrl": "https://picsum.photos/400/300?random=172",
+    "tags": [
+      "beard",
+      "grooming",
+      "men",
+      "naturalglow",
+      "beauty"
+    ],
+    "rating": 3.6,
+    "reviewCount": 371
+  },
+  {
+    "productId": "PROD_0173",
+    "name": "GlowUp Beard Grooming Kit Pro",
+    "description": "Complete care for facial hair. Premium quality from GlowUp.",
+    "category": "Beauty",
+    "brand": "GlowUp",
+    "price": 95.99,
+    "inventory": 45,
+    "imageUrl": "https://picsum.photos/400/300?random=173",
+    "tags": [
+      "beard",
+      "grooming",
+      "men",
+      "glowup",
+      "beauty"
+    ],
+    "rating": 3.5,
+    "reviewCount": 225
+  },
+  {
+    "productId": "PROD_0174",
+    "name": "LuxeBeauty Beard Grooming Kit Premium",
+    "description": "Complete care for facial hair. Premium quality from LuxeBeauty.",
+    "category": "Beauty",
+    "brand": "LuxeBeauty",
+    "price": 119.98,
+    "inventory": 75,
+    "imageUrl": "https://picsum.photos/400/300?random=174",
+    "tags": [
+      "beard",
+      "grooming",
+      "men",
+      "luxebeauty",
+      "beauty"
+    ],
+    "rating": 4.8,
+    "reviewCount": 116
+  },
+  {
+    "productId": "PROD_0175",
+    "name": "Artisan Foods Organic Coffee Beans",
+    "description": "Single origin Ethiopian (2 lbs). Premium quality from Artisan Foods.",
+    "category": "Food & Grocery",
+    "brand": "Artisan Foods",
+    "price": 34.99,
+    "inventory": 160,
+    "imageUrl": "https://picsum.photos/400/300?random=175",
+    "tags": [
+      "coffee",
+      "organic",
+      "beans",
+      "artisan foods",
+      "food-grocery"
+    ],
+    "rating": 3.7,
+    "reviewCount": 23
+  },
+  {
+    "productId": "PROD_0176",
+    "name": "Artisan Foods Organic Coffee Beans Pro",
+    "description": "Single origin Ethiopian (2 lbs). Premium quality from Artisan Foods.",
+    "category": "Food & Grocery",
+    "brand": "Artisan Foods",
+    "price": 41.99,
+    "inventory": 166,
+    "imageUrl": "https://picsum.photos/400/300?random=176",
+    "tags": [
+      "coffee",
+      "organic",
+      "beans",
+      "artisan foods",
+      "food-grocery"
+    ],
+    "rating": 4.1,
+    "reviewCount": 356
+  },
+  {
+    "productId": "PROD_0177",
+    "name": "TasteMakers Organic Coffee Beans Premium",
+    "description": "Single origin Ethiopian (2 lbs). Premium quality from TasteMakers.",
+    "category": "Food & Grocery",
+    "brand": "TasteMakers",
+    "price": 52.48,
+    "inventory": 52,
+    "imageUrl": "https://picsum.photos/400/300?random=177",
+    "tags": [
+      "coffee",
+      "organic",
+      "beans",
+      "tastemakers",
+      "food-grocery"
+    ],
+    "rating": 5.0,
+    "reviewCount": 15
+  },
+  {
+    "productId": "PROD_0178",
+    "name": "FreshPicks Artisan Chocolate Box",
+    "description": "24 handcrafted truffles. Premium quality from FreshPicks.",
+    "category": "Food & Grocery",
+    "brand": "FreshPicks",
+    "price": 49.99,
+    "inventory": 162,
+    "imageUrl": "https://picsum.photos/400/300?random=178",
+    "tags": [
+      "chocolate",
+      "gift",
+      "artisan",
+      "freshpicks",
+      "food-grocery"
+    ],
+    "rating": 4.4,
+    "reviewCount": 90
+  },
+  {
+    "productId": "PROD_0179",
+    "name": "Artisan Foods Artisan Chocolate Box Pro",
+    "description": "24 handcrafted truffles. Premium quality from Artisan Foods.",
+    "category": "Food & Grocery",
+    "brand": "Artisan Foods",
+    "price": 59.99,
+    "inventory": 64,
+    "imageUrl": "https://picsum.photos/400/300?random=179",
+    "tags": [
+      "chocolate",
+      "gift",
+      "artisan",
+      "artisan foods",
+      "food-grocery"
+    ],
+    "rating": 4.2,
+    "reviewCount": 115
+  },
+  {
+    "productId": "PROD_0180",
+    "name": "FreshPicks Extra Virgin Olive Oil",
+    "description": "Cold-pressed Italian (1 liter). Premium quality from FreshPicks.",
+    "category": "Food & Grocery",
+    "brand": "FreshPicks",
+    "price": 39.99,
+    "inventory": 140,
+    "imageUrl": "https://picsum.photos/400/300?random=180",
+    "tags": [
+      "oil",
+      "cooking",
+      "italian",
+      "freshpicks",
+      "food-grocery"
+    ],
+    "rating": 3.9,
+    "reviewCount": 164
+  },
+  {
+    "productId": "PROD_0181",
+    "name": "TasteMakers Extra Virgin Olive Oil Pro",
+    "description": "Cold-pressed Italian (1 liter). Premium quality from TasteMakers.",
+    "category": "Food & Grocery",
+    "brand": "TasteMakers",
+    "price": 47.99,
+    "inventory": 197,
+    "imageUrl": "https://picsum.photos/400/300?random=181",
+    "tags": [
+      "oil",
+      "cooking",
+      "italian",
+      "tastemakers",
+      "food-grocery"
+    ],
+    "rating": 3.7,
+    "reviewCount": 246
+  },
+  {
+    "productId": "PROD_0182",
+    "name": "GourmetKitchen Spice Collection",
+    "description": "20 premium spices from around the world. Premium quality from GourmetKitchen.",
+    "category": "Food & Grocery",
+    "brand": "GourmetKitchen",
+    "price": 89.99,
+    "inventory": 58,
+    "imageUrl": "https://picsum.photos/400/300?random=182",
+    "tags": [
+      "spices",
+      "cooking",
+      "international",
+      "gourmetkitchen",
+      "food-grocery"
+    ],
+    "rating": 4.1,
+    "reviewCount": 417
+  },
+  {
+    "productId": "PROD_0183",
+    "name": "GourmetKitchen Spice Collection Pro",
+    "description": "20 premium spices from around the world. Premium quality from GourmetKitchen.",
+    "category": "Food & Grocery",
+    "brand": "GourmetKitchen",
+    "price": 107.99,
+    "inventory": 70,
+    "imageUrl": "https://picsum.photos/400/300?random=183",
+    "tags": [
+      "spices",
+      "cooking",
+      "international",
+      "gourmetkitchen",
+      "food-grocery"
+    ],
+    "rating": 4.6,
+    "reviewCount": 238
+  },
+  {
+    "productId": "PROD_0184",
+    "name": "FreshPicks Spice Collection Premium",
+    "description": "20 premium spices from around the world. Premium quality from FreshPicks.",
+    "category": "Food & Grocery",
+    "brand": "FreshPicks",
+    "price": 134.98,
+    "inventory": 51,
+    "imageUrl": "https://picsum.photos/400/300?random=184",
+    "tags": [
+      "spices",
+      "cooking",
+      "international",
+      "freshpicks",
+      "food-grocery"
+    ],
+    "rating": 4.0,
+    "reviewCount": 148
+  },
+  {
+    "productId": "PROD_0185",
+    "name": "Artisan Foods Organic Honey Set",
+    "description": "3 varieties of raw honey. Premium quality from Artisan Foods.",
+    "category": "Food & Grocery",
+    "brand": "Artisan Foods",
+    "price": 44.99,
+    "inventory": 122,
+    "imageUrl": "https://picsum.photos/400/300?random=185",
+    "tags": [
+      "honey",
+      "organic",
+      "natural",
+      "artisan foods",
+      "food-grocery"
+    ],
+    "rating": 3.6,
+    "reviewCount": 499
+  },
+  {
+    "productId": "PROD_0186",
+    "name": "FreshPicks Organic Honey Set Pro",
+    "description": "3 varieties of raw honey. Premium quality from FreshPicks.",
+    "category": "Food & Grocery",
+    "brand": "FreshPicks",
+    "price": 53.99,
+    "inventory": 49,
+    "imageUrl": "https://picsum.photos/400/300?random=186",
+    "tags": [
+      "honey",
+      "organic",
+      "natural",
+      "freshpicks",
+      "food-grocery"
+    ],
+    "rating": 4.1,
+    "reviewCount": 211
+  },
+  {
+    "productId": "PROD_0187",
+    "name": "GourmetKitchen Gourmet Pasta Kit",
+    "description": "Imported Italian with sauces. Premium quality from GourmetKitchen.",
+    "category": "Food & Grocery",
+    "brand": "GourmetKitchen",
+    "price": 59.99,
+    "inventory": 39,
+    "imageUrl": "https://picsum.photos/400/300?random=187",
+    "tags": [
+      "pasta",
+      "italian",
+      "gourmet",
+      "gourmetkitchen",
+      "food-grocery"
+    ],
+    "rating": 3.8,
+    "reviewCount": 180
+  },
+  {
+    "productId": "PROD_0188",
+    "name": "GourmetKitchen Gourmet Pasta Kit Pro",
+    "description": "Imported Italian with sauces. Premium quality from GourmetKitchen.",
+    "category": "Food & Grocery",
+    "brand": "GourmetKitchen",
+    "price": 71.99,
+    "inventory": 81,
+    "imageUrl": "https://picsum.photos/400/300?random=188",
+    "tags": [
+      "pasta",
+      "italian",
+      "gourmet",
+      "gourmetkitchen",
+      "food-grocery"
+    ],
+    "rating": 4.6,
+    "reviewCount": 69
+  },
+  {
+    "productId": "PROD_0189",
+    "name": "TasteMakers Tea Sampler Box",
+    "description": "50 premium tea bags, 10 varieties. Premium quality from TasteMakers.",
+    "category": "Food & Grocery",
+    "brand": "TasteMakers",
+    "price": 39.99,
+    "inventory": 138,
+    "imageUrl": "https://picsum.photos/400/300?random=189",
+    "tags": [
+      "tea",
+      "sampler",
+      "premium",
+      "tastemakers",
+      "food-grocery"
+    ],
+    "rating": 3.8,
+    "reviewCount": 103
+  },
+  {
+    "productId": "PROD_0190",
+    "name": "TasteMakers Tea Sampler Box Pro",
+    "description": "50 premium tea bags, 10 varieties. Premium quality from TasteMakers.",
+    "category": "Food & Grocery",
+    "brand": "TasteMakers",
+    "price": 47.99,
+    "inventory": 65,
+    "imageUrl": "https://picsum.photos/400/300?random=190",
+    "tags": [
+      "tea",
+      "sampler",
+      "premium",
+      "tastemakers",
+      "food-grocery"
+    ],
+    "rating": 4.7,
+    "reviewCount": 281
+  },
+  {
+    "productId": "PROD_0191",
+    "name": "OrganicChoice Tea Sampler Box Premium",
+    "description": "50 premium tea bags, 10 varieties. Premium quality from OrganicChoice.",
+    "category": "Food & Grocery",
+    "brand": "OrganicChoice",
+    "price": 59.98,
+    "inventory": 70,
+    "imageUrl": "https://picsum.photos/400/300?random=191",
+    "tags": [
+      "tea",
+      "sampler",
+      "premium",
+      "organicchoice",
+      "food-grocery"
+    ],
+    "rating": 4.5,
+    "reviewCount": 269
+  },
+  {
+    "productId": "PROD_0192",
+    "name": "TasteMakers Protein Bar Pack",
+    "description": "24 bars, mixed flavors. Premium quality from TasteMakers.",
+    "category": "Food & Grocery",
+    "brand": "TasteMakers",
+    "price": 49.99,
+    "inventory": 169,
+    "imageUrl": "https://picsum.photos/400/300?random=192",
+    "tags": [
+      "protein",
+      "snacks",
+      "fitness",
+      "tastemakers",
+      "food-grocery"
+    ],
+    "rating": 5.0,
+    "reviewCount": 66
+  },
+  {
+    "productId": "PROD_0193",
+    "name": "GourmetKitchen Protein Bar Pack Pro",
+    "description": "24 bars, mixed flavors. Premium quality from GourmetKitchen.",
+    "category": "Food & Grocery",
+    "brand": "GourmetKitchen",
+    "price": 59.99,
+    "inventory": 53,
+    "imageUrl": "https://picsum.photos/400/300?random=193",
+    "tags": [
+      "protein",
+      "snacks",
+      "fitness",
+      "gourmetkitchen",
+      "food-grocery"
+    ],
+    "rating": 4.8,
+    "reviewCount": 446
+  },
+  {
+    "productId": "PROD_0194",
+    "name": "FreshPicks Protein Bar Pack Premium",
+    "description": "24 bars, mixed flavors. Premium quality from FreshPicks.",
+    "category": "Food & Grocery",
+    "brand": "FreshPicks",
+    "price": 74.98,
+    "inventory": 89,
+    "imageUrl": "https://picsum.photos/400/300?random=194",
+    "tags": [
+      "protein",
+      "snacks",
+      "fitness",
+      "freshpicks",
+      "food-grocery"
+    ],
+    "rating": 4.7,
+    "reviewCount": 120
+  },
+  {
+    "productId": "PROD_0195",
+    "name": "TasteMakers Organic Snack Box",
+    "description": "Healthy snacks variety pack. Premium quality from TasteMakers.",
+    "category": "Food & Grocery",
+    "brand": "TasteMakers",
+    "price": 34.99,
+    "inventory": 172,
+    "imageUrl": "https://picsum.photos/400/300?random=195",
+    "tags": [
+      "snacks",
+      "organic",
+      "healthy",
+      "tastemakers",
+      "food-grocery"
+    ],
+    "rating": 4.2,
+    "reviewCount": 467
+  },
+  {
+    "productId": "PROD_0196",
+    "name": "OrganicChoice Organic Snack Box Pro",
+    "description": "Healthy snacks variety pack. Premium quality from OrganicChoice.",
+    "category": "Food & Grocery",
+    "brand": "OrganicChoice",
+    "price": 41.99,
+    "inventory": 103,
+    "imageUrl": "https://picsum.photos/400/300?random=196",
+    "tags": [
+      "snacks",
+      "organic",
+      "healthy",
+      "organicchoice",
+      "food-grocery"
+    ],
+    "rating": 3.9,
+    "reviewCount": 335
+  },
+  {
+    "productId": "PROD_0197",
+    "name": "OrganicChoice Organic Snack Box Premium",
+    "description": "Healthy snacks variety pack. Premium quality from OrganicChoice.",
+    "category": "Food & Grocery",
+    "brand": "OrganicChoice",
+    "price": 52.48,
+    "inventory": 50,
+    "imageUrl": "https://picsum.photos/400/300?random=197",
+    "tags": [
+      "snacks",
+      "organic",
+      "healthy",
+      "organicchoice",
+      "food-grocery"
+    ],
+    "rating": 4.8,
+    "reviewCount": 14
+  },
+  {
+    "productId": "PROD_0198",
+    "name": "FreshPicks Wine Selection",
+    "description": "3 bottles of premium red wine. Premium quality from FreshPicks.",
+    "category": "Food & Grocery",
+    "brand": "FreshPicks",
+    "price": 149.99,
+    "inventory": 63,
+    "imageUrl": "https://picsum.photos/400/300?random=198",
+    "tags": [
+      "wine",
+      "alcohol",
+      "premium",
+      "freshpicks",
+      "food-grocery"
+    ],
+    "rating": 4.7,
+    "reviewCount": 132
+  },
+  {
+    "productId": "PROD_0199",
+    "name": "FreshPicks Wine Selection Pro",
+    "description": "3 bottles of premium red wine. Premium quality from FreshPicks.",
+    "category": "Food & Grocery",
+    "brand": "FreshPicks",
+    "price": 179.99,
+    "inventory": 87,
+    "imageUrl": "https://picsum.photos/400/300?random=199",
+    "tags": [
+      "wine",
+      "alcohol",
+      "premium",
+      "freshpicks",
+      "food-grocery"
+    ],
+    "rating": 4.7,
+    "reviewCount": 50
+  },
+  {
+    "productId": "PROD_0200",
+    "name": "OrganicChoice Wine Selection Premium",
+    "description": "3 bottles of premium red wine. Premium quality from OrganicChoice.",
+    "category": "Food & Grocery",
+    "brand": "OrganicChoice",
+    "price": 224.99,
+    "inventory": 12,
+    "imageUrl": "https://picsum.photos/400/300?random=200",
+    "tags": [
+      "wine",
+      "alcohol",
+      "premium",
+      "organicchoice",
+      "food-grocery"
+    ],
+    "rating": 4.7,
+    "reviewCount": 455
+  }
+]

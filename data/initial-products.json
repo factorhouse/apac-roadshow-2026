@@ -1,0 +1,306 @@
+[
+  {
+    "productId": "PROD_0001",
+    "name": "FutureTech UltraBook Pro 15",
+    "description": "High-performance laptop with Intel i9, 32GB RAM, 1TB SSD. Premium quality from FutureTech.",
+    "category": "Electronics",
+    "brand": "FutureTech",
+    "price": 1899.99,
+    "inventory": 10,
+    "imageUrl": "https://picsum.photos/400/300?random=1",
+    "tags": [
+      "laptop",
+      "computer",
+      "productivity",
+      "futuretech",
+      "electronics"
+    ],
+    "rating": 4.5,
+    "reviewCount": 49
+  },
+  {
+    "productId": "PROD_0003",
+    "name": "InnovateTech Wireless Noise-Canceling Headphones",
+    "description": "Premium ANC headphones with 30-hour battery. Premium quality from InnovateTech.",
+    "category": "Electronics",
+    "brand": "InnovateTech",
+    "price": 349.99,
+    "inventory": 8,
+    "imageUrl": "https://picsum.photos/400/300?random=3",
+    "tags": [
+      "audio",
+      "wireless",
+      "music",
+      "innovatetech",
+      "electronics"
+    ],
+    "rating": 3.7,
+    "reviewCount": 183
+  },
+  {
+    "productId": "PROD_0028",
+    "name": "ModernFit Designer Leather Jacket",
+    "description": "Premium Italian leather with modern cut. Premium quality from ModernFit.",
+    "category": "Fashion",
+    "brand": "ModernFit",
+    "price": 599.99,
+    "inventory": 15,
+    "imageUrl": "https://picsum.photos/400/300?random=28",
+    "tags": [
+      "jacket",
+      "leather",
+      "designer",
+      "modernfit",
+      "fashion"
+    ],
+    "rating": 3.8,
+    "reviewCount": 81
+  },
+  {
+    "productId": "PROD_0029",
+    "name": "ModernFit Designer Leather Jacket Pro",
+    "description": "Premium Italian leather with modern cut. Premium quality from ModernFit.",
+    "category": "Fashion",
+    "brand": "ModernFit",
+    "price": 719.99,
+    "inventory": 7,
+    "imageUrl": "https://picsum.photos/400/300?random=29",
+    "tags": [
+      "jacket",
+      "leather",
+      "designer",
+      "modernfit",
+      "fashion"
+    ],
+    "rating": 4,
+    "reviewCount": 27
+  },
+  {
+    "productId": "PROD_0054",
+    "name": "ComfortZone Smart Coffee Maker",
+    "description": "WiFi-enabled with scheduling and grinder. Premium quality from ComfortZone.",
+    "category": "Home & Garden",
+    "brand": "ComfortZone",
+    "price": 299.99,
+    "inventory": 23,
+    "imageUrl": "https://picsum.photos/400/300?random=54",
+    "tags": [
+      "coffee",
+      "smart",
+      "kitchen",
+      "comfortzone",
+      "home-garden"
+    ],
+    "rating": 3.8,
+    "reviewCount": 188
+  },
+  {
+    "productId": "PROD_0055",
+    "name": "SmartHome Smart Coffee Maker Pro",
+    "description": "WiFi-enabled with scheduling and grinder. Premium quality from SmartHome.",
+    "category": "Home & Garden",
+    "brand": "SmartHome",
+    "price": 359.99,
+    "inventory": 32,
+    "imageUrl": "https://picsum.photos/400/300?random=55",
+    "tags": [
+      "coffee",
+      "smart",
+      "kitchen",
+      "smarthome",
+      "home-garden"
+    ],
+    "rating": 4.8,
+    "reviewCount": 34
+  },
+  {
+    "productId": "PROD_0079",
+    "name": "FitPro Premium Yoga Mat",
+    "description": "Extra thick with alignment guides. Premium quality from FitPro.",
+    "category": "Sports",
+    "brand": "FitPro",
+    "price": 89.99,
+    "inventory": 70,
+    "imageUrl": "https://picsum.photos/400/300?random=79",
+    "tags": [
+      "yoga",
+      "fitness",
+      "mat",
+      "fitpro",
+      "sports"
+    ],
+    "rating": 3.6,
+    "reviewCount": 170
+  },
+  {
+    "productId": "PROD_0080",
+    "name": "FitPro Premium Yoga Mat Pro",
+    "description": "Extra thick with alignment guides. Premium quality from FitPro.",
+    "category": "Sports",
+    "brand": "FitPro",
+    "price": 107.99,
+    "inventory": 48,
+    "imageUrl": "https://picsum.photos/400/300?random=80",
+    "tags": [
+      "yoga",
+      "fitness",
+      "mat",
+      "fitpro",
+      "sports"
+    ],
+    "rating": 4.8,
+    "reviewCount": 46
+  },
+  {
+    "productId": "PROD_0104",
+    "name": "ReadMore The Innovation Paradox",
+    "description": "Bestselling business strategy guide. Premium quality from ReadMore.",
+    "category": "Books",
+    "brand": "ReadMore",
+    "price": 29.99,
+    "inventory": 184,
+    "imageUrl": "https://picsum.photos/400/300?random=104",
+    "tags": [
+      "business",
+      "bestseller",
+      "strategy",
+      "readmore",
+      "books"
+    ],
+    "rating": 4.4,
+    "reviewCount": 349
+  },
+  {
+    "productId": "PROD_0105",
+    "name": "PageTurner The Innovation Paradox Pro",
+    "description": "Bestselling business strategy guide. Premium quality from PageTurner.",
+    "category": "Books",
+    "brand": "PageTurner",
+    "price": 35.99,
+    "inventory": 79,
+    "imageUrl": "https://picsum.photos/400/300?random=105",
+    "tags": [
+      "business",
+      "bestseller",
+      "strategy",
+      "pageturner",
+      "books"
+    ],
+    "rating": 4.7,
+    "reviewCount": 298
+  },
+  {
+    "productId": "PROD_0128",
+    "name": "KidsJoy LEGO Architecture Set",
+    "description": "Build famous landmarks. Premium quality from KidsJoy.",
+    "category": "Toys",
+    "brand": "KidsJoy",
+    "price": 149.99,
+    "inventory": 74,
+    "imageUrl": "https://picsum.photos/400/300?random=128",
+    "tags": [
+      "lego",
+      "building",
+      "educational",
+      "kidsjoy",
+      "toys"
+    ],
+    "rating": 4.7,
+    "reviewCount": 473
+  },
+  {
+    "productId": "PROD_0129",
+    "name": "ToyLand LEGO Architecture Set Pro",
+    "description": "Build famous landmarks. Premium quality from ToyLand.",
+    "category": "Toys",
+    "brand": "ToyLand",
+    "price": 179.99,
+    "inventory": 75,
+    "imageUrl": "https://picsum.photos/400/300?random=129",
+    "tags": [
+      "lego",
+      "building",
+      "educational",
+      "toyland",
+      "toys"
+    ],
+    "rating": 4.6,
+    "reviewCount": 361
+  },
+  {
+    "productId": "PROD_0151",
+    "name": "BeautyPlus Anti-Aging Serum",
+    "description": "Retinol and vitamin C formula. Premium quality from BeautyPlus.",
+    "category": "Beauty",
+    "brand": "BeautyPlus",
+    "price": 89.99,
+    "inventory": 99,
+    "imageUrl": "https://picsum.photos/400/300?random=151",
+    "tags": [
+      "skincare",
+      "anti-aging",
+      "serum",
+      "beautyplus",
+      "beauty"
+    ],
+    "rating": 4.5,
+    "reviewCount": 486
+  },
+  {
+    "productId": "PROD_0152",
+    "name": "GlowUp Anti-Aging Serum Pro",
+    "description": "Retinol and vitamin C formula. Premium quality from GlowUp.",
+    "category": "Beauty",
+    "brand": "GlowUp",
+    "price": 107.99,
+    "inventory": 44,
+    "imageUrl": "https://picsum.photos/400/300?random=152",
+    "tags": [
+      "skincare",
+      "anti-aging",
+      "serum",
+      "glowup",
+      "beauty"
+    ],
+    "rating": 4.8,
+    "reviewCount": 87
+  },
+  {
+    "productId": "PROD_0175",
+    "name": "Artisan Foods Organic Coffee Beans",
+    "description": "Single origin Ethiopian (2 lbs). Premium quality from Artisan Foods.",
+    "category": "Food & Grocery",
+    "brand": "Artisan Foods",
+    "price": 34.99,
+    "inventory": 160,
+    "imageUrl": "https://picsum.photos/400/300?random=175",
+    "tags": [
+      "coffee",
+      "organic",
+      "beans",
+      "artisan foods",
+      "food-grocery"
+    ],
+    "rating": 3.7,
+    "reviewCount": 23
+  },
+  {
+    "productId": "PROD_0176",
+    "name": "Artisan Foods Organic Coffee Beans Pro",
+    "description": "Single origin Ethiopian (2 lbs). Premium quality from Artisan Foods.",
+    "category": "Food & Grocery",
+    "brand": "Artisan Foods",
+    "price": 41.99,
+    "inventory": 166,
+    "imageUrl": "https://picsum.photos/400/300?random=176",
+    "tags": [
+      "coffee",
+      "organic",
+      "beans",
+      "artisan foods",
+      "food-grocery"
+    ],
+    "rating": 4.1,
+    "reviewCount": 356
+  }
+]

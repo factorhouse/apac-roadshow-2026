@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Composable Job</title>
+    <link rel="shortcut icon" href="https://www.ververica.com/hubfs/Logo/favicon%20(3).png">
+
+    <!-- quarkus -->
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/patternfly/3.24.0/css/patternfly.min.css">
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/patternfly/3.24.0/css/patternfly-additions.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/patternfly/3.24.0/js/patternfly.min.js"></script>
+    <!-- /quarkus -->
+
+    <!-- Map -->
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.9.1/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.9.1/mapbox-gl.js"></script>
+    <!-- /Map -->
+
+    <!-- Plotly -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src='https://cdn.plot.ly/plotly-2.35.2.min.js'></script>
+    <!-- /Plotly -->
+
+    <!-- Bootstrap Select CSS -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.14/css/bootstrap-select.min.css">
+
+    <!-- Bootstrap Select JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.14/js/bootstrap-select.min.js"></script>
+
+    <link href='style/main.css' rel="stylesheet">
+</head>
+
+<body>
+<nav class="navbar navbar-default navbar-pf" role="navigation">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="/">
+            <p><strong>>> Ververica composable job</strong></p>
+        </a>
+    </div>
+</nav>
+
+<div class="container">
+    <br/>
+
+    <!-- Row with Name, Preferred Language, and Connect button -->
+    <div class="row" style="margin-bottom: 15px;">
+        <!-- Name input: 6 columns -->
+        <div class="col-md-4">
+            <label for="name">Name</label>
+            <input id="name" class="form-control" type="text" placeholder="Your name">
+        </div>
+
+        <!-- Preferred language select: 4 columns -->
+        <div class="col-md-2">
+            <label for="language-select">Preferred language</label>
+            <select id="language-select" name="language" class="form-control selectpicker" data-live-search="true" onchange="Chat.preferredLanguageChanged()">
+                <option value="DEFAULT">Original language</option>
+
+                <option value="EN">English</option>
+
+                <option value="AR">Arabic</option>
+                <option value="BN">Bengali</option>
+                <option value="ZH">Chinese</option>
+                <option value="FR">French</option>
+                <option value="DE">German</option>
+                <option value="HI">Hindi</option>
+                <option value="ID">Indonesian</option>
+                <option value="JA">Japanese</option>
+                <option value="PA">Punjabi</option>
+                <option value="PT">Portuguese</option>
+                <option value="RU">Russian</option>
+                <option value="ES">Spanish</option>
+                <option value="TR">Turkish</option>
+                <option value="VI">Vietnamese</option>
+            </select>
+        </div>
+
+        <!-- Connect button: 2 columns -->
+        <div class="col-md-2">
+            <!-- Adding a top margin so the button vertically aligns with the input -->
+            <button id="connect" class="btn btn-primary" type="button" style="margin-top: 25px;">Connect</button>
+        </div>
+    </div>
+
+    <!-- Chat and other content -->
+    <div class="row">
+        <div id="container-chat" class="col-lg-12">
+            <div class="row">
+                <br/>
+                <br/>
+            </div>
+            <div class="row">
+                <div class="col-md-6" id="chat"></div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Online Users</h3>
+                        </div>
+                        <div id="online-users-container" class="panel-body">
+                            <ul id="online-users" class="list-group" style="list-style-type: none;">
+                                <!-- <li class="list-group-item" title="${user}">${user}</li>-->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-5"></div>
+                <div class="col-md-1" style="text-align:right">To:</div>
+                <select class="col-md-2" name="recipient" id="recipient" style="margin: 0px 0px 5px 20px;">
+                    <option value="">Everyone</option>
+                </select>
+            </div>
+            <div class="row">
+                <input class="col-md-6" id="msg" type="text" placeholder="enter your message"/>
+                <button class="col-md-2 btn btn-primary" id="send" type="button" style="margin-left: 20px;" disabled>
+                    send
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <br/>
+    <div class="row">
+        <div id="container-chart" class="col-lg-6">
+            <div id="chart"></div>
+        </div>
+        <div id="container-geo" class="col-lg-6">
+            <div id="map"></div>
+        </div>
+    </div>
+</div>
+
+<script src="scripts/chat.js"></script>
+<script src="scripts/line_graph.js"></script>
+<script src="scripts/geolocation.js"></script>
+<script src="scripts/websocket.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        Chat.init();
+        LineGraph.init();
+        Geolocation.init();
+
+        $('#language-select').selectpicker();
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+#chat {
+    resize: none;
+    overflow: hidden;
+    min-height: 300px;
+    max-height: 300px;
+    border: 1px solid darkslategray;
+    margin-bottom: 1em;
+    padding: 1em;
+    overflow-y: scroll;
+}
+
+.message {
+
+}
+
+.private-message {
+    font-weight: bold;
+    font-style: italic;
+}
+
+.system-message {
+    font-weight: bold;
+}
+
+.user {
+    font-weight: bold;
+    color: cornflowerblue;
+}
+
+.system-user {
+    font-weight: bold;
+    color: deeppink;
+}
+
+#map {  width: 640px; height: 480px; }
+
+#online-users-container {
+  min-height: 270px;    /* fixed height */
+  max-height: 270px;    /* fixed height */
+  overflow-y: auto;     /* vertical scroll */
+  overflow-x: hidden;   /* no horizontal scroll */
+}
+
+#online-users-container .list-group-item {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}

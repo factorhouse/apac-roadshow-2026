@@ -1,0 +1,37 @@
+// https://gradleup.com/shadow/configuration/dependencies/#embedding-jar-files-inside-your-shadow-jar
+
+shadowJar {
+    configurations = [project.configurations.runtimeClasspath]
+    mergeServiceFiles()
+    zip64 = true
+
+    dependencies {
+        minimize {
+            exclude "**/**/*.*dll"
+            exclude "**/**/*.so"
+            exclude "**/**/*.dylib"
+
+            exclude 'flink-rpc-akka.jar'
+            exclude 'common/message/*'
+        }
+
+        exclude { dep ->
+            // Exclude multiple combos in a single closure:
+            (dep.moduleGroup == "org.apache.flink" && dep.name == "force-shading") ||
+
+                    (dep.moduleGroup == "org.apache.flink" && dep.name == "flink-runtime") ||
+                    (dep.moduleGroup == "org.apache.flink" && dep.name == "flink-core") ||
+                    (dep.moduleGroup == "org.apache.flink" && dep.name == "flink-clients") ||
+                    (dep.moduleGroup == "org.apache.flink" && dep.name == "flink-streaming-java") ||
+
+                    (dep.moduleGroup == "com.google.code.findbugs" && dep.name == "jsr305") ||
+
+                    (dep.moduleGroup == "org.slf4j") ||
+                    (dep.moduleGroup == "org.apache.logging.log4j")
+        }
+    }
+}
+
+jar {
+    enabled = false
+}
