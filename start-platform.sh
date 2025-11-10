@@ -101,8 +101,8 @@ echo -e "${YELLOW}Initializing PostgreSQL schema...${NC}"
 if docker exec postgres-cdc psql -U postgres -d ecommerce -c "SELECT 1 FROM orders LIMIT 1;" > /dev/null 2>&1; then
     echo -e "${GREEN}✓${NC} PostgreSQL schema already initialized"
 else
-    echo -e "${YELLOW}  Running postgres-init.sql via docker exec...${NC}"
-    cat postgres-init.sql | docker exec -i postgres-cdc psql -U postgres -d ecommerce > /dev/null 2>&1
+    echo -e "${YELLOW}  Running scripts/postgres-init.sql via docker exec...${NC}"
+    cat scripts/postgres-init.sql | docker exec -i postgres-cdc psql -U postgres -d ecommerce > /dev/null 2>&1
     if [ $? -eq 0 ]; then
         echo -e "${GREEN}✓${NC} PostgreSQL schema initialized successfully"
     else
@@ -111,8 +111,8 @@ else
     fi
 fi
 
-echo -e "${YELLOW}Starting Redpanda (Kafka)...${NC}"
-docker compose up -d redpanda redpanda-console
+echo -e "${YELLOW}Starting Redpanda (Kafka) and Kpow...${NC}"
+docker compose up -d redpanda kpow
 
 # Wait for Redpanda to be healthy
 echo -e "${YELLOW}Waiting for Redpanda to be healthy...${NC}"
@@ -244,11 +244,8 @@ echo -e "  ${GREEN}✓${NC} Redpanda Console:     Port 8085"
 echo ""
 
 echo -e "${CYAN}${BOLD}🎓 Training Modules (Run Separately):${NC}"
-echo -e "  ${YELLOW}▸${NC} Module 1 - Inventory:           ${GREEN}./flink-1-inventory-job.sh${NC}"
-echo -e "  ${YELLOW}▸${NC} Module 1b - Inventory + Orders: ${GREEN}./flink-1b-inventory-with-orders-job.sh${NC}"
-echo -e "  ${YELLOW}▸${NC} Module 2 - Order CDC:           ${GREEN}./flink-2-order-cdc-job.sh${NC}"
-echo -e "  ${YELLOW}▸${NC} Module 3 - Basket Analysis:     ${GREEN}./flink-3-basket-analysis-job.sh${NC}"
-echo -e "  ${YELLOW}▸${NC} Module 4 - AI Assistant:        ${GREEN}./flink-4-shopping-assistant-job.sh${NC}"
+echo -e "  ${YELLOW}▸${NC} Module 1 - Inventory + Orders: ${GREEN}./flink-inventory-with-orders-job.sh${NC}"
+echo -e "  ${YELLOW}▸${NC} Module 2 - Order CDC:          ${GREEN}./flink-order-cdc-job.sh${NC}"
 echo ""
 
 echo -e "${BLUE}📁 Logs:${NC}"

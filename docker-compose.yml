@@ -28,29 +28,26 @@ services:
       timeout: 3s
       retries: 5
       start_period: 5s
-  
-  redpanda-console:
-    image: docker.redpanda.com/redpandadata/console:v3.0.0
-    container_name: redpanda-console
-    entrypoint: /bin/sh
-    command: -c 'echo "$$CONSOLE_CONFIG_FILE" > /tmp/config.yml; /app/console'
-    environment:
-      CONFIG_FILEPATH: /tmp/config.yml
-      CONSOLE_CONFIG_FILE: |
-        kafka:
-          brokers: ["redpanda:9092"]
-        schemaRegistry:
-          enabled: true
-          urls: ["http://redpanda:8081"]
-        redpanda:
-          adminApi:
-            enabled: true
-            urls: ["http://redpanda:9644"]
+
+  kpow:
+    image: factorhouse/kpow-ce:latest
+    container_name: kpow-ce
+    pull_policy: always
+    restart: always
     ports:
-      - 8085:8080
+      - "4000:3000"
     depends_on:
       redpanda:
         condition: service_healthy
+    environment:
+      ENVIRONMENT_NAME: "Local Redpands Cluster"
+      BOOTSTRAP: redpanda:9092
+    env_file:
+      - ${KPOW_LICENSE:-license.env}
+    mem_limit: 2G
+    volumes:
+      - ./resources/kpow/jaas:/etc/kpow/jaas
+      - ./resources/kpow/rbac:/etc/kpow/rbac
   
   redpanda-init-topics:
     image: docker.redpanda.com/redpandadata/redpanda:v25.1.1
@@ -94,8 +91,6 @@ services:
       POSTGRES_DB: ecommerce
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      # CDC Configuration
-#      POSTGRES_INITDB_ARGS: "-c wal_level=logical"
     command:
       - "postgres"
       - "-c"

@@ -1,6 +1,8 @@
 import json
+from pathlib import Path
 
-json_file_path = "data/initial-products.json"
+script_dir = Path(__file__).parent
+json_file_path = script_dir.parent / "data" / "initial-products.json"
 
 print("-- ====================================================================")
 print("-- AUTO-GENERATED PRODUCT AND INVENTORY DATA")
