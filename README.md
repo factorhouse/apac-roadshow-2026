@@ -2,26 +2,49 @@
 
 ## Overview
 
-This guide provides complete instructions for setting up and running the KartShoppe training platform **from a blank slate**. It's designed for training sessions where students start from scratch and progressively build their understanding of Apache Flink and the ecosystem.
+Welcome to the APAC Roadshow 2025 workshop! This guide provides complete instructions for setting up and running the KartShoppe training platform **from a blank slate**. KartShoppe is a fully-functional, real-time e-commerce application designed to teach modern data engineering principles.
+
+This session is designed for participants to start with just the source code and progressively build, deploy, and enhance the platform by introducing powerful stream processing capabilities with Apache Flink.
 
 ---
 
-## 📋 What You'll Learn
+## 🎯 Key Learning Objectives
 
-- Building real-time data pipelines with Apache Flink
-- Integrating Kafka/Redpanda for event streaming
-- Creating reactive microservices with Quarkus
+By the end of this workshop, you will have hands-on experience with:
+
+-   **Apache Flink Fundamentals:** Go from zero to building sophisticated, stateful stream processing jobs. You'll learn to implement sources, sinks, transformations, and windowing to solve real business problems.
+-   **Event-Driven Architecture:** Understand how to use Kafka as the central nervous system of a modern, decoupled application.
+-   **Reactive Microservices:** See how a Quarkus-based backend can consume, process, and serve data from Flink and Kafka, pushing live updates directly to a web UI.
+-   **Database Change Data Capture (CDC):** Learn to capture row-level changes from a PostgreSQL database in real-time and turn them into an event stream for Flink to process.
+-   **Stateful Stream Processing:** Implement practical, stateful logic to solve classic e-commerce challenges like real-time inventory management.
 
 ---
 
-## 🎯 Training Philosophy
+## 💡 Training Philosophy
 
-This setup follows a **progressive learning approach**:
+This setup follows a **progressive, hands-on learning approach** designed for maximum impact:
 
-1. **Start with the platform** - Get the core infrastructure running first
-2. **No Flink jobs initially** - Platform works independently (you'll see the UI, can interact, but no real-time processing)
-3. **Add Flink jobs progressively** - Each training module introduces ONE Flink pattern at a time
-4. **See immediate results** - Every Flink job immediately enhances the platform visibly
+1.  **Start with a Working System:** You'll begin by launching the core KartShoppe application. It's a functional e-commerce site with a UI, API, and message broker, but with a key piece missing: **real-time intelligence**.
+
+2.  **Incremental Enhancements:** Each training module guides you through developing and deploying a specific Flink job. You won't just learn theory; you'll solve a real business problem with each job you write.
+
+3.  **Tangible, Visual Feedback:** As soon as you deploy a Flink job, you will see a new feature come to life in the KartShoppe UI. Watch as inventory counts update in real-time, order statuses change instantly, and product recommendations appear based on user behavior. This immediate feedback loop makes learning concrete and rewarding.
+
+---
+
+## 🌟 Application Highlights
+
+### Overall Architecture
+
+![](./images/architecture.png)
+
+### Backend API
+
+![](./images/backend-api.png)
+
+### Flink Apps
+
+![](./images/flink-apps.png)
 
 ---
 
@@ -30,7 +53,7 @@ This setup follows a **progressive learning approach**:
 ### Prerequisites
 
 Ensure students have:
-- **Docker Desktop** installed and running
+- **Docker (or Docker Desktop)** installed and running
 - **8GB RAM** minimum (16GB recommended)
 - **Internet connection** (for downloading dependencies)
 - **macOS or Linux** (Windows with WSL2 works too)
@@ -71,23 +94,23 @@ Installed Components:
 
 ## 📚 Training Day Schedule
 
-### Deploy Instaclustr Kafka and Postgres Services (30 minutes)
+### Deploy Instaclustr Kafka and Postgres Services
 
-> Paul to update
+**Paul to update**
 
-### Request Factor House Community License (5 minutes)
+<p align="center">
+  <img src="./images/work-in-progress.png" alt="Work in progress" width="50%" height="50%">
+</p>
 
-> Jae to update
+### Request Factor House Community License
 
-### Introduction to KartShoppe (30 - 45 minutes)
+**Jae to update**
 
-- Frontend
-- Backend + Kafka Streams
-- Order Processing/Inventory Management with/without CDC
+<p align="center">
+  <img src="./images/work-in-progress.png" alt="Work in progress" width="50%" height="50%">
+</p>
 
-> Ben and Jae to update
-
-### Platform Startup (30 minutes)
+### Platform Startup
 
 #### Goal
 
@@ -125,7 +148,7 @@ Get the core KartShoppe platform running **without any Flink jobs**.
 
 1. **Start the platform:**
    ```bash
-   ./start-training-platform.sh
+   ./start-platform-local.sh
    ```
 
 2. **Wait for startup** (30-60 seconds)
@@ -133,23 +156,25 @@ Get the core KartShoppe platform running **without any Flink jobs**.
 3. **Access the application:**
    - KartShoppe App: http://localhost:8081
    - Quarkus Dev UI: http://localhost:8081/q/dev
-   - Redpanda Console: http://localhost:8085
+
+4. **Start the Flink app for order processing and inventory management:**
+   ```bash
+   ./flink-inventory-with-orders-job.sh 
+   ```
+
+5. **Monitor Kafka and Flink:**
+   - Kpow for Apache Kafka: http://localhost:4000
+   - Flex for Apache Flink: http://localhost:5000
 
 4. **Explore the UI:**
    - Browse products
    - Add items to cart
-   - Notice there are NO recommendations yet (this is expected!)
-   - The app is "online" but not processing events in real-time
 
 </details>
 
-<br>
-
-**Key Point:** The platform is fully functional, but there's no real-time data processing happening yet!
-
 ---
 
-### Session 2: Module 1 - Inventory Management (90 minutes)
+### Run Flink Applications
 
 #### Learning Objectives
 - Understand Flink's keyed state
@@ -189,9 +214,15 @@ Get the core KartShoppe platform running **without any Flink jobs**.
 
 #### Monitor the Job
 
-- **Flink Dashboard:** http://localhost:8081 (if running Flink)
+- **View Kafka topics with Kpow:** http://localhost:4000
+   - Key topics
+      - `products`
+      - `order-events`
+      - `product_update`
+      - `inventory-events`
+      - `inventory-alerts`
+- **View Flink jobs with Flex:** http://localhost:5000
 - **Check state:** http://localhost:8081/api/ecommerce/inventory/state
-- **View Kafka topics:** http://localhost:8085 → Click `products` topic
 
 #### Hands-On Exercise
 
@@ -330,35 +361,13 @@ By the end of this training, students will:
 
 ---
 
-## 💡 Quick Reference
-
-### Essential Commands
-
-```bash
-# Setup (run once)
-./setup-environment.sh
-
-# Start platform
-./start-training-platform.sh
-
-# Module 1: Inventory
-./flink-inventory-with-orders-job.sh
-
-# Module 2: Recommendations
-./flink-order-cdc-job.sh
-```
-
 ### Key URLs
 
 | Service | URL |
 |---------|-----|
 | **KartShoppe App** | http://localhost:8081 |
-| **Flink Dashboard** | http://localhost:8082 (if running) |
-| **Redpanda Console** | http://localhost:8085 |
 | **Quarkus Dev UI** | http://localhost:8081/q/dev |
+| **Kpow for Apache Kafka** | http://localhost:4000 |
+| **Flex for Apache Flink** | http://localhost:5000 |
 
 ---
-
-**Happy Learning! 🎉**
-
-For questions or issues, check the main [README.md](README.md) or consult your instructor.
