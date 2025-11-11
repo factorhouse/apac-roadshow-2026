@@ -56,7 +56,7 @@ import org.slf4j.LoggerFactory;
  * ARCHITECTURE (Updated):
  * <pre>
  * Product File  ──┐
- *                 ├─→ Hybrid Source → Product Parser ──┬─→ Kafka: products (for other services)
+ *                 ├─→ Hybrid Source → Product Parser ──┬── ▶ Kafka: products (for other services)
  * Product Kafka ──┘                                    │
  *                                                      ▼
  *                                         CoProcessFunction (Shared Keyed State)

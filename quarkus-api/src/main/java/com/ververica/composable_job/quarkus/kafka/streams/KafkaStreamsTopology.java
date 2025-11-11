@@ -79,7 +79,7 @@ public class KafkaStreamsTopology {
         );
         
         // Parse inventory events and extract current product
-    KStream<String, Product> productStream = inventoryStream
+        KStream<String, Product> productStream = inventoryStream
             .mapValues(value -> {
                 try {
                     JsonNode node = MAPPER.readTree(value);
