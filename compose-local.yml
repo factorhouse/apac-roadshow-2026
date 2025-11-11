@@ -1,0 +1,173 @@
+services:
+  redpanda:
+    image: docker.redpanda.com/redpandadata/redpanda:v25.1.1
+    container_name: redpanda
+    command:
+      - redpanda
+      - start
+      - --kafka-addr internal://0.0.0.0:9092,external://0.0.0.0:19092
+      - --advertise-kafka-addr internal://redpanda:9092,external://localhost:19092
+      - --pandaproxy-addr internal://0.0.0.0:8082,external://0.0.0.0:18082
+      - --advertise-pandaproxy-addr internal://redpanda:8082,external://localhost:18082
+      - --schema-registry-addr internal://0.0.0.0:8081,external://0.0.0.0:18081
+      - --rpc-addr redpanda:33145
+      - --advertise-rpc-addr redpanda:33145
+      - --mode dev-container
+      - --smp 1
+      - --default-log-level=info
+    volumes:
+      - redpanda-data:/var/lib/redpanda/data
+    ports:
+      #- 18081:18081
+      - 18082:18082
+      - 19092:19092
+      - 19644:9644
+    healthcheck:
+      test: ["CMD-SHELL", "rpk cluster health | grep -E 'Healthy:.*true' || exit 1"]
+      interval: 15s
+      timeout: 3s
+      retries: 5
+      start_period: 5s
+
+  redpanda-init-topics:
+    image: docker.redpanda.com/redpandadata/redpanda:v25.1.1
+    depends_on:
+      redpanda:
+        condition: service_healthy
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - |
+        rpk topic create websocket_fanout processing_fanout ecommerce_events ecommerce_processing_fanout product_updates recommendations inventory_updates inventory-events shopping-cart-events basket-patterns order-events product-recommendations -X brokers=redpanda:9092
+        echo "Topics created successfully"
+
+  postgres:
+    image: postgres:15-alpine
+    container_name: postgres-cdc
+    environment:
+      POSTGRES_DB: ecommerce
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    command:
+      - "postgres"
+      - "-c"
+      - "wal_level=logical"
+      - "-c"
+      - "max_replication_slots=10"
+      - "-c"
+      - "max_wal_senders=10"
+      - "-c"
+      - "max_connections=200"
+      - "-c"
+      - "shared_buffers=256MB"
+      - "-c"
+      - "max_slot_wal_keep_size=1GB"
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      # NOTE: Init script is executed automatically by startup scripts using docker exec
+      # This avoids Docker Desktop file sharing permission issues on macOS
+      # - ./postgres-init.sql:/docker-entrypoint-initdb.d/01-init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d ecommerce"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+      start_period: 10s
+
+  kpow:
+    image: factorhouse/kpow-ce:latest
+    container_name: kpow-ce
+    pull_policy: always
+    restart: always
+    ports:
+      - "4000:3000"
+    depends_on:
+      redpanda:
+        condition: service_healthy
+    environment:
+      ENVIRONMENT_NAME: "Local Redpands Cluster"
+      BOOTSTRAP: redpanda:9092
+    env_file:
+      - ${KPOW_LICENSE:-license-kpow.env}
+
+  flex:
+    image: factorhouse/flex-ce:latest
+    container_name: flex-ce
+    pull_policy: always
+    restart: always
+    ports:
+      - "5000:3000"
+    depends_on:
+      jobmanager:
+        condition: service_healthy
+    environment:
+      FLINK_ENVIRONMENT_NAME: "Standalone Flink Cluster"
+      FLINK_REST_URL: http://jobmanager:8081
+      ALLOW_FLINK_SUBMIT: "true"
+      ALLOW_FLINK_JOB_TERMINATE: "true"
+      ALLOW_FLINK_JAR_DELETE: "true"
+      ALLOW_FLINK_JOB_EDIT: "true"
+    env_file:
+      - ${FLEX_LICENSE:-license-flex.env}
+
+  jobmanager:
+    image: flink:1.20.1
+    container_name: jobmanager
+    command: jobmanager
+    ports:
+      - "18081:8081"
+    environment:
+      - KAFKA_BOOTSTRAP_SERVERS=redpanda:9092
+      - INITIAL_PRODUCTS_FILE=/tmp/initial-products.json
+      - PARALLELISM=1
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=ecommerce
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - |
+        FLINK_PROPERTIES=
+        jobmanager.rpc.address: jobmanager
+        state.backend: filesystem
+        state.checkpoints.dir: file:///tmp/flink-checkpoints
+        state.savepoints.dir: file:///tmp/flink-savepoints
+        heartbeat.interval: 1000
+        heartbeat.timeout: 5000
+        rest.flamegraph.enabled: true
+        web.backpressure.refresh-interval: 10000
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8081/config"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  taskmanager:
+    image: flink:1.20.1
+    container_name: taskmanager
+    command: taskmanager
+    environment:
+      - KAFKA_BOOTSTRAP_SERVERS=redpanda:9092
+      - INITIAL_PRODUCTS_FILE=/tmp/initial-products.json
+      - PARALLELISM=1
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=ecommerce
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - |
+        FLINK_PROPERTIES=
+        jobmanager.rpc.address: jobmanager
+        taskmanager.numberOfTaskSlots: 10
+        state.backend: filesystem
+        state.checkpoints.dir: file:///tmp/flink-checkpoints
+        state.savepoints.dir: file:///tmp/flink-savepoints
+        heartbeat.interval: 1000
+        heartbeat.timeout: 5000
+    depends_on:
+      jobmanager:
+        condition: service_healthy
+
+volumes:
+  redpanda-data:
+  postgres-data:

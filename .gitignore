@@ -1,5 +1,6 @@
 # Licensse files
-license.env
+license-kpow.env
+license-flex.env
 
 # Compiled class file
 *.class

@@ -5,7 +5,10 @@
 # ==============================================================================
 # Starts the core platform WITHOUT any Flink jobs
 # - Redpanda (Kafka)
+# - Postgres Instance
 # - Quarkus API with integrated frontend (Quinoa)
+# - Standalone Flink Cluster
+# - Kpow and Flex
 #
 # Flink jobs are started separately during training modules
 # ==============================================================================
@@ -76,7 +79,7 @@ echo -e "${GREEN}✓${NC} Node.js ${NODE_VERSION}"
 echo ""
 
 # ==============================================================================
-# Step 2: Start Infrastructure (Redpanda)
+# Step 2: Start Infrastructure
 # ==============================================================================
 
 echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
@@ -85,11 +88,11 @@ echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━�
 echo ""
 
 echo -e "${YELLOW}Starting PostgreSQL (for order persistence & CDC)...${NC}"
-docker compose up -d postgres
+docker compose -f compose-local.yml up -d postgres
 
 # Wait for PostgreSQL to be healthy
 echo -e "${YELLOW}Waiting for PostgreSQL to be healthy...${NC}"
-timeout 30 bash -c 'until docker compose ps postgres | grep -q "healthy"; do sleep 2; echo -n "."; done' || {
+timeout 30 bash -c 'until docker compose -f compose-local.yml ps postgres | grep -q "healthy"; do sleep 2; echo -n "."; done' || {
     echo -e "\n${RED}✗ PostgreSQL failed to start${NC}"
     exit 1
 }
@@ -111,12 +114,12 @@ else
     fi
 fi
 
-echo -e "${YELLOW}Starting Redpanda (Kafka) and Kpow...${NC}"
-docker compose up -d redpanda kpow
+echo -e "${YELLOW}Starting Redpanda (Kafka), Kpow, Flex, and Flink...${NC}"
+docker compose -f compose-local.yml up -d redpanda kpow flex jobmanager taskmanager
 
 # Wait for Redpanda to be healthy
 echo -e "${YELLOW}Waiting for Redpanda to be healthy...${NC}"
-timeout 60 bash -c 'until docker compose ps redpanda | grep -q "healthy"; do sleep 2; echo -n "."; done' || {
+timeout 60 bash -c 'until docker compose -f compose-local.yml ps redpanda | grep -q "healthy"; do sleep 2; echo -n "."; done' || {
     echo -e "\n${RED}✗ Redpanda failed to start${NC}"
     exit 1
 }
@@ -134,7 +137,7 @@ echo -e "${BLUE}Step 3/5: Creating Kafka Topics${NC}"
 echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 
-docker compose up redpanda-init-topics
+docker compose -f compose-local.yml up redpanda-init-topics
 
 TOPICS=(
     "websocket_fanout"
@@ -144,8 +147,10 @@ TOPICS=(
     "product_updates"
     "recommendations"
     "inventory_updates"
+    "inventory-events"
     "shopping-cart-events"
     "basket-patterns"
+    "order-events"
     "product-recommendations"
 )
 
@@ -233,14 +238,18 @@ echo -e "${CYAN}${BOLD}🌐 Access Points:${NC}"
 echo -e "  ${GREEN}▸${NC} KartShoppe App:       ${GREEN}http://localhost:8081${NC}"
 echo -e "  ${GREEN}▸${NC} Quarkus Dev UI:       ${GREEN}http://localhost:8081/q/dev${NC}"
 echo -e "  ${GREEN}▸${NC} API Endpoints:        ${GREEN}http://localhost:8081/api/*${NC}"
-echo -e "  ${GREEN}▸${NC} Redpanda Console:     ${GREEN}http://localhost:8085${NC}"
+echo -e "  ${GREEN}▸${NC} Kpow for Kafka:       ${GREEN}http://localhost:4000${NC}"
+echo -e "  ${GREEN}▸${NC} Flex for Flink:       ${GREEN}http://localhost:5000${NC}"
+echo -e "  ${GREEN}▸${NC} Flink Web UI:         ${GREEN}http://localhost:18081${NC}"
 echo ""
 
 echo -e "${CYAN}${BOLD}📊 Services Running:${NC}"
 echo -e "  ${GREEN}✓${NC} PostgreSQL:           Port 5432"
 echo -e "  ${GREEN}✓${NC} Redpanda (Kafka):     Port 19092"
 echo -e "  ${GREEN}✓${NC} Quarkus + Frontend:   Port 8081"
-echo -e "  ${GREEN}✓${NC} Redpanda Console:     Port 8085"
+echo -e "  ${GREEN}✓${NC} Kpow:                 Port 4000"
+echo -e "  ${GREEN}✓${NC} Flex:                 Port 5000"
+echo -e "  ${GREEN}✓${NC} Flink Web UI:         Port 18081"
 echo ""
 
 echo -e "${CYAN}${BOLD}🎓 Training Modules (Run Separately):${NC}"
@@ -254,7 +263,7 @@ echo -e "  Docker:  ${CYAN}docker compose logs -f${NC}"
 echo ""
 
 echo -e "${YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "${YELLOW}To stop the platform:${NC} ${GREEN}./stop-platform.sh${NC}"
+echo -e "${YELLOW}To stop the platform:${NC} ${GREEN}./stop-platform-local.sh${NC}"
 echo -e "${YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 
@@ -263,7 +272,7 @@ cleanup() {
     echo ""
     echo -e "${YELLOW}Shutting down platform...${NC}"
     kill $QUARKUS_PID 2>/dev/null || true
-    docker compose down
+    docker compose -f compose-local.yml down
     rm -rf .pids
     echo -e "${GREEN}Platform stopped${NC}"
     exit 0

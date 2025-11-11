@@ -1,0 +1,80 @@
+services:
+  kpow:
+    image: factorhouse/kpow-ce:latest
+    container_name: kpow-ce
+    pull_policy: always
+    restart: always
+    ports:
+      - "4000:3000"
+    depends_on:
+      redpanda:
+        condition: service_healthy
+    environment:
+      ENVIRONMENT_NAME: "Local Redpands Cluster" # to update
+      BOOTSTRAP: redpanda:9092 # to update
+    env_file:
+      - ${KPOW_LICENSE:-license-kpow.env}
+
+  flex:
+    image: factorhouse/flex-ce:latest
+    container_name: flex-ce
+    pull_policy: always
+    restart: always
+    ports:
+      - "5000:3000"
+    depends_on:
+      jobmanager:
+        condition: service_healthy
+    environment:
+      FLINK_ENVIRONMENT_NAME: "Standalone Flink Cluster"
+      FLINK_REST_URL: http://jobmanager:8081
+      ALLOW_FLINK_SUBMIT: "true"
+      ALLOW_FLINK_JOB_TERMINATE: "true"
+      ALLOW_FLINK_JAR_DELETE: "true"
+      ALLOW_FLINK_JOB_EDIT: "true"
+    env_file:
+      - ${FLEX_LICENSE:-license-flex.env}
+
+  jobmanager:
+    image: flink:1.20.1
+    container_name: jobmanager
+    command: jobmanager
+    ports:
+      - "18081:8081"
+    environment:
+      - |
+        FLINK_PROPERTIES=
+        jobmanager.rpc.address: jobmanager
+        state.backend: filesystem
+        state.checkpoints.dir: file:///tmp/flink-checkpoints
+        state.savepoints.dir: file:///tmp/flink-savepoints
+        heartbeat.interval: 1000
+        heartbeat.timeout: 5000
+        rest.flamegraph.enabled: true
+        web.backpressure.refresh-interval: 10000
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8081/config"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  taskmanager:
+    image: flink:1.20.1
+    container_name: taskmanager
+    command: taskmanager
+    environment:
+      - |
+        FLINK_PROPERTIES=
+        jobmanager.rpc.address: jobmanager
+        taskmanager.numberOfTaskSlots: 10
+        state.backend: filesystem
+        state.checkpoints.dir: file:///tmp/flink-checkpoints
+        state.savepoints.dir: file:///tmp/flink-savepoints
+        heartbeat.interval: 1000
+        heartbeat.timeout: 5000
+    depends_on:
+      jobmanager:
+        condition: service_healthy
+
+volumes:
+  postgres-data:
