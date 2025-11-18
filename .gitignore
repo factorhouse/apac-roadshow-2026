@@ -2,9 +2,8 @@
 .ignore
 .vscode
 
-# Licensse files
-license-kpow.env
-license-flex.env
+# License file
+license.env
 
 # Compiled class file
 *.class
@@ -116,7 +115,6 @@ coverage/
 .env.development.local
 .env.test.local
 .env.production.local
-.env.local
 
 # parcel-bundler cache
 .cache
