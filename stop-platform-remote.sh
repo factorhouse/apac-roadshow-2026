@@ -73,7 +73,7 @@ fi
 echo -e "${YELLOW}Cleaning up CDC replication slot...${NC}"
 if [ -f "venv/bin/activate" ]; then
     source venv/bin/activate
-    python scripts/manage_db.py --action clean-cdc
+    python3 scripts/manage_db.py --action clean-cdc
     deactivate
     echo -e "${GREEN}✓${NC} CDC cleanup complete"
 else

@@ -30,12 +30,13 @@ echo "║                                                                ║"
 echo "╚════════════════════════════════════════════════════════════════╝"
 echo -e "${NC}"
 echo ""
-echo -e "${YELLOW}This script will install:${NC}"
-echo "  1. SDKMAN (Java version manager)"
-echo "  2. Java 11 (for building Flink jobs)"
-echo "  3. Java 17 (for running Quarkus)"
-echo "  4. Verify Docker Desktop is installed"
-echo "  5. Verify Node.js 18+ is installed"
+echo -e "${YELLOW}This script will verify or install:${NC}"
+echo "  1. Verify Docker Desktop is installed"
+echo "  2. Verify Node.js 18+ is installed"
+echo "  3. Verify Python 3.10+ is installed (with venv)"
+echo "  4. SDKMAN (Java version manager)"
+echo "  5. Java 11 (for building Flink jobs)"
+echo "  6. Java 17 (for running Quarkus)"
 echo ""
 echo -e "${YELLOW}Estimated time: 5-10 minutes${NC}"
 echo ""
@@ -47,7 +48,7 @@ echo ""
 # ==============================================================================
 
 echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "${BLUE}Step 1/5: Checking Docker Desktop${NC}"
+echo -e "${BLUE}Step 1/6: Checking Docker Desktop${NC}"
 echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 
@@ -80,7 +81,7 @@ fi
 
 echo ""
 echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "${BLUE}Step 2/5: Checking Node.js${NC}"
+echo -e "${BLUE}Step 2/6: Checking Node.js${NC}"
 echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 
@@ -106,12 +107,53 @@ else
 fi
 
 # ==============================================================================
-# Step 3: Install SDKMAN
+# Step 3: Check Python
 # ==============================================================================
 
 echo ""
 echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "${BLUE}Step 3/5: Installing SDKMAN${NC}"
+echo -e "${BLUE}Step 3/6: Checking Python${NC}"
+echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo ""
+
+if command -v python3 &> /dev/null; then
+    PY_VERSION=$(python3 --version | cut -d' ' -f2)
+    PY_MAJOR=$(echo $PY_VERSION | cut -d. -f1)
+    PY_MINOR=$(echo $PY_VERSION | cut -d. -f2)
+
+    # Check if Python version is 3.10 or higher
+    if [ "$PY_MAJOR" -eq 3 ] && [ "$PY_MINOR" -ge 10 ]; then
+        echo -e "${GREEN}✓${NC} Python ${PY_VERSION} is installed (requirement: 3.10+)"
+
+        # Check if the venv module is available and working
+        if python3 -m venv --help &> /dev/null; then
+            echo -e "${GREEN}✓${NC} Python 'venv' module is available"
+        else
+            echo -e "${RED}✗${NC} Python is installed, but the 'venv' module is missing or broken"
+            echo -e "${YELLOW}  Please install it. For example, on Debian/Ubuntu:"
+            echo -e "  ${CYAN}sudo apt install python3-venv${NC}"
+            exit 1
+        fi
+    else
+        echo -e "${YELLOW}⚠${NC} Python ${PY_VERSION} is installed, but version 3.10+ is required"
+        echo -e "${YELLOW}  Please upgrade your Python installation: https://www.python.org/${NC}"
+        exit 1
+    fi
+else
+    echo -e "${RED}✗${NC} Python (python3) is not installed"
+    echo ""
+    echo -e "${YELLOW}Please install Python 3.10 or higher:${NC}"
+    echo "  https://www.python.org/downloads/"
+    exit 1
+fi
+
+# ==============================================================================
+# Step 4: Install SDKMAN
+# ==============================================================================
+
+echo ""
+echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "${BLUE}Step 4/6: Installing SDKMAN${NC}"
 echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 
@@ -129,12 +171,12 @@ else
 fi
 
 # ==============================================================================
-# Step 4: Install Java 11
+# Step 5: Install Java 11
 # ==============================================================================
 
 echo ""
 echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "${BLUE}Step 4/5: Installing Java 11 (for Flink jobs)${NC}"
+echo -e "${BLUE}Step 5/6: Installing Java 11 (for Flink jobs)${NC}"
 echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 
@@ -148,12 +190,12 @@ else
 fi
 
 # ==============================================================================
-# Step 5: Install Java 17
+# Step 6: Install Java 17
 # ==============================================================================
 
 echo ""
 echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "${BLUE}Step 5/5: Installing Java 17 (for Quarkus)${NC}"
+echo -e "${BLUE}Step 6/6: Installing Java 17 (for Quarkus)${NC}"
 echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 
@@ -185,7 +227,7 @@ echo "║                                                                ║"
 echo "╚════════════════════════════════════════════════════════════════╝"
 echo -e "${NC}"
 echo ""
-echo -e "${BLUE}Installed Components:${NC}"
+echo -e "${BLUE}Verified & Installed Components:${NC}"
 
 # Verify installations
 source "$HOME/.sdkman/bin/sdkman-init.sh"
@@ -193,6 +235,7 @@ source "$HOME/.sdkman/bin/sdkman-init.sh"
 echo -e "  ${GREEN}✓${NC} Docker:     $(docker --version)"
 echo -e "  ${GREEN}✓${NC} Node.js:    $(node --version)"
 echo -e "  ${GREEN}✓${NC} npm:        $(npm --version)"
+echo -e "  ${GREEN}✓${NC} Python:     $(python3 --version)"
 echo -e "  ${GREEN}✓${NC} SDKMAN:     $(sdk version)"
 echo -e "  ${GREEN}✓${NC} Java 11:    $(sdk list java | grep "11.0.*-tem" | grep installed | awk '{print $8}' | head -1)"
 echo -e "  ${GREEN}✓${NC} Java 17:    $(java -version 2>&1 | head -1)"
@@ -212,8 +255,5 @@ echo -e "${YELLOW}━━━━━━━━━━━━━━━━━━━━�
 echo -e "${YELLOW}Next Steps:${NC}"
 echo -e "${YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
-echo -e "  1. Start the platform:    ${GREEN}./start-training-platform.sh${NC}"
-echo -e "  2. Read training guide:   ${GREEN}cat TRAINING-SETUP.md${NC}"
-echo ""
-echo -e "${CYAN}You are now ready for the KartShoppe training! 🎉${NC}"
+echo -e "Check ${GREEN}README.md${NC} for details about how to start KartShoeppe training! 🎉"
 echo ""

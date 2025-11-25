@@ -30,26 +30,31 @@ import org.slf4j.LoggerFactory;
  *
  * PATTERNS DEMONSTRATED:
  *
- * 1. PATTERN 01: Multiple Sources & Co-Processing
- *    - The job `connect`s two distinct data streams into a single `CoProcessFunction`:
- *      a) The Product Stream, which uses a `Hybrid Source` to bootstrap from a file
- *         (`data/initial-products.json`) before switching to an unbounded Kafka topic.
- *      b) The Order Stream, which consumes real-time order events from Kafka.
+ * 1. PATTERN 01: Hybrid Source for State Bootstrapping
+ *    - The Product Stream is initialized using a `HybridSource`. This allows the job to
+ *      bootstrap its state by first reading a bounded source (a file with the initial
+ *      product catalog) before switching seamlessly to an unbounded Kafka topic for
+ *      continuous, real-time updates.
  *
- * 2. PATTERN 02: Shared Keyed State
- *    - The `CoProcessFunction` uses `ValueState` to maintain the inventory and price for
- *      each product key. This allows both the product and order streams to read from and
- *      write to the same state for a given product.
+ * 2. PATTERN 02: Co-Processing Multiple Streams
+ *    - The job `connect`s two distinct data streams—the product stream and the order
+ *      stream—into a single `CoProcessFunction`. This is the core mechanism that
+ *      allows for unified logic and state management across different event types.
  *
- * 3. PATTERN 03: Timers
+ * 3. PATTERN 03: Shared Keyed State
+ *    - The `CoProcessFunction` uses `ValueState` keyed by `productId` to maintain the
+ *      inventory and price. This ensures both product and order streams read from and
+ *      write to the same consistent state for any given product.
+ *
+ * 4. PATTERN 04: Timers for Event Generation
  *    - The `CoProcessFunction` uses processing time timers to detect and flag products
- *      with stale inventory (no updates for a set period).
+ *      with stale inventory (i.e., no updates for a set period), generating a new event.
  *
- * 4. PATTERN 04: Side Outputs
+ * 5. PATTERN 05: Side Outputs for Alert Routing
  *    - Alerts for `LOW_STOCK`, `OUT_OF_STOCK`, and `PRICE_DROP` are routed from the
- *      main process into dedicated streams for separate downstream handling.
+ *      main process into dedicated side output streams for separate downstream handling.
  *
- * 5. PATTERN 05: Data Enrichment & Republishing
+ * 6. PATTERN 06: Data Enrichment & Republishing
  *    - The job consumes raw product data, parses it into a clean `Product` object,
  *      and sinks it to a canonical `products` topic for other microservices to use.
  *
@@ -75,24 +80,10 @@ import org.slf4j.LoggerFactory;
  * </pre>
  *
  * LEARNING OUTCOMES:
- * - Understand how to use a CoProcessFunction to manage shared state between two streams.
- * - See a full event-driven e-commerce architecture in action.
- * - Learn how a Flink job can act as a data enricher, consuming raw data and
- *   producing a clean, canonical topic for a broader microservices ecosystem.
- *
- * RUN THIS JOB:
- * <pre>
- * # 1. Start infrastructure
- * docker compose up -d
- *
- * # 2. Setup Kafka topics
- * ./0-setup-topics.sh
- *
- * # 3. Run this job
- * ./flink-1b-inventory-with-orders-job.sh
- *
- * # 4. Place orders in the UI
- * # Watch inventory decrease in real-time!
+ * - Understand how to bootstrap Flink state from a file using a Hybrid Source.
+ * - See how to use a CoProcessFunction to manage shared state between two streams.
+ * - Learn how a Flink job can act as a data enricher, producing a clean, canonical
+ *   topic for a broader microservices ecosystem.
  * </pre>
  */
 public class InventoryManagementJobWithOrders {
@@ -118,7 +109,7 @@ public class InventoryManagementJobWithOrders {
         LOG.info("🆕 NEW: This job processes orders and deducts inventory!");
 
         // ========================================
-        // STEP 2: PATTERN 01 (Part 1) - Product Source
+        // STEP 2: PATTERN 01 - Hybrid Source for State Bootstrapping
         // ========================================
 
         LOG.info("\n📥 PATTERN 01: Creating Product Hybrid Source (File → Kafka)");
@@ -138,10 +129,10 @@ public class InventoryManagementJobWithOrders {
             .uid("product-parser");
 
         // =============================================================
-        // STEP 3: PATTERN 05 - Data Enrichment & Republishing
+        // STEP 3: PATTERN 06 - Data Enrichment & Republishing
         // =============================================================
 
-        LOG.info("\n📤 PATTERN 05: Sinking clean product data to 'products' topic for other services");
+        LOG.info("\n📤 PATTERN 06: Sinking clean product data to 'products' topic for other services");
 
         KafkaSink<String> productsSink = KafkaSink.<String>builder()
             .setBootstrapServers(config.getKafkaBootstrapServers())
@@ -160,10 +151,10 @@ public class InventoryManagementJobWithOrders {
             .uid("products-sink");
 
         // ========================================
-        // STEP 4: PATTERN 01 (Part 2) - Order Events Source
+        // STEP 4: Create Order Events Source (Input for Pattern 02)
         // ========================================
 
-        LOG.info("\n📦 PATTERN 01: Creating Order Events Source (Kafka)");
+        LOG.info("\n📦 Creating Order Events Source (Kafka)");
         LOG.info("   Topic: order-events");
         LOG.info("   Purpose: Real-time inventory deduction from orders");
 
@@ -188,12 +179,13 @@ public class InventoryManagementJobWithOrders {
             .uid("order-parser");
 
         // =================================================================
-        // STEP 5: PATTERNS 01, 02, 03, 04 - Co-Process and Shared State
+        // STEP 5: PATTERNS 02, 03, 04, 05 - Co-Process, State, Timers, and Side Outputs
         // =================================================================
-        LOG.info("\n🤝 Connecting product and order streams to a CoProcessFunction...");
-        LOG.info("   PATTERN 02: It will use Shared Keyed State for inventory.");
-        LOG.info("   PATTERN 03: It will use Timers to detect stale products.");
-        LOG.info("   PATTERN 04: It will use Side Outputs to route alerts.");
+        LOG.info("\n🤝 PATTERN 02: Connecting product and order streams to a CoProcessFunction...");
+        LOG.info("   PATTERN 03: It will use Shared Keyed State for inventory.");
+        LOG.info("   PATTERN 04: It will use Timers to detect stale products.");
+        LOG.info("   PATTERN 05: It will use Side Outputs to route alerts.");
+
 
         SingleOutputStreamOperator<InventoryEvent> allInventoryEvents = productStream
                 .keyBy(product -> product.productId)
@@ -228,12 +220,12 @@ public class InventoryManagementJobWithOrders {
 
         LOG.info("\n✅ Job configured with COMPLETE inventory depletion!");
         LOG.info("🎯 Pattern Summary:");
-        LOG.info("   01. Hybrid Source: ✓ (File → Kafka products)");
-        LOG.info("   02. Keyed State: ✓ (Shared inventory state)");
-        LOG.info("   03. Timers: ✓ (Stale detection)");
-        LOG.info("   04. Side Outputs: ✓ (Alert routing)");
-        LOG.info("   05. Multiple Sources: ✓ (Products + Orders)");
-        LOG.info("   06. Order Deduction: ✓ (Real-time inventory)");
+        LOG.info("   01. Hybrid Source: ✓");
+        LOG.info("   02. Co-Processing: ✓");
+        LOG.info("   03. Shared Keyed State: ✓");
+        LOG.info("   04. Timers: ✓");
+        LOG.info("   05. Side Outputs: ✓");
+        LOG.info("   06. Data Enrichment: ✓");
         LOG.info("\n💡 TRY IT:");
         LOG.info("   1. Place an order in the UI");
         LOG.info("   2. Watch inventory decrease in real-time!");
