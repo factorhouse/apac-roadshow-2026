@@ -36,7 +36,9 @@ This setup follows a **progressive, hands-on learning approach** designed for ma
 
 ### Overall Architecture
 
-![](./images/overview.png)
+<p align="center">
+  <img src="./images/overview.png" alt="Overview Diagram">
+</p>
 
 - **Frontend App**: The user interface within the browser that interacts with the backend via REST APIs and WebSockets.
 - **Quarkus API**: The backend application that handles core business logic. It writes orders to the Postgres database and produces raw order events into the Kafka cluster. It also consumes processed _inventory_ events from Kafka to update the frontend.
