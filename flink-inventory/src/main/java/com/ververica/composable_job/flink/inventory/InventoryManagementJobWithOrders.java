@@ -54,7 +54,7 @@ import org.slf4j.LoggerFactory;
  *    - Alerts for `LOW_STOCK`, `OUT_OF_STOCK`, and `PRICE_DROP` are routed from the
  *      main process into dedicated side output streams for separate downstream handling.
  *
- * 6. PATTERN 06: Data Enrichment & Republishing
+ * 6. Pattern 06: Data Validation & Canonicalization
  *    - The job consumes raw product data, parses it into a clean `Product` object,
  *      and sinks it to a canonical `products` topic for other microservices to use.
  *
@@ -129,7 +129,7 @@ public class InventoryManagementJobWithOrders {
             .uid("product-parser");
 
         // =============================================================
-        // STEP 3: PATTERN 06 - Data Enrichment & Republishing
+        // STEP 3: Pattern 06: Data Validation & Canonicalization
         // =============================================================
 
         LOG.info("\n📤 PATTERN 06: Sinking clean product data to 'products' topic for other services");
@@ -138,7 +138,7 @@ public class InventoryManagementJobWithOrders {
             .setBootstrapServers(config.getKafkaBootstrapServers())
             .setKafkaProducerConfig(config.getKafkaPropertiesAsProperties())
             .setRecordSerializer(KafkaRecordSerializationSchema.builder()
-                .setTopic("products")
+                .setTopic(config.getProductsTopic())
                 .setValueSerializationSchema(new SimpleStringSchema())
                 .build()
             )
