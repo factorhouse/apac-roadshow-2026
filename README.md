@@ -80,12 +80,12 @@ This is the core stateful processing job that maintains a real-time view of prod
 - **Purpose**: To consume product catalog updates and real-time order events, calculate inventory levels, generate alerts, and publish enriched data streams for use by other services.
 - **Key Patterns Implemented**:
 
-  - **Pattern 01: Hybrid Source for State Bootstrapping**: The product data stream is created using a `HybridSource`. This powerful pattern first reads a file (`initial-products.json`) to bootstrap the job with the complete product catalog, and then seamlessly switches to reading from a Kafka topic for continuous, real-time updates.
+  - **Pattern 01: Hybrid Source for State Bootstrapping**: The product data stream is created using a `HybridSource`. This powerful pattern first reads a file (`initial-products.json`) to bootstrap the job with the complete product catalog, and then seamlessly switches to reading from a Kafka topic (`product-updates`) for continuous, real-time updates.
   - **Pattern 02: Co-Processing Multiple Streams**: The job's core logic uses a `CoProcessFunction` to `connect` two distinct streams: the product stream (created by the Hybrid Source) and the order stream (from the `order-events` topic). This allows for unified logic and state management across different event types.
   - **Pattern 03: Shared Keyed State**: The `CoProcessFunction` maintains `ValueState` keyed by `productId`. This ensures that both product updates and order deductions modify the same, consistent state for any given product.
   - **Pattern 04: Timers for Event Generation**: The application uses Flink’s built-in timer mechanism to actively monitor the state of each product. The `CoProcessFunction` registers a processing time timer for each `productId` that is set to fire at a future point in time (e.g., one hour later). Crucially, whenever a new event arrives for that product—either a catalog update or an order deduction—the existing timer is cancelled and a new one is registered. This action effectively resets the "staleness" clock. If no events arrive for that product within the configured timeout period, the timer will fire, triggering the `onTimer` callback method. This callback then generates and emits a specific `STALE_INVENTORY` event, proactively signaling that the product's data might be out-of-date or require investigation.
   - **Pattern 05: Side Outputs**: To separate concerns, the job routes different types of business alerts (`LOW_STOCK`, `OUT_OF_STOCK`, `PRICE_DROP`) away from the main data flow into dedicated side outputs. These are later unioned and sent to a specific alerts topic.
-  - **Pattern 06: Data Enrichment & Republishing**: The job acts as an enrichment service. It consumes raw product data, parses it into a clean format, and sinks a canonical version to the `products` topic. This provides a reliable, well-structured stream for other microservices.
+  - **Pattern 06: Data Validation & Canonicalization**: The job consumes raw product data, parses it into a clean `Product` object, and sinks it to a canonical `products` topic for other microservices to use.
   - **Output Streams**: The job produces several distinct output streams to different Kafka topics:
     - `products`: Enriched, clean product data for general consumption.
     - `inventory-events`: The main stream of events representing every change in inventory or price.
@@ -217,8 +217,8 @@ Get the core KartShoppe platform running **without any Flink jobs**.
 
 Here are steps to start and stop the training platform depending on which instances (Instaclustr or local) are used for the workshop.
 
-<details>
-  <summary><b>🚀 Running with Instaclustr Managed Services</b></summary>
+<details open>
+  <summary><b style="font-size: 1.4em;">🚀 Running with Instaclustr Managed Services</b></summary>
 
 ---
 
@@ -341,10 +341,10 @@ This script will stop the local Docker containers and terminate the Quarkus and 
 
 </details>
 
-<br>
+---
 
 <details>
-  <summary><b>🐋 Running with Local Instances</b></summary>
+  <summary><b style="font-size: 1.4em;">🐋 Running with Local Instances</b></summary>
 
 ---
 
@@ -450,6 +450,129 @@ This script will stop the local Docker containers and terminate the Quarkus and 
 
 ---
 
+## 📊 Monitor the Streaming Platform with Kpow and Flex
+
+### Monitoring Kafka with Kpow
+
+Kpow provides a powerful window into the Kafka cluster, allowing for the inspection of topics, tracing of messages, and production of new data.
+
+➡️ **Kpow is accessible at:** [http://localhost:4000](http://localhost:4000).
+
+#### Exploring Key Kafka Topics
+
+First, it is important to understand the topics that drive the application. In the Kpow UI, navigate to the **Topics** view. While tens of topics are present, these are the most critical for the workshop:
+
+- **`products`**: The canonical topic with the clean, validated state of all products.
+- **`product-updates`**: The input topic for raw, real-time changes to the product catalog.
+- **`order-events`**: Carries commands to deduct product quantity from inventory after a sale.
+- **`inventory-events`**: A detailed audit log of every state change (e.g., price, inventory) for a product.
+- **`inventory-alerts`**: A filtered stream for business-critical notifications like "low stock."
+
+![](./images/key-topics.png)
+
+To see the initial product catalog that was loaded by the Flink job, the `products` topic can be inspected directly from the topic list. From the topic details view, locate the `products` topic. Click the **menu icon** on the left-hand side of the topic's row and select **Inspect data**.
+
+![](./images/inspect-topic-01.png)
+
+It navigates to the **Data > Inspect** page with the `products` topic already pre-selected. Simply click the **Search** button to view the messages.
+
+![](./images/inspect-topic-02.png)
+
+#### Tracing a Purchase Event
+
+This section demonstrates how to trace a single purchase and observe the corresponding events in Kafka.
+
+After a purchase of three units of the _FutureTech UltraBook Pro 15 (PROD_0001)_, two new records are expected: one in `order-events` (the command) and one in `inventory-events` (the result).
+
+In Kpow's **Data Inspect** view:
+
+1.  Select both the `order-events` and `inventory-events` topics.
+2.  Use the **kJQ Filter** to find records related to the specific product. This helps to filter out irrelevant data. Enter the following filter:
+    ```
+    .value.productId == "PROD_0001"
+    ```
+3.  Click **Search**.
+
+![](./images/inspect-order.png)
+
+The two new records related to the purchase will be displayed, showing the command to deduct inventory and the resulting event confirming the new stock level.
+
+#### Manually Updating Inventory
+
+External events, like a new stock delivery, can also be simulated. This is done by producing a message directly to the `product-updates` topic. The following steps reset the inventory for the product back to 10.
+
+1.  In Kpow, navigate to **Data > Produce**.
+2.  Select the `product-updates` topic.
+3.  Paste the following JSON into the **Value** field.
+
+    ```json
+    {
+      "productId": "PROD_0001",
+      "name": "FutureTech UltraBook Pro 15",
+      "description": "High-performance laptop with Intel i9, 32GB RAM, 1TB SSD. Premium quality from FutureTech.",
+      "category": "Electronics",
+      "brand": "FutureTech",
+      "price": 1899.99,
+      "inventory": 10,
+      "imageUrl": "https://picsum.photos/400/300?random=1",
+      "tags": [
+        "laptop",
+        "computer",
+        "productivity",
+        "futuretech",
+        "electronics"
+      ],
+      "rating": 4.5,
+      "reviewCount": 49
+    }
+    ```
+
+4.  Click **Produce**.
+
+![](./images/create-message.png)
+
+**✅ Verification:** Once the message is produced, the Flink job will process it. After refreshing the KartShoppe UI, the product's inventory will be updated to 10.
+
+![](./images/product-details.png)
+
+---
+
+### Monitoring Flink with Flex
+
+Flex provides deep insights into the Flink cluster, showing job health, metrics, and the dataflow topology.
+
+➡️ **Flex is accessible at:** [http://localhost:5000](http://localhost:5000).
+
+The main dashboard gives a high-level overview of the Flink cluster, including the two jobs deployed for this workshop.
+
+![](./images/flex-overview.png)
+
+#### Visualizing a Flink Job's Topology
+
+The dataflow graph for any job can be inspected to understand how data moves through the pipeline.
+
+1.  Navigate to **Jobs > Inspect**.
+2.  Select the `Inventory Management Job`.
+
+![](./images/job-inspect.png)
+
+#### Viewing Logs for Debugging
+
+Flex makes it easy to access the logs from Flink's JobManager and TaskManagers, which is essential for debugging. The logs can be checked to see the output from the Flink apps or to look for any potential errors.
+
+- To view the **JobManager** logs, navigate to **Job Manager > Logs**.
+- For **TaskManager** logs, navigate to **Task Managers**, select a specific manager, and then go to **Inspect > Logs**.
+
+![](./images/jobmanager-log.png)
+
+#### Cancelling a Flink Job
+
+A running Flink job can be stopped at any time from the Flex UI.
+
+To do this, navigate to **Jobs > Inspect** for the specific job and click the **Cancel** button in the top action bar.
+
+![](./images/cancel-job.png)
+
 ## 🎓 Training Tips
 
 ### For Instructors
@@ -467,17 +590,6 @@ This script will stop the local Docker containers and terminate the Quarkus and 
 3. **Ask questions:** Why does this pattern need keyed state? Why use broadcast state here?
 4. **Monitor everything:** Open all dashboards (Flink, Redpanda, Quarkus Dev UI)
 5. **Read the logs:** `tail -f logs/quarkus.log` and Flink job logs show what's happening
-
----
-
-### Key URLs
-
-| Service                   | URL                         |
-| ------------------------- | --------------------------- |
-| **KartShoppe App**        | http://localhost:8081       |
-| **Quarkus Dev UI**        | http://localhost:8081/q/dev |
-| **Kpow for Apache Kafka** | http://localhost:4000       |
-| **Flex for Apache Flink** | http://localhost:5000       |
 
 ---
 
@@ -548,19 +660,6 @@ docker compose -f compose-local.yml down -v
 # local
 ./start-platform-local.sh
 ```
-
----
-
-## 🎯 Learning Outcomes
-
-By the end of this training, students will:
-
-- ✅ Understand **Flink's core concepts**: streams, state, time, windows
-- ✅ Build **stateful stream processing** applications
-- ✅ Integrate **Kafka/Redpanda** for event streaming
-- ✅ Combine **batch and streaming** with hybrid sources
-- ✅ Build **reactive microservices** with Quarkus
-- ✅ Create **real-time data pipelines** end-to-end
 
 ---
 
