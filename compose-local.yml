@@ -82,7 +82,7 @@ services:
     pull_policy: always
     restart: always
     ports:
-      - "4000:3000"
+      - "13000:3000"
     depends_on:
       redpanda:
         condition: service_healthy
@@ -98,7 +98,7 @@ services:
     pull_policy: always
     restart: always
     ports:
-      - "6000:3000"
+      - "13001:3000"
     depends_on:
       jobmanager:
         condition: service_healthy

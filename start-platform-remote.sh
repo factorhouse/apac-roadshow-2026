@@ -84,7 +84,7 @@ echo -e "${GREEN}✓${NC} Node.js ${NODE_VERSION}"
 echo ""
 
 # ==============================================================================
-# Step 2: Initialize Postgres Instance
+# Step 2: Starting Infrastructure
 # ==============================================================================
 
 echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
@@ -186,8 +186,8 @@ echo -e "${CYAN}${BOLD}🌐 Access Points:${NC}"
 echo -e "  ${GREEN}▸${NC} KartShoppe App:       ${GREEN}http://localhost:8081${NC}"
 echo -e "  ${GREEN}▸${NC} Quarkus Dev UI:       ${GREEN}http://localhost:8081/q/dev${NC}"
 echo -e "  ${GREEN}▸${NC} API Endpoints:        ${GREEN}http://localhost:8081/api/*${NC}"
-echo -e "  ${GREEN}▸${NC} Kpow for Kafka:       ${GREEN}http://localhost:4000${NC}"
-echo -e "  ${GREEN}▸${NC} Flex for Flink:       ${GREEN}http://localhost:6000${NC}"
+echo -e "  ${GREEN}▸${NC} Kpow for Kafka:       ${GREEN}http://localhost:13000${NC}"
+echo -e "  ${GREEN}▸${NC} Flex for Flink:       ${GREEN}http://localhost:13001${NC}"
 echo -e "  ${GREEN}▸${NC} Flink Web UI:         ${GREEN}http://localhost:18081${NC}"
 echo ""
 
@@ -195,8 +195,8 @@ echo -e "${CYAN}${BOLD}📊 Services Running:${NC}"
 echo -e "  ${GREEN}✓${NC} PostgreSQL:           Port 5432"
 echo -e "  ${GREEN}✓${NC} Redpanda (Kafka):     Port 19092"
 echo -e "  ${GREEN}✓${NC} Quarkus + Frontend:   Port 8081"
-echo -e "  ${GREEN}✓${NC} Kpow:                 Port 4000"
-echo -e "  ${GREEN}✓${NC} Flex:                 Port 5000"
+echo -e "  ${GREEN}✓${NC} Kpow:                 Port 13000"
+echo -e "  ${GREEN}✓${NC} Flex:                 Port 13001"
 echo -e "  ${GREEN}✓${NC} Flink Web UI:         Port 18081"
 echo ""
 

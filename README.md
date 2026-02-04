@@ -289,8 +289,8 @@ This step launches all the moving parts of our system. The `start-platform-remot
 **✅ Verification:** Once everything is running, check the following URLs:
 
 - **KartShoppe App**: [http://localhost:8081](http://localhost:8081)
-- **Kpow for Kafka**: [http://localhost:4000](http://localhost:4000)
-- **Flex for Flink**: [http://localhost:6000](http://localhost:6000)
+- **Kpow for Kafka**: [http://localhost:13000](http://localhost:13000)
+- **Flex for Flink**: [http://localhost:13001](http://localhost:13001)
 
 > **Note:** The product page in the KartShoppe UI will be empty. This is expected! Our Flink job, which is responsible for populating the product data, isn't running yet.
 
@@ -387,8 +387,8 @@ This step launches all the moving parts of our system. The `start-platform-local
 **✅ Verification:** Once everything is running, check the following URLs:
 
 - **KartShoppe App**: [http://localhost:8081](http-:-//localhost:8081)
-- **Kpow for Kafka**: [http://localhost:4000](http-:-//localhost:4000)
-- **Flex for Flink**: [http://localhost:6000](http-:-//localhost:6000)
+- **Kpow for Kafka**: [http://localhost:13000](http-:-//localhost:13000)
+- **Flex for Flink**: [http://localhost:13001](http-:-//localhost:13001)
 
 > **Note:** The product page in the KartShoppe UI will be empty. This is expected! Our Flink job, which is responsible for populating the product data, isn't running yet.
 
@@ -455,7 +455,7 @@ This script will stop the local Docker containers and terminate the Quarkus and 
 
 Kpow provides a powerful window into the Kafka cluster, allowing for the inspection of topics, tracing of messages, and production of new data.
 
-➡️ **Kpow is accessible at:** [http://localhost:4000](http://localhost:4000).
+➡️ **Kpow is accessible at:** [http://localhost:13000](http://localhost:13000).
 
 #### Exploring Key Kafka Topics
 
@@ -540,7 +540,7 @@ External events, like a new stock delivery, can also be simulated. This is done 
 
 Flex provides deep insights into the Flink cluster, showing job health, metrics, and the dataflow topology.
 
-➡️ **Flex is accessible at:** [http://localhost:6000](http://localhost:6000).
+➡️ **Flex is accessible at:** [http://localhost:13001](http://localhost:13001).
 
 The main dashboard gives a high-level overview of the Flink cluster, including the two jobs deployed for this workshop.
 
@@ -579,7 +579,7 @@ To do this, navigate to **Jobs > Inspect** for the specific job and click the **
 1. **Show, then explain:** Start each Flink job, show the visible change, THEN explain the concepts
 2. **Use the UI constantly:** Keep the browser open, refresh often to show real-time updates
 3. **Monitor Flink dashboard:** Show the job graph, metrics, backpressure (http://localhost:8081)
-4. **Explore Kafka topics:** Use Redpanda Console to see messages flowing (http://localhost:4000)
+4. **Explore Kafka topics:** Use Redpanda Console to see messages flowing (http://localhost:13000)
 5. **Explain incrementally:** Each module builds on the previous - don't overwhelm with all patterns at once
 
 ### For Students
