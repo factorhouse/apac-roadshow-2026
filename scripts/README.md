@@ -81,7 +81,7 @@ The script either creates and deletes required Kafka topics.
 **Example 1: Create topics - existing topics are ignored**
 
 ```bash
-python scripts/manage_topics.py --action create
+(venv) $ python scripts/manage_topics.py --action create
 
 # ...
 # [2025-11-18 14:12:33,605] INFO: Topic 'websocket_fanout' created
@@ -102,7 +102,7 @@ python scripts/manage_topics.py --action create
 **Example 2: Delete topics - non-existing topics are ignored**
 
 ```bash
-python scripts/manage_topics.py --action delete
+(venv) $ python scripts/manage_topics.py --action delete
 
 # ...
 # [2025-11-18 14:13:14,297] INFO: Topic 'websocket_fanout' deleted

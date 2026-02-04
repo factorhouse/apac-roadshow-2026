@@ -1,8 +1,8 @@
-# 🎓 APAC Roadshow 2026
+# 🎓 Resilient Event Systems Workshop
 
 ## Overview
 
-Welcome to the APAC Roadshow 2026 workshop! This guide provides complete instructions for setting up and running the KartShoppe training platform **from a blank slate**. KartShoppe is a fully-functional, real-time e-commerce application designed to teach modern data engineering principles.
+Welcome to the _Building Resilient Event-Driven Systems with Kafka and Flink_ workshop! This guide provides complete instructions for setting up and running the KartShoppe training platform **from a blank slate**. KartShoppe is a fully-functional, real-time e-commerce application designed to teach modern data engineering principles.
 
 This session is designed for participants to start with just the source code and progressively build, deploy, and enhance the platform by introducing powerful stream processing capabilities with Apache Kafka and Apache Flink.
 
@@ -54,12 +54,10 @@ This setup follows a **progressive, hands-on learning approach** designed for ma
 The Quarkus API serves as the central backend, handling synchronous user-facing interactions and asynchronous event processing. While it exposes multiple REST endpoints for actions like viewing products and managing the shopping cart, its most critical functions revolve around the checkout process and real-time data synchronization.
 
 - **Checkout and Inventory Event Logic**: The `/checkout` endpoint orchestrates the core order processing flow. After persisting the order to the PostgreSQL database, it employs conditional logic based on a `useCdc` flag from the frontend:
-
-  - **When `useCdc` is `false`**: The API is directly responsible for triggering inventory updates. It iterates through the order's items and uses the `orderEventEmitter` to produce an event for each item onto a Kafka topic. These specific events are consumed downstream by the Flink Inventory Job to calculate inventory changes in real time.
+  - **When `useCdc` is `false`**: The API is directly responsible for triggering inventory updates. It iterates through the order items and uses the `orderEventEmitter` to produce an event for each item onto a Kafka topic. These specific events are consumed downstream by the Flink Inventory Job to calculate inventory changes in real time.
   - **When `useCdc` is `true`**: This direct event publishing is skipped. The system instead relies on the database transaction being captured by the Flink CDC Job to drive the inventory workflow.
 
 - **Real-time Product State Management**: The API uses two distinct Kafka consumer technologies that work together to build a complete, real-time view of product data.
-
   - The **Kafka Streams application** consumes events from the `inventory-events` topic. It processes these partial updates (e.g., stock level changes) and merges them into the full product objects stored in the cache.
   - A standard **Kafka Consumer** (`ProductConsumer`) subscribes to the `products` topic, which contains full product details (e.g., name, description, initial price).
 
@@ -79,7 +77,6 @@ This is the core stateful processing job that maintains a real-time view of prod
 
 - **Purpose**: To consume product catalog updates and real-time order events, calculate inventory levels, generate alerts, and publish enriched data streams for use by other services.
 - **Key Patterns Implemented**:
-
   - **Pattern 01: Hybrid Source for State Bootstrapping**: The product data stream is created using a `HybridSource`. This powerful pattern first reads a file (`initial-products.json`) to bootstrap the job with the complete product catalog, and then seamlessly switches to reading from a Kafka topic (`product-updates`) for continuous, real-time updates.
   - **Pattern 02: Co-Processing Multiple Streams**: The job's core logic uses a `CoProcessFunction` to `connect` two distinct streams: the product stream (created by the Hybrid Source) and the order stream (from the `order-events` topic). This allows for unified logic and state management across different event types.
   - **Pattern 03: Shared Keyed State**: The `CoProcessFunction` maintains `ValueState` keyed by `productId`. This ensures that both product updates and order deductions modify the same, consistent state for any given product.
@@ -250,7 +247,7 @@ Our Flink jobs need specific topics in Kafka to read from and write to. The foll
 
 ```bash
 # Create and activate a Python virtual environment
-python3 -m venv venv
+python -m venv venv
 source venv/bin/activate
 
 # Install required Python packages
@@ -289,9 +286,9 @@ This step launches all the moving parts of our system. The `start-platform-remot
 
 **✅ Verification:** Once everything is running, check the following URLs:
 
-- **KartShoppe App**: [http://localhost:8081](http-:-//localhost:8081)
-- **Kpow for Kafka**: [http://localhost:4000](http-:-//localhost:4000)
-- **Flex for Flink**: [http://localhost:5000](http-:-//localhost:5000)
+- **KartShoppe App**: [http://localhost:8081](http://localhost:8081)
+- **Kpow for Kafka**: [http://localhost:4000](http://localhost:4000)
+- **Flex for Flink**: [http://localhost:6000](http://localhost:6000)
 
 > **Note:** The product page in the KartShoppe UI will be empty. This is expected! Our Flink job, which is responsible for populating the product data, isn't running yet.
 
@@ -389,7 +386,7 @@ This step launches all the moving parts of our system. The `start-platform-local
 
 - **KartShoppe App**: [http://localhost:8081](http-:-//localhost:8081)
 - **Kpow for Kafka**: [http://localhost:4000](http-:-//localhost:4000)
-- **Flex for Flink**: [http://localhost:5000](http-:-//localhost:5000)
+- **Flex for Flink**: [http://localhost:6000](http-:-//localhost:6000)
 
 > **Note:** The product page in the KartShoppe UI will be empty. This is expected! Our Flink job, which is responsible for populating the product data, isn't running yet.
 
@@ -541,7 +538,7 @@ External events, like a new stock delivery, can also be simulated. This is done 
 
 Flex provides deep insights into the Flink cluster, showing job health, metrics, and the dataflow topology.
 
-➡️ **Flex is accessible at:** [http://localhost:5000](http://localhost:5000).
+➡️ **Flex is accessible at:** [http://localhost:6000](http://localhost:6000).
 
 The main dashboard gives a high-level overview of the Flink cluster, including the two jobs deployed for this workshop.
 
