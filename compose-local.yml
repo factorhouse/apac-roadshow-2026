@@ -98,7 +98,7 @@ services:
     pull_policy: always
     restart: always
     ports:
-      - "5000:3000"
+      - "6000:3000"
     depends_on:
       jobmanager:
         condition: service_healthy

@@ -244,7 +244,7 @@ echo -e "  ${GREEN}▸${NC} KartShoppe App:       ${GREEN}http://localhost:8081$
 echo -e "  ${GREEN}▸${NC} Quarkus Dev UI:       ${GREEN}http://localhost:8081/q/dev${NC}"
 echo -e "  ${GREEN}▸${NC} API Endpoints:        ${GREEN}http://localhost:8081/api/*${NC}"
 echo -e "  ${GREEN}▸${NC} Kpow for Kafka:       ${GREEN}http://localhost:4000${NC}"
-echo -e "  ${GREEN}▸${NC} Flex for Flink:       ${GREEN}http://localhost:5000${NC}"
+echo -e "  ${GREEN}▸${NC} Flex for Flink:       ${GREEN}http://localhost:6000${NC}"
 echo -e "  ${GREEN}▸${NC} Flink Web UI:         ${GREEN}http://localhost:18081${NC}"
 echo ""
 
