@@ -152,6 +152,8 @@ Verified & Installed Components:
   ✓ Java 17:    17.0.13-tem
 ```
 
+💡 (Optional) A database client can help you query records in your PostgreSQL database. Recommended options include [DBeaver Community](https://dbeaver.io/) and [pgAdmin](https://www.pgadmin.org/).
+
 ---
 
 ## 📚 Training Day Schedule
