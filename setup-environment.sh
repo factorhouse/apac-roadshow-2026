@@ -255,5 +255,5 @@ echo -e "${YELLOW}━━━━━━━━━━━━━━━━━━━━�
 echo -e "${YELLOW}Next Steps:${NC}"
 echo -e "${YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
-echo -e "Check ${GREEN}README.md${NC} for details about how to start KartShoeppe training! 🎉"
+echo -e "Check ${GREEN}README.md${NC} for details about how to start KartShoppe training! 🎉"
 echo ""
