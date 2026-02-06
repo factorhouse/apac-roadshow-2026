@@ -78,6 +78,18 @@ INSERT INTO inventory (product_id, quantity_on_hand, quantity_reserved, reorder_
 
 The script either creates and deletes required Kafka topics.
 
+**Example 1: List topics**
+
+```bash
+(venv) $ python scripts/manage_topics.py --action list
+
+# ...
+# [2026-02-06 14:24:17,659] INFO: Found 2 topics:
+# [2026-02-06 14:24:17,659] INFO:  - __consumer_offsets
+# [2026-02-06 14:24:17,659] INFO:  - instaclustr-sla
+# ...
+```
+
 **Example 1: Create topics - existing topics are ignored**
 
 ```bash
@@ -102,7 +114,7 @@ The script either creates and deletes required Kafka topics.
 **Example 2: Delete topics - non-existing topics are ignored**
 
 ```bash
-(venv) $ python scripts/manage_topics.py --action delete
+(venv) $ python scripts/manage_topics.py --action delete --all
 
 # ...
 # [2025-11-18 14:13:14,297] INFO: Topic 'websocket_fanout' deleted

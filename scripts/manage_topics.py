@@ -25,6 +25,24 @@ KAFKA_USER = os.getenv("KAFKA_USER")
 KAFKA_PASSWORD = os.getenv("KAFKA_PASSWORD")
 
 
+def list_topics(admin_client: KafkaAdminClient):
+    """
+    List all available Kafka topics.
+    """
+    try:
+        topics = admin_client.list_topics()
+        if not topics:
+            logger.info("No topics found.")
+            return
+
+        logger.info(f"Found {len(topics)} topics:")
+        for topic in sorted(topics):
+            logger.info(f" - {topic}")
+        return topics
+    except Exception as e:
+        logger.error(f"Failed to list topics: {e}")
+
+
 def create_topics(
     admin_client: KafkaAdminClient,
     topic_names: list,
@@ -56,14 +74,35 @@ def create_topics(
         logger.error(f"Failed to create topics: {e}")
 
 
-def delete_topics(admin_client: KafkaAdminClient, topic_names: list):
+def delete_topics(admin_client: KafkaAdminClient, topic_names: list = None):
     """
-    Delete multiple Kafka topics.
+    Delete Kafka topics.
+    If topic_names is None, deletes ALL topics excluding system/provider topics.
     """
     try:
+        # If no specific list provided, fetch all and filter
+        if topic_names is None:
+            logger.info("No specific topics provided. Fetching all topics...")
+            all_topics = admin_client.list_topics()
+
+            # Filter out system topics and specific provider topics
+            topic_names = [
+                n
+                for n in all_topics
+                if not n.startswith("__") and not n.startswith("instaclustr")
+            ]
+            logger.info(f"Identified {len(topic_names)} topics for deletion")
+
+        if not topic_names:
+            logger.info("No topics found to delete.")
+            return
+
+        # Execute deletion
         admin_client.delete_topics(topics=topic_names)
+
         for topic in topic_names:
             logger.info(f"Topic '{topic}' deletion request sent")
+
     except UnknownTopicOrPartitionError as e:
         logger.warning(f"One or more topics do not exist: {e}")
     except Exception as e:
@@ -83,9 +122,14 @@ if __name__ == "__main__":
     )
     parser.add_argument(
         "--action",
-        choices=["create", "delete"],
-        default="create",
-        help="Action to perform on topics: create (default) or delete",
+        choices=["create", "delete", "list"],
+        default="list",
+        help="Action to perform on topics: create, delete or list (default)",
+    )
+    parser.add_argument(
+        "--all",
+        action="store_true",
+        help="If set with --action delete, deletes all non-system topics.",
     )
     args = parser.parse_args()
 
@@ -116,8 +160,14 @@ if __name__ == "__main__":
 
         if args.action == "create":
             create_topics(admin_client, topics)
-        else:
-            delete_topics(admin_client, topics)
+        elif args.action == "delete":
+            # If --all is passed, pass None to delete_topics to trigger the "delete all" logic
+            if args.all:
+                delete_topics(admin_client, None)
+            else:
+                delete_topics(admin_client, topics)
+        elif args.action == "list":
+            list_topics(admin_client)
 
     except Exception as e:
         logger.error(f"An error occurred: {e}")
