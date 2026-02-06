@@ -259,6 +259,21 @@ pip install -r scripts/requirements.txt
 # Run the script to create topics on your Instaclustr Kafka cluster
 # After activating a virtual environment,`python` can be used regardless of the system’s Python invocation.
 python scripts/manage_topics.py --action create
+
+# ...
+# [2025-11-18 14:12:33,605] INFO: Topic 'websocket_fanout' created
+# [2025-11-18 14:12:33,605] INFO: Topic 'processing_fanout' created
+# [2025-11-18 14:12:33,605] INFO: Topic 'ecommerce_events' created
+# [2025-11-18 14:12:33,605] INFO: Topic 'ecommerce_processing_fanout' created
+# [2025-11-18 14:12:33,605] INFO: Topic 'product-updates' created
+# [2025-11-18 14:12:33,605] INFO: Topic 'recommendations' created
+# [2025-11-18 14:12:33,605] INFO: Topic 'inventory_updates' created
+# [2025-11-18 14:12:33,605] INFO: Topic 'inventory-events' created
+# [2025-11-18 14:12:33,606] INFO: Topic 'shopping-cart-events' created
+# [2025-11-18 14:12:33,606] INFO: Topic 'basket-patterns' created
+# [2025-11-18 14:12:33,606] INFO: Topic 'order-events' created
+# [2025-11-18 14:12:33,606] INFO: Topic 'product-recommendations' created
+# ...
 ```
 
 ---
@@ -273,6 +288,10 @@ source venv/bin/activate
 
 # Run the script to create the necessary tables
 python scripts/manage_db.py --action init
+
+# [2025-11-24 11:23:15,539] INFO: Connecting to database 'ecommerce' to initialize schema...
+# [2025-11-24 11:23:15,607] INFO: Applying schema and data from '<path-to-file>/postgres-init.sql' to 'ecommerce'...
+# [2025-11-24 11:23:15,652] INFO: Database schema and data applied successfully.
 ```
 
 ---
