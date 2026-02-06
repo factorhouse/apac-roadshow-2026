@@ -8,6 +8,7 @@ Helper scripts that manage topics and database when working with Instaclstr inst
 
    ```bash
    # Create the virtual environment
+   # On Linux and macOS, Python 3 may be invoked using `python3` instead of `python`.
    python -m venv venv
 
    # Activate it (on macOS/Linux)

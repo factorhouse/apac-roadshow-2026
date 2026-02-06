@@ -249,6 +249,7 @@ Our Flink jobs need specific topics in Kafka to read from and write to. The foll
 
 ```bash
 # Create and activate a Python virtual environment
+# On Linux and macOS, Python 3 may be invoked using `python3` instead of `python`.
 python -m venv venv
 source venv/bin/activate
 
@@ -256,6 +257,7 @@ source venv/bin/activate
 pip install -r scripts/requirements.txt
 
 # Run the script to create topics on your Instaclustr Kafka cluster
+# After activating a virtual environment,`python` can be used regardless of the system’s Python invocation.
 python scripts/manage_topics.py --action create
 ```
 
