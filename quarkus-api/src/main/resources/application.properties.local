@@ -5,7 +5,7 @@ quarkus.http.port=8081
 quarkus.kafka.devservices.enabled=false
 
 # Connection Details (from environment variables)
-kafka.bootstrap.servers=${KAFAKA_BOOTSTRAP_SERVERS}
+kafka.bootstrap.servers=${KAFKA_BOOTSTRAP_SERVERS}
 
 postgres.host=${POSTGRES_HOST}
 postgres.port=${POSTGRES_PORT}
