@@ -523,7 +523,8 @@ External events, like a new stock delivery, can also be simulated. This is done 
 
 1.  In Kpow, navigate to **Data > Produce**.
 2.  Select the `product-updates` topic.
-3.  Paste the following JSON into the **Value** field.
+3.  Select `None` and `String` as the key and value deserializers.
+4.  Paste the following JSON into the **Value** field.
 
     ```json
     {
@@ -547,7 +548,7 @@ External events, like a new stock delivery, can also be simulated. This is done 
     }
     ```
 
-4.  Click **Produce**.
+5.  Click **Produce**.
 
 ![](./images/create-message.png)
 
