@@ -3,6 +3,7 @@ quarkus.http.port=8081
 
 # Disable Quarkus Dev Services for Kafka, since we are using a remote cluster.
 quarkus.kafka.devservices.enabled=false
+quarkus.devservices.redpanda.enabled=false
 
 # Connection Details (from environment variables)
 kafka.bootstrap.servers=${KAFKA_BOOTSTRAP_SERVERS}
