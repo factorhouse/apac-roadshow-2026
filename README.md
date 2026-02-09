@@ -172,12 +172,38 @@ Your first task is to provision a new Apache Kafka cluster. This will serve as t
 
 Once the cluster is provisioned and running, take note of your connection details (especially the Broker Addresses and credentials), as you will need them for the upcoming steps.
 
+💡 Quickly verify if you can reach your Kafka cluster using [netcat](https://linux.die.net/man/1/nc):
+
+```bash
+# Syntax: nc -vz <bootstrap-address> <port>
+
+# Example:
+nc -vz 54.79.220.204 9092
+# Output:
+# Connection to 54.79.220.204 9092 port [tcp/*] succeeded!
+```
+
+This confirms that the host and port are reachable and that a service is listening.
+
 #### 2. Provided For You: PostgreSQL Database
 
 To pre-configure logical replication for Flink CDC, a PostgreSQL database has already been provisioned for the workshop.
 
 - You **do not** need to create this yourself.
 - Your workshop instructor will provide you with the necessary connection details (host, port, database name, user, and password).
+
+💡 Quickly verify if you can reach your PostgreSQL cluster using [netcat](https://linux.die.net/man/1/nc):
+
+```bash
+# Syntax: nc -vz <host-url> <port>
+
+# Example:
+nc -vz 15.134.112.202 5432
+# Output:
+# Connection to 15.134.112.202 5432 port [tcp/postgresql] succeeded!
+```
+
+This confirms that the host and port are reachable and that a service is listening.
 
 ### Request Factor House Community License
 
