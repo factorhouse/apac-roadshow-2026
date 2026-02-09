@@ -650,12 +650,37 @@ tail -f logs/inventory.log
 ```bash
 # Kill process on port 8081 (Quarkus)
 lsof -ti:8081 | xargs kill -9
-
-# Kill process on port 8082 (Flink, if running)
-lsof -ti:8082 | xargs kill -9
 ```
 
-### Clean Slate Reset
+### Docker Fails to Start Due to Existing Containers
+
+Each Docker container must have a unique name within a Docker Compose stack. If a container with the same name already exists, Docker Compose will fail to start the stack.
+
+Example error:
+
+```bash
+Error response from daemon: Conflict. The container name "/jobmanager" is already in use by container "61f339758f02774d7acdcd3021c4d2b9f8f9653eaea03d126bef121210689517". You have to remove (or rename) that container to be able to reuse that name.
+```
+
+This issue can be resolved by stopping and removing the existing Docker Compose environment.
+
+```bash
+## Remote
+# Remove all containers in the stack
+docker compose -f compose-remote.yml down
+
+# Remove a specific container
+docker compose -f compose-remote.yml down jobmanager
+
+## Local
+# Remove all containers in the stack
+docker compose -f compose-local.yml down
+
+# Remove a specific container
+docker compose -f compose-local.yml down jobmanager
+```
+
+### Clean State Reset
 
 ```bash
 ## Stop everything
