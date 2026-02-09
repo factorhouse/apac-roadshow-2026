@@ -53,8 +53,16 @@ fi
 
 # Stop Docker Compose services
 echo -e "${YELLOW}Stopping Docker services...${NC}"
-docker compose -f compose-remote.yml down -v
-echo -e "${GREEN}✓${NC} Docker services stopped"
+docker compose -f compose-remote.yml down -v --remove-orphans
+echo -e "${GREEN}✓${NC} Docker services stopped and volumes removed"
+
+# Clean up Local Kafka Streams State (CRITICAL FIX)
+# Kafka Streams stores local state in /tmp/kafka-streams by default.
+# If Docker wipes the broker (-v), but this remains, the app will crash on restart.
+echo -e "${YELLOW}Cleaning local Kafka Streams state...${NC}"
+rm -rf /tmp/kafka-streams
+rm -rf /tmp/quarkus-kafka-streams-*
+echo -e "${GREEN}✓${NC} Local RocksDB state cleaned"
 
 # Clean up PID files
 if [ -d ".pids" ]; then
@@ -62,12 +70,8 @@ if [ -d ".pids" ]; then
 fi
 
 # Clean up log files (optional)
-if [ -f "/tmp/quarkus.log" ]; then
-    rm -f /tmp/quarkus.log
-fi
-if [ -f "/tmp/quarkus.pid" ]; then
-    rm -f /tmp/quarkus.pid
-fi
+rm -f /tmp/quarkus.log
+rm -f /tmp/quarkus.pid
 
 # Clean up PostgreSQL CDC Replication Slot
 echo -e "${YELLOW}Cleaning up CDC replication slot...${NC}"

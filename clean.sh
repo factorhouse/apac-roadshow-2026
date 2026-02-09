@@ -12,7 +12,8 @@ NC='\033[0m'
 
 # Stop all running services
 echo -e "\n${BLUE}Stopping all services...${NC}"
-./stop-all.sh 2>/dev/null || true
+./stop-platform-local.sh > /dev/null 2>&1 || true
+./stop-platform-remote.sh > /dev/null 2>&1 || true
 
 # Clean Docker environment
 echo -e "\n${BLUE}Cleaning Docker environment...${NC}"
@@ -26,8 +27,14 @@ docker ps -aq --filter "name=redpanda" | xargs -r docker rm -f 2>/dev/null
 # Clean volumes (optional, commented out by default)
 # echo "Removing Docker volumes..."
 # docker volume prune -f
-
 echo -e "${GREEN}✓ Docker environment cleaned${NC}"
+
+# Clean Local State Stores (CRITICAL for Kafka Streams)
+echo -e "\n${BLUE}Cleaning local state stores...${NC}"
+rm -rf /tmp/kafka-streams
+rm -rf /tmp/quarkus-kafka-streams-*
+
+echo -e "${GREEN}✓ Kafka Streams state cleaned${NC}"
 
 # Clean build artifacts
 echo -e "\n${BLUE}Cleaning build artifacts...${NC}"

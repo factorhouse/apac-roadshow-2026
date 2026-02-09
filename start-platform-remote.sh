@@ -211,7 +211,7 @@ echo -e "  Docker:  ${CYAN}docker compose logs -f${NC}"
 echo ""
 
 echo -e "${YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "${YELLOW}To stop the platform:${NC} ${GREEN}./stop-platform-managed.sh${NC}"
+echo -e "${YELLOW}To stop the platform:${NC} ${GREEN}./stop-platform-remote.sh${NC}"
 echo -e "${YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 
