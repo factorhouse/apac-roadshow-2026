@@ -6,6 +6,8 @@ Welcome to the _Building Resilient Event-Driven Systems with Kafka and Flink_ wo
 
 This session is designed for participants to start with just the source code and progressively build, deploy, and enhance the platform by introducing powerful stream processing capabilities with Apache Kafka and Apache Flink.
 
+![](./images/prod-pop.png)
+
 ---
 
 ## 🎯 Key Learning Objectives
