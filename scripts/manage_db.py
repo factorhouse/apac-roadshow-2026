@@ -49,6 +49,7 @@ def get_connection(dbname_override=None):
         "password": DB_PASSWORD,
         "host": DB_HOST,
         "port": DB_PORT,
+        "target_session_attrs": "read-write",
     }
     try:
         return psycopg2.connect(**db_config)
