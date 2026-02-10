@@ -411,13 +411,32 @@ Finally, deploy the second Flink job. This job uses Change Data Capture (CDC) to
 
 #### 8. Stopping the Workshop Environment
 
-When you are finished with your session, you can shut down all the local components by running:
+When you finish your session, shut down all local components by running:
 
 ```bash
 ./stop-platform-remote.sh
 ```
 
-This script will stop the local Docker containers and terminate the Quarkus and frontend processes. It **will not** affect your remote Instaclustr services.
+This script stops the local Docker containers and terminates the Quarkus and frontend processes. It **does not** affect any remote Instaclustr services.
+
+If you also want to remove build artifacts, you can optionally run the cleanup script:
+
+```bash
+./clean.sh
+```
+
+To release resources in Instaclustr services, run the following commands:
+
+```bash
+# Activate the virtual environment created earlier
+source venv/bin/activate
+
+# Delete all Kafka topics
+python scripts/manage_topics.py --action delete --all
+
+# Delete database tables and associated resources
+python scripts/manage_db.py --action teardown
+```
 
 </details>
 
