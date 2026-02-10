@@ -1,6 +1,36 @@
-# websockets-next-quickstart
+# KartShoppe Quarkus API
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
+This project is the backend API for the KartShoppe e-commerce application, built with Quarkus - the Supersonic Subatomic Java Framework.
+
+## Overview
+
+The Quarkus API serves as the central backend for KartShoppe, providing:
+- **REST API endpoints** for product catalog, shopping cart, and checkout operations
+- **WebSocket connections** for real-time updates to the frontend
+- **Kafka Streams integration** for real-time product inventory caching and event processing
+- **Kafka Consumers** for processing product and order events
+- **PostgreSQL integration** for order persistence
+
+## Kafka Streams Integration
+
+This application includes a sophisticated Kafka Streams implementation that provides real-time data processing and caching. The Kafka Streams component:
+
+- **Product Cache**: Maintains a materialized view of product inventory and pricing by consuming events from Flink jobs
+- **Chat Message Processing**: Processes and caches chat messages with bounded storage
+- **Data Visualization**: Handles real-time data points for frontend visualizations
+- **WebSocket Broadcasting**: Pushes all updates to connected clients in real-time
+
+For detailed documentation on the Kafka Streams implementation, see: [Kafka Streams Documentation](src/main/java/com/ververica/composable_job/quarkus/kafka/streams/README.md)
+
+## Architecture
+
+The API integrates with the broader KartShoppe ecosystem:
+- **Consumes from Kafka**: `inventory-events`, `products`, configured chat/data topics
+- **Produces to Kafka**: Order events (when CDC is disabled)
+- **Writes to PostgreSQL**: Orders and order items
+- **Real-time Updates**: WebSocket connections to all connected browsers
+
+---
 
 If you want to learn more about Quarkus, please visit its website: <https://quarkus.io/>.
 
