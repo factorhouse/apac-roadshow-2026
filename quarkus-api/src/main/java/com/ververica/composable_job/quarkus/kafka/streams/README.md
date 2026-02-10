@@ -161,9 +161,9 @@ The implementation specifically addresses a race condition where inventory event
 
 - **Problem**: Inventory events from Flink arrive before the ProductConsumer receives full product objects
 - **Solution**: 
-  - Filter out `PRODUCT_ADDED` events in the stream (line 90-92)
-  - Partial updates only merge into existing products (line 112-129)
-  - Log warnings when receiving updates for unknown products (line 128)
+  - Filter out `PRODUCT_ADDED` events in the stream topology
+  - Partial updates only merge into existing products in `ProductCacheService.updateProduct()`
+  - Log warnings when receiving updates for unknown products
   - Wait for full product from `products` topic before showing in UI
 
 ## Integration Points
