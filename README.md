@@ -51,58 +51,90 @@ This setup follows a **progressive, hands-on learning approach** designed for ma
 
 ### Quarkus API
 
+The Quarkus API serves as the central backend, handling synchronous user-facing interactions and asynchronous event processing. It orchestrates the checkout process, manages real-time data synchronization, and exposes REST endpoints for the frontend.
+
 ![](./images/backend-api.png)
 
-The Quarkus API serves as the central backend, handling synchronous user-facing interactions and asynchronous event processing. While it exposes multiple REST endpoints for actions like viewing products and managing the shopping cart, its most critical functions revolve around the checkout process and real-time data synchronization.
+#### Core Functionality
 
-- **Checkout and Inventory Event Logic**: The `/checkout` endpoint orchestrates the core order processing flow. After persisting the order to the PostgreSQL database, it employs conditional logic based on a `useCdc` flag from the frontend:
-  - **When `useCdc` is `false`**: The API is directly responsible for triggering inventory updates. It iterates through the order items and uses the `orderEventEmitter` to produce an event for each item onto a Kafka topic. These specific events are consumed downstream by the Flink Inventory Job to calculate inventory changes in real time.
-  - **When `useCdc` is `true`**: This direct event publishing is skipped. The system instead relies on the database transaction being captured by the Flink CDC Job to drive the inventory workflow.
+- **Checkout and Inventory Event Logic**: The `/checkout` endpoint orchestrates order persistence and determines how inventory updates are triggered based on the `useCdc` frontend flag:
+  - **Direct Event Publishing (`useCdc=false`)**: The API iterates through order items and immediately produces events to the Kafka `order-events` topic using the `orderEventEmitter`. These events are consumed downstream by Flink for real-time calculation.
+  - **CDC-Driven Publishing (`useCdc=true`)**: Direct publishing is skipped. The system relies on the Flink CDC Job to capture the database transaction and drive the inventory workflow.
 
-- **Real-time Product State Management**: The API uses two distinct Kafka consumer technologies that work together to build a complete, real-time view of product data.
-  - The **Kafka Streams application** consumes events from the `inventory-events` topic. It processes these partial updates (e.g., stock level changes) and merges them into the full product objects stored in the cache.
-  - A standard **Kafka Consumer** (`ProductConsumer`) subscribes to the `products` topic, which contains full product details (e.g., name, description, initial price).
+- **Real-time Product State Management**: The API employs a dual-consumer strategy to build a complete, real-time view of product data:
+  - **Kafka Streams Application**: Consumes the `inventory-events` topic to process partial updates (e.g., stock level changes) and merges them into the in-memory cache.
+  - **Standard Kafka Consumer (`ProductConsumer`)**: Subscribes to the `products` topic to retrieve full static details (e.g., name, description, initial price).
 
-- **Unified Cache and WebSocket Updates**: Both the Kafka Streams app and the Kafka Consumer, upon receiving their respective events, call a central update function. This unified logic ensures data consistency by performing two actions simultaneously:
-  1.  **Updates Internal Cache**: It modifies the in-memory state store managed by the `ProductCacheService`. This ensures that REST API calls always retrieve the most current product data with low latency.
-  2.  **Pushes to Frontend**: It sends the complete, updated product object to all connected clients via the `EcommerceWebsocket`, ensuring the user interface reflects every change in real-time.
+- **Unified Cache and WebSocket Updates**: Upon receiving events from either consumer, the system executes a unified update function that:
+  1.  **Updates Internal Cache**: Modifies the `ProductCacheService` state store to ensure REST API calls return low-latency, up-to-date data.
+  2.  **Pushes to Frontend**: Broadcasts the updated product object to all connected clients via `EcommerceWebsocket` for immediate UI reflection.
+
+#### Key Design Patterns
+
+- **CQRS (Command Query Responsibility Segregation)**: The KTable materialization serves as a highly optimized read model for queries, while Flink jobs handle the complex command and write logic.
+- **Event Sourcing**: Product state is derived dynamically from a continuous stream of inventory events rather than relying solely on direct database queries.
+- **Materialized Views**: The `products-cache` KTable provides a queryable, in-memory view of product inventory, eliminating the need to hammer the database for state.
+- **Stateful Stream Processing**: Utilizes Kafka Streams state stores to maintain robust application state across restarts and failures.
+- **Real-time Cache Invalidation**: Product cache updates are pushed to clients immediately via WebSocket, ensuring eventual consistency between the backend and the UI.
+
+#### Race Condition Prevention
+
+The implementation specifically addresses a race condition where inventory events might arrive before full product details:
+
+- **Problem**: Inventory events from Flink arrive before the `ProductConsumer` receives the full product objects, leading to potential null pointer exceptions or incomplete data.
+- **Solution**:
+  - **Filter**: `PRODUCT_ADDED` events are filtered out of the stream topology to prevent premature creation.
+  - **Merge Logic**: Partial updates in `ProductCacheService.updateProduct()` only merge into existing products; they do not create new incomplete entries.
+  - **Logging**: Warnings are logged when updates are received for unknown products.
+  - **UI Safeguard**: The system waits for the full product payload from the `products` topic before displaying the item in the UI.
 
 ### Flink Applications
 
-![](./images/flink-apps.png)
+The stream processing layer comprises two composable Flink jobs that process order data and manage product inventory in real-time.
 
-The stream processing layer of the architecture is composed of two distinct and composable Flink jobs that work in tandem to process order data and manage product inventory in real-time.
+![](./images/flink-apps.png)
 
 #### Order Processing and Inventory Management (`InventoryManagementJobWithOrders`)
 
-This is the core stateful processing job that maintains a real-time view of product inventory. It is a sophisticated application that demonstrates several key Flink patterns.
+This core stateful processing job consumes product catalog updates and real-time order events to calculate inventory levels, generate alerts, and publish enriched data streams.
 
-- **Purpose**: To consume product catalog updates and real-time order events, calculate inventory levels, generate alerts, and publish enriched data streams for use by other services.
-- **Key Patterns Implemented**:
-  - **Pattern 01: Hybrid Source for State Bootstrapping**: The product data stream is created using a `HybridSource`. This powerful pattern first reads a file (`initial-products.json`) to bootstrap the job with the complete product catalog, and then seamlessly switches to reading from a Kafka topic (`product-updates`) for continuous, real-time updates.
-  - **Pattern 02: Co-Processing Multiple Streams**: The job's core logic uses a `CoProcessFunction` to `connect` two distinct streams: the product stream (created by the Hybrid Source) and the order stream (from the `order-events` topic). This allows for unified logic and state management across different event types.
-  - **Pattern 03: Shared Keyed State**: The `CoProcessFunction` maintains `ValueState` keyed by `productId`. This ensures that both product updates and order deductions modify the same, consistent state for any given product.
-  - **Pattern 04: Timers for Event Generation**: The application uses Flink’s built-in timer mechanism to actively monitor the state of each product. The `CoProcessFunction` registers a processing time timer for each `productId` that is set to fire at a future point in time (e.g., one hour later). Crucially, whenever a new event arrives for that product—either a catalog update or an order deduction—the existing timer is cancelled and a new one is registered. This action effectively resets the "staleness" clock. If no events arrive for that product within the configured timeout period, the timer will fire, triggering the `onTimer` callback method. This callback then generates and emits a specific `STALE_INVENTORY` event, proactively signaling that the product's data might be out-of-date or require investigation.
-  - **Pattern 05: Side Outputs**: To separate concerns, the job routes different types of business alerts (`LOW_STOCK`, `OUT_OF_STOCK`, `PRICE_DROP`) away from the main data flow into dedicated side outputs. These are later unioned and sent to a specific alerts topic.
-  - **Pattern 06: Data Validation & Canonicalization**: The job consumes raw product data, parses it into a clean `Product` object, and sinks it to a canonical `products` topic for other microservices to use.
-  - **Output Streams**: The job produces several distinct output streams to different Kafka topics:
-    - `products`: Enriched, clean product data for general consumption.
-    - `inventory-events`: The main stream of events representing every change in inventory or price.
-    - `inventory-alerts`: A dedicated stream for all generated alerts.
-    - `websocket_fanout`: A copy of the inventory events, intended for real-time UI updates.
+**Key Patterns Implemented:**
+
+- **Pattern 01: Hybrid Source for State Bootstrapping**: Uses a `HybridSource` to read a distinct file (`initial-products.json`) to bootstrap the job with the full catalog before seamlessly switching to the Kafka `product-updates` topic for real-time events.
+- **Pattern 02: Co-Processing Multiple Streams**: Utilizes a `CoProcessFunction` to `connect` the product stream and the order stream. This enables unified logic and shared state management across different event types.
+- **Pattern 03: Shared Keyed State**: Maintains `ValueState` keyed by `productId`. This ensures that both catalog updates and order deductions modify the same consistent state for any given product.
+- **Pattern 04: Timers for Event Generation**: Registers processing time timers to monitor product "staleness." If no events occur within a configured window, the `onTimer` callback emits a `STALE_INVENTORY` event to signal that data requires investigation.
+- **Pattern 05: Side Outputs**: Routes business alerts (`LOW_STOCK`, `OUT_OF_STOCK`, `PRICE_DROP`) to dedicated side outputs, keeping the main data flow clean. These are later unioned into a specific alerts topic.
+- **Pattern 06: Data Validation & Canonicalization**: Parses raw inputs into clean `Product` objects and sinks them to a canonical `products` topic for consumption by other microservices.
+
+**Output Streams:**
+
+- `products`: Enriched, clean product data.
+- `inventory-events`: Main stream of inventory and price changes.
+- `inventory-alerts`: Dedicated stream for generated business alerts.
+- `websocket_fanout`: Copy of inventory events optimized for UI updates.
 
 #### Flink CDC (`OrderCDCJob`)
 
-This job acts as a real-time data pipeline that bridges the transactional database with the event-streaming ecosystem using Change Data Capture (CDC).
+This job bridges the transactional database with the event-streaming ecosystem by capturing changes from PostgreSQL in real-time.
 
-- **Purpose**: Its sole responsibility is to capture `INSERT` events from the `order_items` table in PostgreSQL as they happen.
-- **Process Flow**:
-  1.  **Capture**: It uses the Flink CDC Source, backed by Debezium, to non-intrusively read the PostgreSQL Write-Ahead Log (WAL).
-  2.  **Filter**: The raw stream of database changes is immediately filtered to isolate only the creation of new rows (`op: "c"`) in the `order_items` table.
-  3.  **Transform**: Each captured event is transformed by a `MapFunction` into a simple, clean JSON message containing only the essential fields: `productId`, `quantity`, `orderId`, and `timestamp`.
-  4.  **Publish**: The clean JSON events are published to the `order-events` Kafka topic.
+**Process Flow:**
 
----
+1.  **Capture**: Uses Flink CDC (Debezium) to non-intrusively read the PostgreSQL Write-Ahead Log (WAL).
+2.  **Filter**: Isolates only `INSERT` (op: "c") events occurring in the `order_items` table.
+3.  **Transform**: Maps the raw database event into a clean JSON message containing only `productId`, `quantity`, `orderId`, and `timestamp`.
+4.  **Publish**: Pushes the standardized events to the `order-events` Kafka topic for downstream consumption.
+
+<br>
+
+> 💡 **What is Flink CDC?**
+>
+> [Flink CDC](https://nightlies.apache.org/flink/flink-cdc-docs-stable/) is a specialized library that enables the direct ingestion of database changes into Apache Flink jobs.
+>
+> - How It Works: Flink CDC embeds the Debezium engine directly inside the Flink Source function. It automatically performs a consistent snapshot of the existing database tables and then seamlessly switches to reading the transaction logs (e.g., PostgreSQL WAL, MySQL Binlog) to capture real-time updates.
+> - Comparison with Debezium Kafka Connector:
+>   - Architecture: The traditional Debezium approach requires a separate _Kafka Connect_ cluster to pull data from the DB and push it to Kafka topics before Flink can process it (`DB -> Kafka Connect -> Kafka -> Flink`). Flink CDC bypasses this entirely (`DB -> Flink`).
+>   - Infrastructure Efficiency: By running the CDC logic within the Flink TaskManager, it eliminates the need to maintain and monitor a Kafka Connect cluster and reduces the storage overhead of intermediate raw topics.
 
 ## 🚀 Before Training Day
 
