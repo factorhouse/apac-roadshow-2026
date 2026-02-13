@@ -245,16 +245,13 @@ echo -e "  ${GREEN}▸${NC} Quarkus Dev UI:       ${GREEN}http://localhost:8081/
 echo -e "  ${GREEN}▸${NC} API Endpoints:        ${GREEN}http://localhost:8081/api/*${NC}"
 echo -e "  ${GREEN}▸${NC} Kpow for Kafka:       ${GREEN}http://localhost:13000${NC}"
 echo -e "  ${GREEN}▸${NC} Flex for Flink:       ${GREEN}http://localhost:13001${NC}"
-echo -e "  ${GREEN}▸${NC} Flink Web UI:         ${GREEN}http://localhost:18081${NC}"
 echo ""
 
 echo -e "${CYAN}${BOLD}📊 Services Running:${NC}"
 echo -e "  ${GREEN}✓${NC} PostgreSQL:           Port 5432"
 echo -e "  ${GREEN}✓${NC} Redpanda (Kafka):     Port 19092"
 echo -e "  ${GREEN}✓${NC} Quarkus + Frontend:   Port 8081"
-echo -e "  ${GREEN}✓${NC} Kpow:                 Port 13000"
-echo -e "  ${GREEN}✓${NC} Flex:                 Port 13001"
-echo -e "  ${GREEN}✓${NC} Flink Web UI:         Port 18081"
+echo -e "  ${GREEN}✓${NC} Flink:                Port 18081"
 echo ""
 
 echo -e "${CYAN}${BOLD}🎓 Training Modules (Run Separately):${NC}"
@@ -264,11 +261,11 @@ echo ""
 
 echo -e "${BLUE}📁 Logs:${NC}"
 echo -e "  Quarkus: ${CYAN}tail -f logs/quarkus.log${NC}"
-echo -e "  Docker:  ${CYAN}docker compose logs -f${NC}"
 echo ""
 
 echo -e "${YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo -e "${YELLOW}To stop the platform:${NC} ${GREEN}./stop-platform-local.sh${NC}"
+echo -e "${YELLOW}To clean up artifacts additionally:${NC} ${GREEN}./clean.sh${NC}"
 echo -e "${YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 
