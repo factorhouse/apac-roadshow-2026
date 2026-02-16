@@ -16,7 +16,7 @@ By the end of this workshop, you will have hands-on experience with:
 
 - **Event-Driven Architecture:** Understand how to use Kafka as the central nervous system of a modern, decoupled application.
 - **Reactive Microservices:** See how a Quarkus-based backend can consume, process, and serve data from Flink and Kafka, pushing live updates directly to a web UI.
-- **Apache Flink Fundamentals:** Go from zero to building sophisticated, stateful stream processing jobs. You'll learn to implement sources, sinks, transformations, and windowing to solve real business problems.
+- **Apache Flink Fundamentals:** Go from zero to building sophisticated, stateful stream processing jobs. You'll learn to implement sources, sinks, and transformations to solve real business problems.
 - **Stateful Stream Processing:** Implement practical, stateful logic to solve classic e-commerce challenges like real-time inventory management.
 - **Database Change Data Capture (CDC):** Learn to capture row-level changes from a PostgreSQL database in real-time and turn them into an event stream for Flink to process.
 
