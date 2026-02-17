@@ -1,5 +1,15 @@
 ## **1. Architecture & Technology Choices**
 
+- **Q: What are CQRS and Event Sourcing, and why do we use them in this architecture?**
+  - **CQRS (Command Query Responsibility Segregation)** is the architectural pattern of separating the code that _changes_ data (Writes) from the code that _reads_ data (Queries).
+    - **In KartShoppe:** We don't have a single "Monolithic" API.
+      - **Write Path:** Transactions go to **Postgres** and optionally to the `order-events` topic in naive implementation.
+      - **Read Side:** The **Quarkus** application serves data directly from a local **KTable** (memory).
+    - **Benefit:** **Performance & Isolation.** Millions of users browsing the catalog (Reads) will never slow down the order processing (Writes). We can scale the Read nodes (Quarkus) without adding a single connection to the Postgres database.
+  - **Event Sourcing** is an architectural pattern that persists the state of a business entity as a sequence of immutable, append-only events rather than just its current state.
+    - **In KartShoppe:** It ensures the "Source of Truth" is not the current state in a database, but the **sequence of events** that led to that state. Therefore the `inventory-events` Kafka topic is our ledger. It records "Product Added", "Price Changed", "Inventory Decreased"...
+    - **Benefit:** **Resilience & Auditing.** If the Quarkus "View" crashes or the database is corrupted, we don't lose data. We simply **replay** the Kafka topic from the beginning to reconstruct the perfect state of the system at any point in time.
+
 - **Q: Why use Flink for inventory but Kafka Streams (inside Quarkus) for the API?**
   - **A:** **Separation of Concerns.** Flink is the **Write/Processing Layer** (handling heavy state, CDC, and complex joins independently of user traffic). Quarkus is the **Read/Serving Layer** (optimized for high-concurrency WebSockets and REST). This allows you to redeploy business logic (Flink) without disrupting active user connections (Quarkus).
 
@@ -9,7 +19,7 @@
   - _Note_: In the worshop, it is not possible to scale the Quarkus API seperately because the frontend is bundled into the Quarkus artifact.
 
 - **Q: Why Flink CDC instead of "Dual Writes" (writing to DB + Kafka)?**
-  - **A:** **Data Consistency.** Dual writes suffer from the "Two Generals Problem"—if the DB commit succeeds but the Kafka write fails (network blip), your systems drift apart. CDC guarantees that if it's in the DB, it eventually gets to Kafka.
+  - **A:** **Data Consistency.** Dual writes suffer from the "Two Generals Problem". If the DB commit succeeds but the Kafka write fails (network blip), your systems drift apart. CDC guarantees that if it's in the DB, it eventually gets to Kafka.
 
 ## **2. Failure Scenarios & Resiliency**
 
