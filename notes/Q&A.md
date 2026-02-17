@@ -6,6 +6,7 @@
 - **Q: What happens if we auto-scale the Quarkus API to e.g. 20 pods?**
   - **A:** **It breaks.** The current implementation uses a **Partitioned KTable**. Since the `inventory-events` topic likely has less partitions, only a subset of pods will receive data. The other remaining pods will sit idle, and users connected to them will see **empty dashboards**.
   - _Fix:_ Use **GlobalKTable** (replicates all data to all pods) or the **Broadcast Pattern** (unique Group IDs to ensure every pod consumes every message).
+  - _Note_: In the worshop, it is not possible to scale the Quarkus API seperately because the frontend is bundled into the Quarkus artifact.
 
 - **Q: Why Flink CDC instead of "Dual Writes" (writing to DB + Kafka)?**
   - **A:** **Data Consistency.** Dual writes suffer from the "Two Generals Problem"—if the DB commit succeeds but the Kafka write fails (network blip), your systems drift apart. CDC guarantees that if it's in the DB, it eventually gets to Kafka.
