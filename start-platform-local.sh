@@ -97,10 +97,22 @@ docker compose -f compose-local.yml up -d postgres
 
 # Wait for PostgreSQL to be healthy
 echo -e "${YELLOW}Waiting for PostgreSQL to be healthy...${NC}"
-timeout 30 bash -c 'until docker compose -f compose-local.yml ps postgres | grep -q "healthy"; do sleep 2; echo -n "."; done' || {
-    echo -e "\n${RED}✗ PostgreSQL failed to start${NC}"
-    exit 1
-}
+
+MAX_WAIT=30
+INTERVAL=2
+ELAPSED=0
+
+until docker compose -f compose-local.yml ps postgres | grep -q "healthy"; do
+    sleep $INTERVAL
+    ELAPSED=$((ELAPSED + INTERVAL))
+    echo -n "."
+
+    if [ "$ELAPSED" -ge "$MAX_WAIT" ]; then
+        echo -e "\n${RED}✗ PostgreSQL failed to start (timeout after ${MAX_WAIT}s)${NC}"
+        exit 1
+    fi
+done
+
 echo ""
 echo -e "${GREEN}✓${NC} PostgreSQL is healthy"
 
@@ -124,13 +136,30 @@ docker compose -f compose-local.yml up -d redpanda kpow flex jobmanager taskmana
 
 # Wait for Redpanda to be healthy
 echo -e "${YELLOW}Waiting for Redpanda to be healthy...${NC}"
-timeout 60 bash -c 'until docker compose -f compose-local.yml ps redpanda | grep -q "healthy"; do sleep 2; echo -n "."; done' || {
-    echo -e "\n${RED}✗ Redpanda failed to start${NC}"
-    exit 1
-}
+
+MAX_WAIT=60
+INTERVAL=2
+ELAPSED=0
+
+until docker compose -f compose-local.yml ps redpanda | grep -q "healthy"; do
+    sleep $INTERVAL
+    ELAPSED=$((ELAPSED + INTERVAL))
+    echo -n "."
+
+    # Fail early if container exited
+    if docker compose -f compose-local.yml ps redpanda | grep -q "exited"; then
+        echo -e "\n${RED}✗ Redpanda container exited unexpectedly${NC}"
+        exit 1
+    fi
+
+    if [ "$ELAPSED" -ge "$MAX_WAIT" ]; then
+        echo -e "\n${RED}✗ Redpanda failed to start (timeout after ${MAX_WAIT}s)${NC}"
+        exit 1
+    fi
+done
+
 echo ""
 echo -e "${GREEN}✓${NC} Redpanda is healthy"
-
 echo ""
 
 # ==============================================================================
