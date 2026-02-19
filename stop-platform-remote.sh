@@ -39,9 +39,9 @@ else
 fi
 
 # Kill any running Gradle daemons
-# echo -e "${YELLOW}Stopping Gradle daemons...${NC}"
-# ./gradlew --stop 2>/dev/null || true
-# echo -e "${GREEN}✓${NC} Gradle daemons stopped"
+echo -e "${YELLOW}Stopping Gradle daemons...${NC}"
+./gradlew --stop 2>/dev/null || true
+echo -e "${GREEN}✓${NC} Gradle daemons stopped"
 
 echo -e "${YELLOW}Stopping Gradle daemons...${NC}"
 # pkill is a fast and efficient way to kill processes by name

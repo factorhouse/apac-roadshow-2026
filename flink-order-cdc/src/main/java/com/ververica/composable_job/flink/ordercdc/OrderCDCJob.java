@@ -87,6 +87,7 @@ public class OrderCDCJob {
         String postgresDb = System.getenv().getOrDefault("POSTGRES_DB", "ecommerce");
         String postgresUser = System.getenv().getOrDefault("POSTGRES_USER", "postgres");
         String postgresPassword = System.getenv().getOrDefault("POSTGRES_PASSWORD", "postgres");
+        String postgresReplicationSlot = System.getenv().getOrDefault("POSTGRES_REPLICATION_SLOT", "flink_order_cdc_slot");
 
         // Load Kafka configuration from environment
         String kafkaBootstrapServers = System.getenv().getOrDefault("KAFKA_BOOTSTRAP_SERVERS", "localhost:19092");
@@ -109,7 +110,7 @@ public class OrderCDCJob {
         LOG.info("\n📥 Creating PostgreSQL CDC Source");
         LOG.info("   Database: {}", postgresDb);
         LOG.info("   Tables: orders, order_items");
-        LOG.info("   Slot: flink_order_cdc_slot");
+        LOG.info("   Slot: {}", postgresReplicationSlot);
         LOG.info("   Snapshot Mode: never (streaming logical changes only)");
 
          Properties debeziumProps = new Properties();
@@ -126,7 +127,7 @@ public class OrderCDCJob {
             .tableList("public.orders", "public.order_items")
             .username(postgresUser)
             .password(postgresPassword)
-            .slotName("flink_order_cdc_slot")
+            .slotName(postgresReplicationSlot)
             .decodingPluginName("pgoutput")
             .deserializer(new JsonDebeziumDeserializationSchema())
             .debeziumProperties(debeziumProps)
